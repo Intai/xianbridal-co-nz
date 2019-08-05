@@ -1,0 +1,16 @@
+{
+  "name": "xianbridal.co.nz",
+  "description": "",
+  "repository": "https://github.com/Intai/xianbridal-co-nz",
+  "env": {
+    "NPM_CONFIG_PRODUCTION": {
+      "value": "false"
+    },
+    "NODE_ENV": {
+      "value": "production"
+    },
+    "PORT": {
+      "value": "8080"
+    }
+  }
+}

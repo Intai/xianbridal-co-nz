@@ -1,0 +1,4 @@
+web:
+  image: intai/xianbridal-co-nz
+  ports:
+    - "80:8080"
