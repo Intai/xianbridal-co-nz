@@ -3,8 +3,9 @@
 var R = require('ramda'),
     path = require('path'),
     webpack = require('webpack'),
+    fs = require('fs'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
-    fs = require('fs');
+    env = (process.env.NODE_ENV === 'production') ? 'prod' : 'dev';
 
 var isNotSystem = function(name) {
   return !/^(\.|bdux)/.test(name)
@@ -53,7 +54,7 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', `.${env}.js`, `.${env}.jsx`]
   },
   module: {
     rules: [
