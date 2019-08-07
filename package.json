@@ -21,7 +21,7 @@
     "baconjs": "^2.0.13",
     "bdux": "^16.8.11",
     "bdux-logger": "^16.2.4",
-    "bdux-react-router": "^16.8.0",
+    "bdux-react-router": "^16.8.1",
     "bdux-timetravel": "^16.8.0",
     "bdux-universal": "^16.8.1",
     "ejs": "^2.6.2",
