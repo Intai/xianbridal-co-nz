@@ -1,10 +1,10 @@
 import React from 'react'
 import { TimeTravel } from 'bdux-timetravel'
-import Routes from './routes'
+import AppLayout from './app-layout'
 
-export const App = () => (
+const App = () => (
   <>
-    <Routes />
+    <AppLayout />
     <TimeTravel />
   </>
 )

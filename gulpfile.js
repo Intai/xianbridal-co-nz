@@ -1,6 +1,7 @@
 /* eslint-env node */
 
 var gulp = require('gulp'),
+    del = require('del'),
     log = require('fancy-log'),
     PluginError = require('plugin-error'),
     spawn = require('child_process').spawn,
@@ -9,7 +10,11 @@ var gulp = require('gulp'),
     WebpackDevServer = require('webpack-dev-server'),
     port = process.env.PORT || 8080;
 
-function dev() {
+function clean() {
+  return del('dist');
+}
+
+function devServer() {
   new WebpackDevServer(webpack(require('./webpack/dev.config.js')), {
     disableHostCheck: true,
     historyApiFallback: true,
@@ -34,7 +39,19 @@ function buildServer() {
     .pipe(gulp.dest('dist'));
 }
 
-function prod(cb) {
+function copyStatic() {
+  return gulp.src('static/**/*')
+    .pipe(gulp.dest('dist'))
+}
+
+function setEnv(env) {
+  return function setNodeEnv(cb) {
+    process.env.NODE_ENV = env;
+    cb();
+  }
+}
+
+function prodServer(cb) {
   var cmd = spawn('node', [
     'dist/server.js'
   ], {
@@ -46,18 +63,27 @@ function prod(cb) {
 }
 
 const build = gulp.series(
+  clean,
   buildClient,
-  buildServer
+  buildServer,
+  copyStatic
 )
 
-const server = gulp.series(
+const prod = gulp.series(
+  setEnv('production'),
   build,
-  prod
+  prodServer
+)
+
+const dev = gulp.series(
+  clean,
+  copyStatic,
+  devServer
 )
 
 gulp.task('build', build);
 
-gulp.task('server', server);
+gulp.task('prod', prod);
 
 gulp.task('dev', dev);
 

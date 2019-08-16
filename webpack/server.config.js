@@ -42,13 +42,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'server.ejs',
       template: '../app/index.ejs',
+      head:  '<%- head %>',
       app: '<%- app %>',
       inject: false,
       minify: {
         collapseWhitespace: true
       },
       files: {
-        css: ['/static/client.css'],
+        css: [],
         js: ['/static/client.js']
       }
     })

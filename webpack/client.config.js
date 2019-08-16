@@ -38,6 +38,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, '../dist'),
+    publicPath: '/static/',
     filename: 'client.js',
     chunkFilename: '[name].client.js'
   }

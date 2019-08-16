@@ -5,10 +5,9 @@ import {
   LocationAction,
   LocationStore,
   Router,
+  Switch,
   Route,
 } from 'bdux-react-router'
-import { ThemeProvider } from 'styled-components'
-import Theme from './theme'
 import Home from './home'
 import Product from './product'
 
@@ -18,22 +17,25 @@ const useBdux = createUseBdux({
 // start listening to browser history.
 LocationAction.listen)
 
-export const App = (props) => {
-  const { state } = useBdux(props)
-  return (
-    <ThemeProvider theme={Theme}>
-      <Router history={createLocationHistory(state.location)}>
+const Routes = (props) => {
+  const { state, dispatch } = useBdux(props)
+  const { location } = state
+
+  console.log('location', location)
+  return !!location && (
+    <Router history={createLocationHistory(location, dispatch)}>
+      <Switch>
         <Route
           component={Product}
-          path="/:id?"
+          path="/:id"
         />
         <Route
           component={Home}
           path="/"
         />
-      </Router>
-    </ThemeProvider>
+      </Switch>
+    </Router>
   )
 }
 
-export default App
+export default Routes

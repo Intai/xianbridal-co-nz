@@ -1,8 +1,8 @@
 import React from 'react'
-import Routes from './routes'
+import AppLayout from './app-layout'
 
-export const App = () => (
-  <Routes />
+const App = () => (
+  <AppLayout />
 )
 
 export default App
