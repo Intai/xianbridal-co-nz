@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Anchor from './anchor'
 import {
   fontSans,
   fontLogo,
@@ -16,18 +17,20 @@ const Header = styled.header`
   position: fixed;
   left: 0;
   top: 0;
+  padding: 5px 15px 15px 0;
 `
 
 const Name = styled.h1`
   ${fontLogo}
   font-size: 225%;
-  margin: 5px 15px 10px;
+  margin: 0 0 10px 15px;
   padding: 0;
 `
 
 const Contact = styled.ul`
   ${fontSans}
   ${textOffLavender}
+  font-size: 120%;
 `
 
 const ContactData = styled.li`
@@ -43,12 +46,13 @@ const ContactItemData = styled.span`
   display: none;
 `
 
-const ContactAnchor = styled.a`
-  line-height: 64px;
-`
-
 const Address = styled.address`
   font-style: normal;
+  display: inline-block;
+`
+
+const AddressHeading = styled.h2`
+  text-decoration: underline;
 `
 
 const renderNameData = () => (
@@ -84,36 +88,35 @@ const renderEmail = () => {
   const mailto = 'mailto:info@xianbridal.co.nz?subject=&body='
   return (
     <ContactItem>
-      <a href={mailto} />
-      <ContactAnchor href={mailto}>
-        {'info@xianbridal.co.nz'}
-      </ContactAnchor>
+      <Anchor
+        href={mailto}
+        icon="mail"
+        text="info@xianbridal.co.nz"
+      />
     </ContactItem>
   )
 }
 
 const renderPhone = () => (
   <ContactItem>
-    <a href="tel:098271286" />
-    <ContactAnchor
+    <Anchor
       href="tel:098271286"
+      icon="phone"
       itemProp="telephone"
-    >
-      {'(09) 8271286'}
-    </ContactAnchor>
+      text="(09) 8271286"
+    />
   </ContactItem>
 
 )
 
 const renderMobile = () => (
   <ContactItem>
-    <a href="tel:0211409204" />
-    <ContactAnchor
+    <Anchor
       href="tel:0211409204"
+      icon="mobile"
       itemProp="telephone"
-    >
-      {'(021) 1409204'}
-    </ContactAnchor>
+      text="(021) 1409204"
+    />
   </ContactItem>
 )
 
@@ -123,7 +126,7 @@ const renderAddress = () => (
     itemScope
     itemType="http://schema.org/PostalAddress"
   >
-    <h2>
+    <AddressHeading>
       <span itemProp="streetAddress">
         {'Shop 5 New Lynn Plaza'}
       </span>
@@ -145,7 +148,13 @@ const renderAddress = () => (
       <ContactItemData itemProp="addressCountry">
         {'New Zealand'}
       </ContactItemData>
-    </h2>
+    </AddressHeading>
+    <div>
+      {'Open 11am to 3pm on Mon, 10am to 4pm on Tue to Sat'}
+    </div>
+    <div>
+      {'Book an appointment for consultation'}
+    </div>
   </Address>
 )
 
@@ -153,25 +162,15 @@ const renderLocation = () => {
   const geolocation = '-36.908748,174.680093'
   const mapUrl = `http://maps.google.com?z=17&ll=${geolocation}&sll=${geolocation}&q=xian+bridal`
   return (
-    <ContactItem>
-      <a
+    <li>
+      <Anchor
         href={mapUrl}
-        rel="noreferrer noopener"
-        target="_blank"
-      />
-      <ContactAnchor
-        href="{{ mapUrl }}"
+        icon="map"
         target="_blank"
       >
         {renderAddress()}
-      </ContactAnchor>
-      <span>
-        {'Open 11am to 3pm on Mon, 10am to 4pm on Tue to Sat,'}
-      </span>
-      <div>
-        {'Book an appointment for consultation'}
-      </div>
-    </ContactItem>
+      </Anchor>
+    </li>
   )
 }
 

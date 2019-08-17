@@ -10,8 +10,8 @@ export default {
   },
 
   font: {
+    logo: '"Playfair Display SC", Times New Roman, Times,Serif',
     serif: 'Times New Roman, Times, Serif',
     sansserif: '"Alegreya Sans SC", Lucida Grande, Helvetica, Arial, Sans-Serif',
-    logo: '"Playfair Display SC", Times New Roman, Times,Serif',
   },
 }
