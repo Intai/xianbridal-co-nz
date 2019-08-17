@@ -1,10 +1,10 @@
 import React from 'react'
 import { createUseBdux } from 'bdux'
-import { Router } from 'react-router'
 import {
   createLocationHistory,
   LocationAction,
   LocationStore,
+  Router,
   Switch,
   Route,
 } from 'bdux-react-router'

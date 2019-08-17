@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import { useBdux } from 'bdux'
+import { LocationAction } from 'bdux-react-router'
 import styled from 'styled-components'
 
 const AnchorContainer = styled.a`
   display: inline-block;
 `
 
+const imageMargin = ({ hasText }) => `
+  margin: ${hasText
+    ? '8px 10px'
+    : '8px 0 0 10px'
+  };
+`
+
 const Image = styled.div`
+  ${imageMargin}
   transition: transform 250ms ease-out;
   background: url(${({ src }) => src});
   background-repeat: no-repeat;
@@ -15,7 +25,6 @@ const Image = styled.div`
   display: inline-block;
   height: 48px;
   width: 48px;
-  margin: 8px 10px;
 
   &:before {
     content: "";
@@ -40,23 +49,37 @@ const Text = styled.span`
   line-height: 64px;
 `
 
-const renderIcon = ({ icon }) => (
-  <Image src={`/static/icons/${icon}.svg`} />
+const pushLocation = (href) => (e) => {
+  if (/^\//.test(href)) {
+    e.preventDefault()
+    return LocationAction.push(href)
+  }
+}
+
+const renderIcon = ({ children, icon, text }) => (
+  <Image
+    hasText={children || text}
+    src={`/static/icons/${icon}.svg`}
+  />
 )
 
 const renderText = ({ children, itemProp, text }) => (
-  children || (
+  children || (!!text && (
     <Text itemProp={itemProp}>
       {text}
     </Text>
-  )
+  ))
 )
 
 const Anchor = (props) => {
   const { href, target } = props
+  const { bindToDispatch } = useBdux(props)
+  const handleClick = useCallback(bindToDispatch(pushLocation(href)), [href, bindToDispatch])
+
   return (
     <AnchorContainer
       href={href}
+      onClick={handleClick}
       rel="noreferrer noopener"
       target={target}
     >
