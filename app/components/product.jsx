@@ -1,14 +1,11 @@
-import { createUseBdux } from 'bdux'
-import * as BusinessCardAction from '../actions/business-card-action'
-
-const useBdux = createUseBdux({},
-  BusinessCardAction.shrink
-)
+import { useMemo } from 'react'
 
 const Product = (props) => {
-  useBdux(props)
-  console.log('product', )
-  return null
+  const { location } = props
+  return useMemo(() => {
+    console.log('product', props)
+    return false
+  }, [location])
 }
 
 export default Product

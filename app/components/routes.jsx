@@ -18,11 +18,11 @@ const useBdux = createUseBdux({
 LocationAction.listen)
 
 const Routes = (props) => {
-  const { state, dispatch } = useBdux(props)
+  const { state } = useBdux(props)
   const { location } = state
 
   return !!location && (
-    <Router history={createLocationHistory(location, dispatch)}>
+    <Router history={createLocationHistory(location)}>
       <Switch>
         <Route
           component={Product}

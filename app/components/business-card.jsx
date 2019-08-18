@@ -1,7 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { createUseBdux } from 'bdux'
-import BusinessCardStore from '../stores/business-card-store'
+import {
+  createLocationHistory,
+  LocationAction,
+  LocationStore,
+  Router,
+  Switch,
+  Route,
+} from 'bdux-react-router'
 import Anchor from './anchor'
 import {
   fontSans,
@@ -13,8 +20,8 @@ import {
   backgroundLavender,
 } from './color'
 
-const headerWidth = ({ card }) => `
-  width: ${card.isCompact ? '58px' : 'auto'};
+const headerWidth = ({ isCompact }) => `
+  width: ${isCompact ? '58px' : 'auto'};
 `
 
 const Header = styled.header`
@@ -62,16 +69,16 @@ const AddressHeading = styled.h2`
   text-decoration: underline;
 `
 
-const renderName = (card) => (
-  !card.isCompact && (
+const renderName = ({ isCompact }) => (
+  !isCompact && (
     <Name>
       {'Xian Bridal'}
     </Name>
   )
 )
 
-const renderBack = (card) => (
-  !!card.isCompact && (
+const renderBack = ({ isCompact }) => (
+  !!isCompact && (
     <Anchor
       href="/"
       icon="back"
@@ -108,41 +115,41 @@ const renderLocationData = () => (
   </ContactData>
 )
 
-const renderEmail = (card) => (
+const renderEmail = ({ isCompact }) => (
   <ContactItem>
     <Anchor
       href="mailto:info@xianbridal.co.nz?subject=&body="
       icon="mail"
-      text={card.isCompact ? '' : 'info@xianbridal.co.nz'}
+      text={isCompact ? '' : 'info@xianbridal.co.nz'}
     />
   </ContactItem>
   )
 
-const renderPhone = (card) => (
+const renderPhone = ({ isCompact }) => (
   <ContactItem>
     <Anchor
       href="tel:098271286"
       icon="phone"
       itemProp="telephone"
-      text={card.isCompact ? '' : '(09) 8271286'}
+      text={isCompact ? '' : '(09) 8271286'}
     />
   </ContactItem>
 
 )
 
-const renderMobile = (card) => (
+const renderMobile = ({ isCompact }) => (
   <ContactItem>
     <Anchor
       href="tel:0211409204"
       icon="mobile"
       itemProp="telephone"
-      text={card.isCompact ? '' : '(021) 1409204'}
+      text={isCompact ? '' : '(021) 1409204'}
     />
   </ContactItem>
 )
 
-const renderAddress = (card) => (
-  !card.isCompact && (
+const renderAddress = ({ isCompact }) => (
+  !isCompact && (
     <Address
       itemProp="address"
       itemScope
@@ -181,7 +188,7 @@ const renderAddress = (card) => (
   )
 )
 
-const renderLocation = (card) => {
+const renderLocation = (props) => {
   const geolocation = '-36.908748,174.680093'
   const mapUrl = `http://maps.google.com?z=17&ll=${geolocation}&sll=${geolocation}&q=xian+bridal`
   return (
@@ -191,37 +198,61 @@ const renderLocation = (card) => {
         icon="map"
         target="_blank"
       >
-        {renderAddress(card)}
+        {renderAddress(props)}
       </Anchor>
     </li>
   )
 }
 
 const useBdux = createUseBdux({
-  card: BusinessCardStore
-})
+  location: LocationStore,
+},
+// start listening to browser history.
+LocationAction.listen)
 
 const BusinessCard = (props) => {
-  const { state } = useBdux(props)
-  const { card } = state
-
-  return !!card && (
-    <Header card={card}>
-      {renderName(card)}
-      {renderBack(card)}
+  const { isCompact } = props
+  return (
+    <Header isCompact={isCompact}>
+      {renderName(props)}
+      {renderBack(props)}
       <Contact
         itemScope
         itemType="http://schema.org/Organization"
       >
         {renderNameData()}
         {renderLocationData()}
-        {renderEmail(card)}
-        {renderPhone(card)}
-        {renderMobile(card)}
-        {renderLocation(card)}
+        {renderEmail(props)}
+        {renderPhone(props)}
+        {renderMobile(props)}
+        {renderLocation(props)}
       </Contact>
     </Header>
   )
 }
 
-export default BusinessCard
+const CompactBusinessCard = () => (
+  BusinessCard({ isCompact: true })
+)
+
+const BusinessCardRoutes = (props) => {
+  const { state } = useBdux(props)
+  const { location } = state
+
+  return !!location && (
+    <Router history={createLocationHistory(location)}>
+      <Switch>
+        <Route
+          component={CompactBusinessCard}
+          path="/:id"
+        />
+        <Route
+          component={BusinessCard}
+          path="/"
+        />
+      </Switch>
+    </Router>
+  )
+}
+
+export default BusinessCardRoutes

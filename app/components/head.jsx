@@ -60,11 +60,11 @@ const useBdux = createUseBdux({
 LocationAction.listen)
 
 const Head = (props) => {
-  const { state, dispatch } = useBdux(props)
+  const { state } = useBdux(props)
   const { location } = state
 
   return !!location && shouldUpdateHead(props) && (
-    <Router history={createLocationHistory(location, dispatch)}>
+    <Router history={createLocationHistory(location)}>
       <Switch>
         <Route
           component={HeadProduct}
