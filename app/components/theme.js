@@ -14,4 +14,8 @@ export default {
     serif: 'Times New Roman, Times, Serif',
     sansserif: '"Alegreya Sans SC", Lucida Grande, Helvetica, Arial, Sans-Serif',
   },
+
+  device: {
+    smallWidth: 480,
+  },
 }

@@ -10,6 +10,7 @@ import {
   Route,
 } from 'bdux-react-router'
 import Anchor from './anchor'
+import { smallWidth } from './device'
 import {
   fontSans,
   fontLogo,
@@ -21,23 +22,32 @@ import {
 } from './color'
 
 const headerWidth = ({ isCompact }) => `
-  width: ${isCompact ? '58px' : 'auto'};
+  @media (orientation: landscape) {
+    width: ${isCompact ? '58px' : 'auto'};
+  }
+`
+
+const headerRight = () => `
+  @media (orientation: portrait) and (max-width: ${smallWidth}) {
+    right: 0;
+  }
 `
 
 const Header = styled.header`
   ${backgroundLavender}
   ${textWhite}
   ${headerWidth}
+  ${headerRight}
   position: fixed;
   left: 0;
   top: 0;
-  padding: 5px 10px 10px 0;
+  padding: 0 10px 10px 0;
 `
 
 const Name = styled.h1`
   ${fontLogo}
   font-size: 225%;
-  margin: 0 0 10px 15px;
+  margin: 0 0 5px 15px;
   padding: 0;
 `
 
@@ -45,6 +55,8 @@ const Contact = styled.ul`
   ${fontSans}
   ${textOffLavender}
   font-size: 120%;
+  display: inline-block;
+  vertical-align: bottom;
 `
 
 const ContactData = styled.li`
@@ -54,6 +66,15 @@ const ContactData = styled.li`
 const ContactItem = styled.li`
   display: block;
   float: left;
+`
+
+const floatAddress = ({ isCompact }) => (
+  isCompact ? 'left' : 'none'
+)
+
+const ContactAddressItem = styled.li`
+  display: block;
+  float: ${floatAddress};
 `
 
 const ContactItemData = styled.span`
@@ -69,6 +90,10 @@ const AddressHeading = styled.h2`
   text-decoration: underline;
 `
 
+const BackAnchor = styled(Anchor)`
+  float: left;
+`
+
 const renderName = ({ isCompact }) => (
   !isCompact && (
     <Name>
@@ -79,7 +104,7 @@ const renderName = ({ isCompact }) => (
 
 const renderBack = ({ isCompact }) => (
   !!isCompact && (
-    <Anchor
+    <BackAnchor
       href="/"
       icon="back"
     />
@@ -189,10 +214,11 @@ const renderAddress = ({ isCompact }) => (
 )
 
 const renderLocation = (props) => {
+  const { isCompact } = props
   const geolocation = '-36.908748,174.680093'
   const mapUrl = `http://maps.google.com?z=17&ll=${geolocation}&sll=${geolocation}&q=xian+bridal`
   return (
-    <li>
+    <ContactAddressItem isCompact={isCompact}>
       <Anchor
         href={mapUrl}
         icon="map"
@@ -200,7 +226,7 @@ const renderLocation = (props) => {
       >
         {renderAddress(props)}
       </Anchor>
-    </li>
+    </ContactAddressItem>
   )
 }
 

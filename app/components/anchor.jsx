@@ -23,6 +23,7 @@ const Image = styled.div`
   background-size: 60%;
   position: relative;
   display: inline-block;
+  vertical-align: bottom;
   height: 48px;
   width: 48px;
 
@@ -72,12 +73,13 @@ const renderText = ({ children, itemProp, text }) => (
 )
 
 const Anchor = (props) => {
-  const { href, target } = props
+  const { href, target, className} = props
   const { bindToDispatch } = useBdux(props)
   const handleClick = useCallback(bindToDispatch(pushLocation(href)), [href, bindToDispatch])
 
   return (
     <AnchorContainer
+      className={className}
       href={href}
       onClick={handleClick}
       rel="noreferrer noopener"
