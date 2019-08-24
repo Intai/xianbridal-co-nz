@@ -1,5 +1,8 @@
 import {
   assocPath,
+  converge,
+  identity,
+  path,
   pathEq,
   prop,
   when,
@@ -13,14 +16,12 @@ const isAction = pathEq(
   ['action', 'type']
 )
 
-const whenExpand = when(
-  isAction(ActionTypes.BUSINESS_CARD_EXPAND),
-  assocPath(['state', 'isCompact'], false)
-)
-
-const whenShrink = when(
-  isAction(ActionTypes.BUSINESS_CARD_SHRINK),
-  assocPath(['state', 'isCompact'], true)
+const whenSelect = when(
+  isAction(ActionTypes.BACKGROUND_SELECT),
+  converge(assocPath(['state', 'selected']), [
+    path(['action', 'category']),
+    identity
+  ])
 )
 
 export const getReducer = () => {
@@ -28,12 +29,11 @@ export const getReducer = () => {
   return {
     input: reducerStream,
     output: reducerStream
-      .map(whenExpand)
-      .map(whenShrink)
+      .map(whenSelect)
       .map(prop('state'))
   }
 }
 
 export default createStore(
-  StoreNames.BUSINESS_CARD, getReducer
+  StoreNames.BACKGROUND, getReducer
 )

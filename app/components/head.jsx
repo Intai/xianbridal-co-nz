@@ -53,11 +53,11 @@ const shouldUpdateHead = ({ isStandAlone }) => (
   isStandAlone || Common.canUseDOM()
 )
 
-const useBdux = createUseBdux({
-  location: LocationStore
-},
-// start listening to browser history.
-LocationAction.listen)
+const useBdux = createUseBdux(
+  { location: LocationStore },
+  // start listening to browser history.
+  LocationAction.listen
+)
 
 const Head = (props) => {
   const { state } = useBdux(props)

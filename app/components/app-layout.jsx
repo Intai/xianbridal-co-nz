@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import theme from './theme'
 import Routes from './routes'
 import Head from './head'
+import Background from './background'
 import BusinessCard from './business-card'
 import Menu from './menu'
 
@@ -17,6 +18,7 @@ const Container = styled('div')`
 const AppLayout = () => (
   <ThemeProvider theme={theme}>
     <Container>
+      <Background />
       <Routes />
       <Head />
       <BusinessCard />

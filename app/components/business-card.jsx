@@ -230,11 +230,11 @@ const renderLocation = (props) => {
   )
 }
 
-const useBdux = createUseBdux({
-  location: LocationStore,
-},
-// start listening to browser history.
-LocationAction.listen)
+const useBdux = createUseBdux(
+  { location: LocationStore },
+  // start listening to browser history.
+  LocationAction.listen
+)
 
 const BusinessCard = (props) => {
   const { isCompact } = props
@@ -270,7 +270,7 @@ const BusinessCardRoutes = (props) => {
       <Switch>
         <Route
           component={CompactBusinessCard}
-          path="/:id"
+          path="/:category/:id?"
         />
         <Route
           component={BusinessCard}
