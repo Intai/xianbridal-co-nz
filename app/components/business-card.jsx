@@ -27,8 +27,8 @@ const headerWidth = ({ isCompact }) => `
   }
 `
 
-const headerRight = () => `
-  @media (orientation: portrait) and (max-width: ${smallWidth}) {
+const headerRight = (props) => `
+  @media (orientation: portrait) and (max-width: ${smallWidth(props)}) {
     right: 0;
   }
 `
@@ -42,12 +42,13 @@ const Header = styled.header`
   left: 0;
   top: 0;
   padding: 0 10px 10px 0;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 `
 
 const Name = styled.h1`
   ${fontLogo}
   font-size: 225%;
-  margin: 0 0 5px 15px;
+  margin: 3px 0 5px 15px;
   padding: 0;
 `
 
@@ -75,6 +76,10 @@ const floatAddress = ({ isCompact }) => (
 const ContactAddressItem = styled.li`
   display: block;
   float: ${floatAddress};
+
+  @media (max-width: ${smallWidth}) {
+    float: left;
+  }
 `
 
 const ContactItemData = styled.span`
@@ -84,6 +89,10 @@ const ContactItemData = styled.span`
 const Address = styled.address`
   font-style: normal;
   display: inline-block;
+
+  @media (max-width: ${smallWidth}) {
+    display: none;
+  }
 `
 
 const AddressHeading = styled.h2`

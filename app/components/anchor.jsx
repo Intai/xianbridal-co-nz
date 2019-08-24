@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 import { useBdux } from 'bdux'
 import { LocationAction } from 'bdux-react-router'
 import styled from 'styled-components'
+import { smallWidth } from './device'
 
 const AnchorContainer = styled.a`
   display: inline-block;
@@ -48,6 +49,10 @@ const Image = styled.div`
 const Text = styled.span`
   vertical-align: top;
   line-height: 64px;
+
+  @media (max-width: ${smallWidth}) {
+    display: none;
+  }
 `
 
 const pushLocation = (href) => (e) => {

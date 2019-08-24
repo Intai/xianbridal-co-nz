@@ -14,6 +14,7 @@ import BackgroundStore from '../stores/background-store'
 const imageSrc = ({ src }) => `
   background-image: url(${src});
   background-size: cover;
+  background-position: center;
 `
 
 const imageSelected = ({ selected }) => selected === true && `
