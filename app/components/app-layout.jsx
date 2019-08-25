@@ -7,7 +7,7 @@ import Background from './background'
 import BusinessCard from './business-card'
 import Menu from './menu'
 
-const Container = styled('div')`
+const Container = styled.div`
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

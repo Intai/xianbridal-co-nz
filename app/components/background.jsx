@@ -6,7 +6,6 @@ import {
   LocationAction,
   LocationStore,
   Router,
-  Switch,
   Route,
 } from 'bdux-react-router'
 import BackgroundStore from '../stores/background-store'
@@ -17,43 +16,38 @@ const imageSrc = ({ src }) => `
   background-position: center;
 `
 
-const imageSelected = ({ selected }) => selected === true && `
-  transition: opacity 250ms ease-out;
-  opacity: 1
+const imageSelected = ({ selected }) => selected && `
+  transition: opacity 500ms linear;
+  opacity: 1;
 `
 
-const imageDeselected = ({ selected }) => selected === false && `
-  transition: opacity 250ms ease-out;
-  opacity: 0
+const imageDeselected = ({ selected }) => !selected && `
+  transition: opacity 500ms linear;
+  opacity: 0;
 `
 
-const imageSlideShow = ({ selected, index }) => {
-  if (selected === null) {
-    const fadein = (index > 0 )
-      ? `${index * 25 - 5}% { opacity: 0; }`
-      : ''
-    const fadeout = (index < 3)
-      ? `${(index + 1) * 25 + 5}% { opacity: 0; }`
-      : ''
+const imageSlideShow = ({ index }) => {
+  const fadein = (index > 0 )
+    ? `${index * 25 - 5}% { opacity: 0; }`
+    : ''
+  const fadeout = (index < 3)
+    ? `${(index + 1) * 25 + 5}% { opacity: 0; }`
+    : ''
 
-    return `
-      opacity: 0;
-      animation: 10s infinite alternate slideshow-${index};
-      @keyframes slideshow-${index} {
-        ${fadein}
-        ${index * 25}% { opacity: 1; }
-        ${(index + 1) * 25}% { opacity: 1; }
-        ${fadeout}
-      }
-    `
-  }
+  return `
+    opacity: 0;
+    animation: 10s infinite alternate slideshow-${index};
+    @keyframes slideshow-${index} {
+      ${fadein}
+      ${index * 25}% { opacity: 1; }
+      ${(index + 1) * 25}% { opacity: 1; }
+      ${fadeout}
+    }
+  `
 }
 
 const Image = styled.div`
   ${imageSrc}
-  ${imageSelected}
-  ${imageDeselected}
-  ${imageSlideShow}
   position: absolute;
   top: 0;
   left: 0;
@@ -61,10 +55,62 @@ const Image = styled.div`
   height: 100%;
 `
 
-const getSelectedFor = (category, selected) => (
-  (typeof selected === 'string')
-    ? selected === category
-    : null
+const SlideShowImage = styled(Image)`
+  ${imageSlideShow}
+`
+
+const BackgroundImage = styled(Image)`
+  ${imageSelected}
+  ${imageDeselected}
+`
+
+const SlideShow = styled.div`
+  ${({ isEnabled }) => !isEnabled && 'display: none'}
+`
+
+const renderBackground = (selected) => (
+  <React.Fragment key="background">
+    <BackgroundImage
+      selected={selected === 'gowns'}
+      src="/static/images/background/gowns1.jpg"
+    />
+    <BackgroundImage
+      selected={selected === 'sales'}
+      src="/static/images/background/gowns2.jpg"
+    />
+    <BackgroundImage
+      selected={selected === 'accessories'}
+      src="/static/images/background/accessories.jpg"
+    />
+    <BackgroundImage
+      selected={selected === 'search'}
+      src="/static/images/background/search.jpg"
+    />
+  </React.Fragment>
+)
+
+const renderSlideShow = (isEnabled) => (
+  <SlideShow
+    isEnabled={isEnabled}
+    key="slideshow"
+  >
+    <SlideShowImage
+      index={0}
+      src="/static/images/background/gowns1.jpg"
+    />
+    <SlideShowImage
+      index={1}
+      src="/static/images/background/gowns2.jpg"
+    />
+    <SlideShowImage
+      index={2}
+      src="/static/images/background/accessories.jpg"
+    />
+    <SlideShowImage
+      index={3}
+      src="/static/images/background/search.jpg"
+    />
+  </SlideShow>
 )
 
 const Background = (props) => {
@@ -73,30 +119,10 @@ const Background = (props) => {
   const { match: { params: { category } } } = props
   const selected = (background && background.selected) || category
 
-  return (
-    <>
-      <Image
-        index={0}
-        selected={getSelectedFor('gowns', selected)}
-        src="/static/images/background/gowns1.jpg"
-      />
-      <Image
-        index={1}
-        selected={getSelectedFor('sales', selected)}
-        src="/static/images/background/gowns2.jpg"
-      />
-      <Image
-        index={2}
-        selected={getSelectedFor('accessories', selected)}
-        src="/static/images/background/accessories.jpg"
-      />
-      <Image
-        index={3}
-        selected={getSelectedFor('search', selected)}
-        src="/static/images/background/search.jpg"
-      />
-    </>
-  )
+  return [
+    renderSlideShow(typeof category !== 'string'),
+    renderBackground(selected),
+  ]
 }
 
 const useBduxForRoutes = createUseBdux(
@@ -111,16 +137,10 @@ const BackgroundRoutes = (props) => {
 
   return !!location && (
     <Router history={createLocationHistory(location)}>
-      <Switch>
-        <Route
-          component={Background}
-          path="/:category/:id?"
-        />
-        <Route
-          component={Background}
-          path="/"
-        />
-      </Switch>
+      <Route
+        component={Background}
+        path="/:category?/:id?"
+      />
     </Router>
   )
 }
