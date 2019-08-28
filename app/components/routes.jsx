@@ -9,7 +9,7 @@ import {
   Route,
 } from 'bdux-react-router'
 import Home from './home'
-import Product from './product'
+import Catalogue from './catalogue'
 
 const useBdux = createUseBdux(
   { location: LocationStore },
@@ -25,8 +25,8 @@ const Routes = (props) => {
     <Router history={createLocationHistory(location)}>
       <Switch>
         <Route
-          component={Product}
-          path="/:id"
+          component={Catalogue}
+          path=":category/:id?"
         />
         <Route
           component={Home}

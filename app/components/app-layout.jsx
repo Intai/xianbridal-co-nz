@@ -6,6 +6,7 @@ import Head from './head'
 import Background from './background'
 import BusinessCard from './business-card'
 import Menu from './menu'
+import Footer from './footer'
 
 const Container = styled.div`
   -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -23,6 +24,7 @@ const AppLayout = () => (
       <Head />
       <Menu />
       <BusinessCard />
+      <Footer />
     </Container>
   </ThemeProvider>
 )

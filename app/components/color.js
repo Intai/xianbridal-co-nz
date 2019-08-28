@@ -26,6 +26,10 @@ export const backgroundOffWhite = ({ theme }) => `
   background-color: ${theme.color.offwhite};
 `
 
+export const backgroundGrey = ({ theme }) => `
+  background-color: ${theme.color.grey};
+`
+
 export const backgroundLavender = ({ theme }) => `
   background-color: ${theme.color.lavender};
 `

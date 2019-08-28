@@ -1,11 +1,12 @@
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
+import styled from 'styled-components'
 
-const Home = (props) => {
-  const { location } = props
-  return useMemo(() => {
-    console.log('home', props)
-    return false
-  }, [location])
-}
+const EmptySpace = styled.div`
+  height: 100vh;
+`
+
+const Home = () => (
+  useMemo(() => <EmptySpace />, [])
+)
 
 export default Home
