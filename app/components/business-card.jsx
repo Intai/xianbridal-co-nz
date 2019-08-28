@@ -6,7 +6,6 @@ import {
   LocationAction,
   LocationStore,
   Router,
-  Switch,
   Route,
 } from 'bdux-react-router'
 import Anchor from './anchor'
@@ -21,28 +20,39 @@ import {
   backgroundLavender,
 } from './color'
 
-const headerWidth = ({ isCompact }) => `
-  @media (orientation: landscape) {
-    width: ${isCompact ? '58px' : 'auto'};
-  }
-`
+const headerDimension = (props) => {
+  const {isCompact} = props
+  return `
+    width: 100%;
+    height: 100%;
 
-const headerRight = (props) => `
-  @media (orientation: portrait) and (max-width: ${smallWidth(props)}) {
-    right: 0;
-  }
-`
+    @media (orientation: landscape) {
+      max-width: ${isCompact ? '58px' : '590px'};
+      max-height: ${isCompact ? '280px' : '190px'};
+    }
+    @media (orientation: portrait) {
+      max-width: ${isCompact ? '290px' : '272px'};
+      max-height: ${isCompact ? '56px' : '120px'};
+    }
+    @media (orientation: portrait) and (max-width: ${smallWidth(props)}) {
+      max-width: 100%;
+    }
+  `
+}
 
 const Header = styled.header`
   ${backgroundLavender}
   ${textWhite}
-  ${headerWidth}
-  ${headerRight}
+  ${headerDimension}
   position: fixed;
   left: 0;
   top: 0;
   padding: 0 10px 10px 0;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition-property: max-width, max-height;
+  transition-duration: 250ms;
+  transition-timing-function: ease-out;
 `
 
 const Name = styled.h1`
@@ -246,29 +256,28 @@ const useBdux = createUseBdux(
 )
 
 const BusinessCard = (props) => {
-  const { isCompact } = props
+  const { match: { params: { category } } } = props
+  const isCompact = !!category
+  const data = { ...props, isCompact }
+
   return (
     <Header isCompact={isCompact}>
-      {renderName(props)}
-      {renderBack(props)}
+      {renderName(data)}
+      {renderBack(data)}
       <Contact
         itemScope
         itemType="http://schema.org/Organization"
       >
         {renderNameData()}
         {renderLocationData()}
-        {renderEmail(props)}
-        {renderPhone(props)}
-        {renderMobile(props)}
-        {renderLocation(props)}
+        {renderEmail(data)}
+        {renderPhone(data)}
+        {renderMobile(data)}
+        {renderLocation(data)}
       </Contact>
     </Header>
   )
 }
-
-const CompactBusinessCard = () => (
-  BusinessCard({ isCompact: true })
-)
 
 const BusinessCardRoutes = (props) => {
   const { state } = useBdux(props)
@@ -276,16 +285,10 @@ const BusinessCardRoutes = (props) => {
 
   return !!location && (
     <Router history={createLocationHistory(location)}>
-      <Switch>
-        <Route
-          component={CompactBusinessCard}
-          path="/:category/:id?"
-        />
-        <Route
-          component={BusinessCard}
-          path="/"
-        />
-      </Switch>
+      <Route
+        component={BusinessCard}
+        path="/:category?/:id?"
+      />
     </Router>
   )
 }

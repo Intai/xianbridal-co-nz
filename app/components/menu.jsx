@@ -7,9 +7,9 @@ import {
   LocationAction,
   LocationStore,
   Router,
-  Switch,
   Route,
 } from 'bdux-react-router'
+import { smallWidth } from './device'
 import { fontSans } from './typography'
 import {
   textWhite,
@@ -17,22 +17,80 @@ import {
 } from './color'
 import * as BackgroundAction from '../actions/background-action'
 
-const List = styled.ul`
-  ${fontSans}
-  ${textWhite}
+const fullList = (props) => !props.isCompact && `
   font-size: 200%;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed;
   top: 219px;
   left: 20px;
   padding: 10px 0;
+
+  @media (max-width: ${smallWidth(props)}) {
+    top: 149px;
+  }
 `
 
-const MenuLink = styled(Link)`
-  text-decoration: none;
+const compactList = (props) => props.isCompact && `
+  font-size: 150%;
+  top: 0;
+  left: 68px;
+
+  @media (max-width: ${smallWidth(props)}) {
+    opacity: 0;
+  }
+`
+
+const List = styled.ul`
+  ${fontSans}
+  ${textWhite}
+  ${fullList}
+  ${compactList}
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  transition-property: top, left, opacity;
+  transition-duration: 250ms;
+  transition-timing-function: ease-out;
+`
+
+const compactListItem = ({ isCompact }) => isCompact && `
+  display: inline-block;
+`
+
+const ListItem = styled.li`
+  ${compactListItem}
+`
+
+const fullMenuLink = ({ isCompact }) => !isCompact && `
   padding: 5px 20px;
+`
+
+const compactMenuLink = ({ isCompact }) => isCompact && `
+  padding: 5px 10px 8px 10px;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+  }
+`
+
+const selectedMenuLink = ({ isCompact, isSelected, theme }) => (
+  isCompact && isSelected && `
+    &:after {
+      background: ${theme.color.offLavender}
+    }
+  `
+)
+
+const MenuLink = styled(Link)`
+  ${fullMenuLink}
+  ${compactMenuLink}
+  ${selectedMenuLink}
+  text-decoration: none;
   display: block;
+  position: relative;
 
   &:hover {
     ${backgroundLavender}
@@ -44,54 +102,63 @@ const useSelectCategory = (category, dispatch) => (
 )
 
 const Menu = (props) => {
+  const { match: { params: { category } } } = props
   const { dispatch } = useBdux(props)
   const selectGowns = useSelectCategory('gowns', dispatch)
   const selectSales = useSelectCategory('sales', dispatch)
   const selectAccessories = useSelectCategory('accessories', dispatch)
   const selectSearch = useSelectCategory('search', dispatch)
   const deselectBackground = useSelectCategory(null, dispatch)
+  const isCompact = !!category
 
   return (
-    <List onMouseLeave={deselectBackground}>
-      <li>
+    <List
+      isCompact={isCompact}
+      onMouseLeave={deselectBackground}
+    >
+      <ListItem isCompact={isCompact}>
         <MenuLink
+          isCompact={isCompact}
+          isSelected={category === 'gowns'}
           onMouseEnter={selectGowns}
           to="/gowns"
         >
           {'Wedding Gowns'}
         </MenuLink>
-      </li>
-      <li>
+      </ListItem>
+      <ListItem isCompact={isCompact}>
         <MenuLink
+          isCompact={isCompact}
+          isSelected={category === 'sales'}
           onMouseEnter={selectSales}
           to="/sales"
         >
           {'Sample Sales'}
         </MenuLink>
-      </li>
-      <li>
+      </ListItem>
+      <ListItem isCompact={isCompact}>
         <MenuLink
+          isCompact={isCompact}
+          isSelected={category === 'accessories'}
           onMouseEnter={selectAccessories}
           to="/accessories"
         >
           {'Accessories'}
         </MenuLink>
-      </li>
-      <li>
+      </ListItem>
+      <ListItem isCompact={isCompact}>
         <MenuLink
+          isCompact={isCompact}
+          isSelected={category === 'search'}
           onMouseEnter={selectSearch}
           to="/search"
         >
           {'Search'}
         </MenuLink>
-      </li>
+      </ListItem>
     </List>
   )
 }
-
-const CompactMenu = (props) => (
-  Menu({ ...props, isCompact: true })
-)
 
 const useBduxForRoutes = createUseBdux(
   { location: LocationStore },
@@ -105,16 +172,10 @@ const MenuRoutes = (props) => {
 
   return !!location && (
     <Router history={createLocationHistory(location)}>
-      <Switch>
-        <Route
-          component={CompactMenu}
-          path="/:category/:id?"
-        />
-        <Route
-          component={Menu}
-          path="/"
-        />
-      </Switch>
+      <Route
+        component={Menu}
+        path="/:category?/:id?"
+      />
     </Router>
   )
 }

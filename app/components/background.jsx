@@ -16,12 +16,12 @@ const imageSrc = ({ src }) => `
   background-position: center;
 `
 
-const imageSelected = ({ selected }) => selected && `
+const imageSelected = ({ isSelected }) => isSelected && `
   transition: opacity 500ms linear;
   opacity: 1;
 `
 
-const imageDeselected = ({ selected }) => !selected && `
+const imageDeselected = ({ isSelected }) => !isSelected && `
   transition: opacity 500ms linear;
   opacity: 0;
 `
@@ -71,19 +71,19 @@ const SlideShow = styled.div`
 const renderBackground = (selected) => (
   <React.Fragment key="background">
     <BackgroundImage
-      selected={selected === 'gowns'}
+      isSelected={selected === 'gowns'}
       src="/static/images/background/gowns1.jpg"
     />
     <BackgroundImage
-      selected={selected === 'sales'}
+      isSelected={selected === 'sales'}
       src="/static/images/background/gowns2.jpg"
     />
     <BackgroundImage
-      selected={selected === 'accessories'}
+      isSelected={selected === 'accessories'}
       src="/static/images/background/accessories.jpg"
     />
     <BackgroundImage
-      selected={selected === 'search'}
+      isSelected={selected === 'search'}
       src="/static/images/background/search.jpg"
     />
   </React.Fragment>

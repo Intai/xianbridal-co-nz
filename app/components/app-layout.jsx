@@ -21,8 +21,8 @@ const AppLayout = () => (
       <Background />
       <Routes />
       <Head />
-      <BusinessCard />
       <Menu />
+      <BusinessCard />
     </Container>
   </ThemeProvider>
 )
