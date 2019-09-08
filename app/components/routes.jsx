@@ -26,7 +26,7 @@ const Routes = (props) => {
       <Switch>
         <Route
           component={Catalogue}
-          path=":category/:id?"
+          path="/:category/:id?"
         />
         <Route
           component={Home}
