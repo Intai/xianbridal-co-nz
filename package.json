@@ -22,9 +22,9 @@
     "bdux": "^16.8.19",
     "bdux-logger": "^16.2.6",
     "bdux-react-router": "^16.8.7",
-    "bdux-timetravel": "^16.8.4",
+    "bdux-timetravel": "^16.8.5",
     "bdux-universal": "^16.8.3",
-    "ejs": "^2.6.2",
+    "ejs": "^2.7.1",
     "express": "^4.17.1",
     "ramda": "^0.26.1",
     "react": "^16.9.0",
@@ -34,8 +34,8 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",

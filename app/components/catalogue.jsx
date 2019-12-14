@@ -4,27 +4,34 @@ import { createUseBdux } from 'bdux'
 import * as CatalogueAction from '../actions/catalogue-action'
 import CatalogueStore from '../stores/catalogue-store'
 import Product from './product'
+import { smallWidth } from './device'
 
 const List = styled.ul`
-  min-height: calc(100vh - 72px);
-  margin: 57px 15px 15px 83px;
+  min-height: calc(100vh - 57px);
+  margin: 57px 0 0 83px;
   animation: 500ms catalogue-fadein;
   @keyframes catalogue-fadein {
     from { opacity: 0; }
     to { opacity: 1; }
   }
+
+  @media (max-width: ${smallWidth}) {
+    margin: 81px 0 0 20px;
+  }
 `
 
-const renderProduct = (product) => (
+// eslint-disable-next-line react/display-name
+const renderProduct = (selected) => (product) => (
   <Product
     key={product.id}
     product={product}
+    selected={selected}
   />
 )
 
 const renderCatalogue = (catalogue) => (
   catalogue && catalogue.products
-    && catalogue.products.map(renderProduct)
+    && catalogue.products.map(renderProduct(catalogue.selected))
 )
 
 const useBdux = createUseBdux(

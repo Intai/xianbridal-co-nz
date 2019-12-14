@@ -23,6 +23,11 @@ export default [
     price: 1360,
   },
   {
+    id: '602XF1074',
+    category: 'gowns',
+    price: 1460,
+  },
+  {
     id: 'EAA37002',
     category: 'sales',
     description: 'Size 16 White',

@@ -10,7 +10,7 @@ import {
   Route,
 } from 'bdux-react-router'
 import { smallWidth } from './device'
-import { fontSans } from './typography'
+import { fontTitle } from './typography'
 import {
   textWhite,
   backgroundLavender,
@@ -39,7 +39,7 @@ const compactList = (props) => props.isCompact && `
 `
 
 const List = styled.ul`
-  ${fontSans}
+  ${fontTitle}
   ${textWhite}
   ${fullList}
   ${compactList}
@@ -84,7 +84,17 @@ const selectedMenuLink = ({ isCompact, isSelected, theme }) => (
   `
 )
 
-const MenuLink = styled(Link)`
+const StripLink = ({ children, className, onMouseEnter, to }) => (
+  <Link
+    className={className}
+    onMouseEnter={onMouseEnter}
+    to={to}
+  >
+    {children}
+  </Link>
+)
+
+const MenuLink = styled(StripLink)`
   ${fullMenuLink}
   ${compactMenuLink}
   ${selectedMenuLink}

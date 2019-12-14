@@ -11,7 +11,7 @@ import {
 import Anchor from './anchor'
 import { smallWidth } from './device'
 import {
-  fontSans,
+  fontTitle,
   fontLogo,
 } from './typography'
 import {
@@ -63,7 +63,7 @@ const Name = styled.h1`
 `
 
 const Contact = styled.ul`
-  ${fontSans}
+  ${fontTitle}
   ${textOffLavender}
   font-size: 120%;
   display: inline-block;
