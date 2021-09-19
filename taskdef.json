@@ -11,11 +11,17 @@
           "protocol": "tcp",
           "containerPort": 8080
         }
-      ],
-      "environment": [
+      ]
+    },
+    {
+      "name": "xianbridal-nginx",
+      "image": "<CONTAINER_IMAGE_NGINX>",
+      "essential": true,
+      "portMappings": [
         {
-          "name": "CONTAINER_IMAGE",
-          "value": "<CONTAINER_IMAGE_NODEJS>"
+          "hostPort": 443,
+          "protocol": "tcp",
+          "containerPort": 443
         }
       ]
     }
