@@ -11,6 +11,12 @@
           "protocol": "tcp",
           "containerPort": 8080
         }
+      ],
+      "environment": [
+        {
+          "name": "CONTAINER_IMAGE",
+          "value": "<CONTAINER_IMAGE_NODEJS>"
+        }
       ]
     },
     {
