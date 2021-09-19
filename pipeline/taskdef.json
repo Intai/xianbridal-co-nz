@@ -2,24 +2,6 @@
   "executionRoleArn": "arn:aws:iam::501045672667:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
-      "name": "xianbridal-nodejs",
-      "image": "<CONTAINER_IMAGE_NODEJS>",
-      "essential": true,
-      "portMappings": [
-        {
-          "hostPort": 8080,
-          "protocol": "tcp",
-          "containerPort": 8080
-        }
-      ],
-      "environment": [
-        {
-          "name": "CONTAINER_IMAGE",
-          "value": "<CONTAINER_IMAGE_NODEJS>"
-        }
-      ]
-    },
-    {
       "name": "xianbridal-nginx",
       "image": "<CONTAINER_IMAGE_NGINX>",
       "essential": true,
