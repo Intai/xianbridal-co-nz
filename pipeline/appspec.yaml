@@ -6,5 +6,5 @@ Resources:
       Properties:
         TaskDefinition: <TASK_DEFINITION>
         LoadBalancerInfo:
-          ContainerName: "pm-trello"
+          ContainerName: "xianbridal-nginx"
           ContainerPort: 443

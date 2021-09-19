@@ -1,41 +1,33 @@
 {
-  "executionRoleArn": "arn:aws:iam::710139145643:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::501045672667:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
-      "name": "pm-trello",
-      "image": "<CONTAINER_IMAGE>",
+      "name": "xianbridal-nodejs",
+      "image": "<CONTAINER_IMAGE_NODEJS>",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 8080,
+          "protocol": "tcp",
+          "containerPort": 8080
+        }
+      ],
+      "environment": [
+        {
+          "name": "CONTAINER_IMAGE",
+          "value": "<CONTAINER_IMAGE_NODEJS>"
+        }
+      ]
+    },
+    {
+      "name": "xianbridal-nginx",
+      "image": "<CONTAINER_IMAGE_NGINX>",
       "essential": true,
       "portMappings": [
         {
           "hostPort": 443,
           "protocol": "tcp",
           "containerPort": 443
-        }
-      ],
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "/ecs/pm-trello",
-          "awslogs-region": "us-east-2",
-          "awslogs-stream-prefix": "production"
-        }
-      },
-      "environment": [
-        {
-          "name": "CONTAINER_IMAGE",
-          "value": "<CONTAINER_IMAGE>"
-        },
-        {
-          "name": "PM_BASE_URL",
-          "value": "https://software.projectmanager.com"
-        },
-        {
-          "name": "PM_API_BASE_URL",
-          "value": "https://software.projectmanager.com/api/v3"
-        },
-        {
-          "name": "RAYGUN_KEY",
-          "value": "aJUv4EtAzNNfl1ovHeCrQ"
         }
       ]
     }
@@ -46,5 +38,5 @@
   "networkMode": "awsvpc",
   "cpu": "256",
   "memory": "512",
-  "family": "pm-trello"
+  "family": "xianbridal"
 }
