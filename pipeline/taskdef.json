@@ -2,8 +2,8 @@
   "executionRoleArn": "arn:aws:iam::501045672667:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
-      "name": "xianbridal-nodejs",
-      "image": "<CONTAINER_IMAGE_NODEJS>",
+      "name": "nodejs",
+      "image": "<CONTAINER_IMAGE_1>",
       "essential": true,
       "portMappings": [
         {
@@ -12,24 +12,16 @@
           "containerPort": 8080
         }
       ],
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "/ecs/xianbridal",
-          "awslogs-region": "us-east-1",
-          "awslogs-stream-prefix": "nodejs"
-        }
-      },
       "environment": [
         {
           "name": "CONTAINER_IMAGE",
-          "value": "<CONTAINER_IMAGE_NODEJS>"
+          "value": "<CONTAINER_IMAGE_1>"
         }
       ]
     },
     {
-      "name": "xianbridal-nginx",
-      "image": "<CONTAINER_IMAGE_NGINX>",
+      "name": "nginx",
+      "image": "<CONTAINER_IMAGE_2>",
       "essential": true,
       "portMappings": [
         {
@@ -37,15 +29,7 @@
           "protocol": "tcp",
           "containerPort": 443
         }
-      ],
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "/ecs/xianbridal",
-          "awslogs-region": "us-east-1",
-          "awslogs-stream-prefix": "nginx"
-        }
-      }
+      ]
     }
   ],
   "requiresCompatibilities": [
