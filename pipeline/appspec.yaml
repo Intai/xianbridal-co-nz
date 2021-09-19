@@ -6,5 +6,5 @@ Resources:
       Properties:
         TaskDefinition: <TASK_DEFINITION>
         LoadBalancerInfo:
-          ContainerName: "nginx"
+          ContainerName: "xianbridal"
           ContainerPort: 443
