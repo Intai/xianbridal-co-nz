@@ -4,8 +4,6 @@
     {
       "name": "nodejs",
       "image": "<CONTAINER_IMAGE_1>",
-      "cpu": "256",
-      "memory": "512",
       "essential": true,
       "portMappings": [
         {
@@ -22,10 +20,8 @@
       ]
     },
     {
-      "name": "nginx",
+      "name": "xianbridal",
       "image": "<CONTAINER_IMAGE_2>",
-      "cpu": "256",
-      "memory": "512",
       "essential": true,
       "portMappings": [
         {
