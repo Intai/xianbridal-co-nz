@@ -10,6 +10,6 @@ services:
     image: xianbridal/nginx
     build:
       context: .
-      dockerfile: ./nginx/Dockerfile
+      dockerfile: nginx/Dockerfile
     ports:
       - "443:443"
