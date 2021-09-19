@@ -22,26 +22,26 @@ const filterBySearchQuery = (query) => {
   const escaped = escapeRegex(query)
   const testQuery = both(
     identity,
-    test(new RegExp(escaped, 'i'))
+    test(new RegExp(escaped, 'i')),
   )
 
   return filter(
     either(
       propSatisfies('id', testQuery),
-      propSatisfies('description', testQuery)
+      propSatisfies('description', testQuery),
     ),
-    database
+    database,
   )
 }
 
 const filterByCategory = memoizeWith(identity, (category) => filter(
   propEq('category', category),
-  database
+  database,
 ))
 
 const findById = memoizeWith(identity, (id) => find(
   propEq('id', id),
-  database
+  database,
 ))
 
 export const load = (category, id) => {

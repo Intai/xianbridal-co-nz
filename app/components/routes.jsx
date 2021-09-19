@@ -11,11 +11,12 @@ import {
 import Home from './home'
 import Catalogue from './catalogue'
 
-const useBdux = createUseBdux(
-  { location: LocationStore },
+const useBdux = createUseBdux({
+  location: LocationStore,
+}, [
   // start listening to browser history.
-  LocationAction.listen
-)
+  LocationAction.listen,
+])
 
 const Routes = (props) => {
   const { state } = useBdux(props)

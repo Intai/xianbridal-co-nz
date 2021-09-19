@@ -170,11 +170,12 @@ const Menu = (props) => {
   )
 }
 
-const useBduxForRoutes = createUseBdux(
-  { location: LocationStore },
+const useBduxForRoutes = createUseBdux({
+  location: LocationStore,
+}, [
   // start listening to browser history.
-  LocationAction.listen
-)
+  LocationAction.listen,
+])
 
 const MenuRoutes = (props) => {
   const { state } = useBduxForRoutes(props)

@@ -21,7 +21,7 @@ const gridWidth = (width, count, margin) => () => {
 const media = (funcQuery, funcStyle) => (props) => (
   funcStyle(props).replace(
     /@media\s*\(/gi,
-    `@media (${funcQuery(props)}) and (`
+    `@media (${funcQuery(props)}) and (`,
   )
 )
 

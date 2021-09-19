@@ -6,5 +6,5 @@ import { applyMiddleware } from 'bdux'
 applyMiddleware(
   Universal,
   Timetravel,
-  Logger
+  Logger,
 )

@@ -1,5 +1,4 @@
-.tags*
-node_modules
+.git
 dist
-android
-ios
+pipeline
+*.md

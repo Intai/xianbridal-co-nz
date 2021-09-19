@@ -167,7 +167,7 @@ const renderEmail = ({ isCompact }) => (
       text={isCompact ? '' : 'info@xianbridal.co.nz'}
     />
   </ContactItem>
-  )
+)
 
 const renderPhone = ({ isCompact }) => (
   <ContactItem>
@@ -249,11 +249,12 @@ const renderLocation = (props) => {
   )
 }
 
-const useBdux = createUseBdux(
-  { location: LocationStore },
+const useBdux = createUseBdux({
+  location: LocationStore,
+}, [
   // start listening to browser history.
-  LocationAction.listen
-)
+  LocationAction.listen,
+])
 
 const BusinessCard = (props) => {
   const { match: { params: { category } } } = props

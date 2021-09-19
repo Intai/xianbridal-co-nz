@@ -27,10 +27,10 @@ export const getReducer = () => {
     input: reducerStream,
     output: reducerStream
       .map(whenLoad)
-      .map(prop('state'))
+      .map(prop('state')),
   }
 }
 
 export default createStore(
-  StoreNames.CATALOGUE, getReducer
+  StoreNames.CATALOGUE, getReducer,
 )

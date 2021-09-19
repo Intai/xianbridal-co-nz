@@ -34,10 +34,11 @@ const renderCatalogue = (catalogue) => (
     && catalogue.products.map(renderProduct(catalogue.selected))
 )
 
-const useBdux = createUseBdux(
-  { catalogue: CatalogueStore },
-  CatalogueAction.init
-)
+const useBdux = createUseBdux({
+  catalogue: CatalogueStore,
+}, [
+  CatalogueAction.init,
+])
 
 const Catalogue = (props) => {
   const { location, match: { params: { category, id } } } = props

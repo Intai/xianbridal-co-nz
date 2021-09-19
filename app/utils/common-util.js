@@ -1,9 +1,9 @@
-import { once, reduce } from 'ramda';
+import { once, reduce } from 'ramda'
 
-const PREFIX = 'XIAN';
+const PREFIX = 'XIAN'
 
 const mapToKeyValue = (obj, key) => {
-  obj[key] = PREFIX + '_' + key;
+  obj[key] = PREFIX + '_' + key
   return obj
 }
 
@@ -19,6 +19,6 @@ export default {
   // map an array of strings to
   // object keys and prefixed values.
   createObjOfConsts: reduce(
-    mapToKeyValue, {}
-  )
+    mapToKeyValue, {},
+  ),
 }

@@ -1,5 +1,5 @@
 import React, { useMemo, useEffect } from 'react'
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import Common from '../utils/common-util'
 
@@ -35,8 +35,8 @@ const RootPortal = (props) => {
     >
       {props.children}
     </Container>,
-    portalContainer
-  );
+    portalContainer,
+  )
 }
 
 export default RootPortal

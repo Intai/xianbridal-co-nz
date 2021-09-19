@@ -1,42 +1,46 @@
-/* eslint-env node */
-
-var gulp = require('gulp'),
-    del = require('del'),
-    log = require('fancy-log'),
-    PluginError = require('plugin-error'),
-    spawn = require('child_process').spawn,
-    webpack = require('webpack'),
-    webpackStream = require('webpack-stream'),
-    WebpackDevServer = require('webpack-dev-server'),
-    port = process.env.PORT || 8080;
+var path = require('path'),
+  gulp = require('gulp'),
+  del = require('del'),
+  log = require('fancy-log'),
+  PluginError = require('plugin-error'),
+  spawn = require('child_process').spawn,
+  webpack = require('webpack'),
+  webpackStream = require('webpack-stream'),
+  WebpackDevServer = require('webpack-dev-server'),
+  port = process.env.PORT || 8080
 
 function clean() {
-  return del('dist');
+  return del('dist')
 }
 
 function devServer() {
-  new WebpackDevServer(webpack(require('./webpack/dev.config.js')), {
-    disableHostCheck: true,
+  const compiler = webpack(require('./webpack/dev.config.js'))
+
+  new WebpackDevServer({
+    port,
+    host: '0.0.0.0',
     historyApiFallback: true,
-    noInfo: true,
-    hot: true
-  })
-  .listen(port, '0.0.0.0', function(err) {
-    if (err) throw new PluginError('webpack-dev-server', err);
-    log('[webpack-dev-server]', 'http://localhost:' + port);
-  });
+    static: {
+      directory: path.resolve(__dirname, 'static'),
+      publicPath: '/static/',
+    },
+  }, compiler)
+    .startCallback(err => {
+      if (err) throw new PluginError('webpack-dev-server', err)
+      log('[webpack-dev-server]', 'http://localhost:' + port)
+    })
 }
 
 function buildClient() {
   return gulp.src('app/index.jsx')
     .pipe(webpackStream(require('./webpack/client.config.js'), webpack))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist'))
 }
 
 function buildServer() {
   return gulp.src('app/server.js')
     .pipe(webpackStream(require('./webpack/server.config.js'), webpack))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist'))
 }
 
 function copyStatic() {
@@ -46,45 +50,44 @@ function copyStatic() {
 
 function setEnv(env) {
   return function setNodeEnv(cb) {
-    process.env.NODE_ENV = env;
-    cb();
+    process.env.NODE_ENV = env
+    cb()
   }
 }
 
 function prodServer(cb) {
   var cmd = spawn('node', [
-    'dist/server.js'
+    'dist/server.js',
   ], {
-    stdio: 'inherit'
-  });
+    stdio: 'inherit',
+  })
 
-  log('[express]', 'http://localhost:' + port);
-  cmd.on('close', cb);
+  log('[express]', 'http://localhost:' + port)
+  cmd.on('close', cb)
 }
 
 const build = gulp.series(
   clean,
   buildClient,
   buildServer,
-  copyStatic
+  copyStatic,
 )
 
 const prod = gulp.series(
   setEnv('production'),
   build,
-  prodServer
+  prodServer,
 )
 
 const dev = gulp.series(
   clean,
-  copyStatic,
-  devServer
+  devServer,
 )
 
-gulp.task('build', build);
+gulp.task('build', build)
 
-gulp.task('prod', prod);
+gulp.task('prod', prod)
 
-gulp.task('dev', dev);
+gulp.task('dev', dev)
 
-gulp.task('default', dev);
+gulp.task('default', dev)

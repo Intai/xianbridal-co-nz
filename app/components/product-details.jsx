@@ -199,7 +199,7 @@ const renderImages = (
   refScroll,
   scale,
   updateScale,
-  updateTouchStart
+  updateTouchStart,
 ) => (
   <ImagesContainer ref={refScroll}>
     <Images onTouchStart={updateTouchStart}>
@@ -282,7 +282,7 @@ const ProductDetails = ({ product, initialRect }) => {
         refScroll,
         scale,
         updateScale,
-        updateTouchStart
+        updateTouchStart,
       )}
       <Details>
         <Sku itemProp="identifier">

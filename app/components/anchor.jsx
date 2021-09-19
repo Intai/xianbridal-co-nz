@@ -12,8 +12,7 @@ const imageMargin = ({ hasText }) => `
   margin: ${hasText
     ? '8px 10px'
     : '8px 0 0 10px'
-  };
-`
+};`
 
 const Image = styled.div`
   ${imageMargin}

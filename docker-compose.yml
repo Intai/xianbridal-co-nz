@@ -1,12 +1,15 @@
-version: '2'
+version: '3'
+
 services:
-  web:
-    image: intai/xianbridal-co-nz
+  nodejs:
+    image: xianbridal/nodejs
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        - http_proxy=$http_proxy
-        - https_proxy=$https_proxy
+  nginx:
+    image: xianbridal/nginx
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
     ports:
-      - "8080:8080"
+      - "443:443"

@@ -1,6 +1,6 @@
 {
   "name": "xianbridal.co.nz",
-  "description": "",
+  "description": "Xian Bridal",
   "repository": "https://github.com/Intai/xianbridal-co-nz",
   "env": {
     "NPM_CONFIG_PRODUCTION": {
@@ -10,7 +10,7 @@
       "value": "production"
     },
     "PORT": {
-      "value": "8080"
+      "value": "80"
     }
   }
 }

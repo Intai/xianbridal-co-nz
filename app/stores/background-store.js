@@ -13,15 +13,15 @@ import StoreNames from '../stores/store-names'
 import { createStore } from 'bdux'
 
 const isAction = pathEq(
-  ['action', 'type']
+  ['action', 'type'],
 )
 
 const whenSelect = when(
   isAction(ActionTypes.BACKGROUND_SELECT),
   converge(assocPath(['state', 'selected']), [
     path(['action', 'category']),
-    identity
-  ])
+    identity,
+  ]),
 )
 
 export const getReducer = () => {
@@ -30,10 +30,10 @@ export const getReducer = () => {
     input: reducerStream,
     output: reducerStream
       .map(whenSelect)
-      .map(prop('state'))
+      .map(prop('state')),
   }
 }
 
 export default createStore(
-  StoreNames.BACKGROUND, getReducer
+  StoreNames.BACKGROUND, getReducer,
 )

@@ -18,13 +18,13 @@ export const getTouchDistance = (touches) => {
     p1.clientX,
     p1.clientY,
     p2.clientX,
-    p2.clientY
+    p2.clientY,
   )
 }
 
 const calcCentre = (x1, y1, x2, y2) => ({
   x: (x1 + x2) / 2,
-  y: (y1 + y2) / 2, 
+  y: (y1 + y2) / 2,
 })
 
 export const getTouchCentre = (touches) => {
@@ -34,6 +34,6 @@ export const getTouchCentre = (touches) => {
     p1.clientX,
     p1.clientY,
     p2.clientX,
-    p2.clientY
+    p2.clientY,
   )
 }

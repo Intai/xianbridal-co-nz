@@ -126,11 +126,12 @@ const Background = (props) => {
   ]
 }
 
-const useBduxForRoutes = createUseBdux(
-  { location: LocationStore },
+const useBduxForRoutes = createUseBdux({
+  location: LocationStore,
+}, [
   // start listening to browser history.
-  LocationAction.listen
-)
+  LocationAction.listen,
+])
 
 const BackgroundRoutes = (props) => {
   const { state } = useBduxForRoutes(props)

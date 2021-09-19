@@ -1,0 +1,50 @@
+{
+  "executionRoleArn": "arn:aws:iam::710139145643:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "pm-trello",
+      "image": "<CONTAINER_IMAGE>",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 443,
+          "protocol": "tcp",
+          "containerPort": 443
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/pm-trello",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "production"
+        }
+      },
+      "environment": [
+        {
+          "name": "CONTAINER_IMAGE",
+          "value": "<CONTAINER_IMAGE>"
+        },
+        {
+          "name": "PM_BASE_URL",
+          "value": "https://software.projectmanager.com"
+        },
+        {
+          "name": "PM_API_BASE_URL",
+          "value": "https://software.projectmanager.com/api/v3"
+        },
+        {
+          "name": "RAYGUN_KEY",
+          "value": "aJUv4EtAzNNfl1ovHeCrQ"
+        }
+      ]
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "networkMode": "awsvpc",
+  "cpu": "256",
+  "memory": "512",
+  "family": "pm-trello"
+}

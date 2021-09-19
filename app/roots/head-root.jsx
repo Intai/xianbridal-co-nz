@@ -12,5 +12,5 @@ export const renderElement = ({ dispatch }, req) => {
 export default createRoot(
   renderElement, {
     location: LocationStore,
-  }
+  },
 )
