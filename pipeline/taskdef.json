@@ -3,8 +3,17 @@
   "containerDefinitions": [
     {
       "name": "nodejs",
-      "image": "<CONTAINER_IMAGE_1>",
+      "image": "501045672667.dkr.ecr.us-east-1.amazonaws.com/xianbridal-nodejs:master",
       "essential": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "/ecs/xianbridal",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
       "environment": [
         {
           "name": "CONTAINER_IMAGE",
@@ -14,8 +23,17 @@
     },
     {
       "name": "nginx",
-      "image": "<CONTAINER_IMAGE_2>",
+      "image": "501045672667.dkr.ecr.us-east-1.amazonaws.com/xianbridal-nginx:master",
       "essential": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "/ecs/xianbridal",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
       "portMappings": [
         {
           "hostPort": 443,
