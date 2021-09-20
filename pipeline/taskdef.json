@@ -3,7 +3,6 @@
   "containerDefinitions": [
     {
       "name": "nodejs",
-      "hostname": "nodejs",
       "image": "<CONTAINER_IMAGE_1>",
       "essential": true,
       "environment": [
