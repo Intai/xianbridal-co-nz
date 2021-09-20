@@ -2,6 +2,18 @@
   "executionRoleArn": "arn:aws:iam::501045672667:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
+      "name": "nodejs",
+      "hostname": "nodejs",
+      "image": "<CONTAINER_IMAGE_1>",
+      "essential": true,
+      "environment": [
+        {
+          "name": "CONTAINER_IMAGE",
+          "value": "<CONTAINER_IMAGE_1>"
+        }
+      ]
+    },
+    {
       "name": "nginx",
       "image": "<CONTAINER_IMAGE_2>",
       "essential": true,
