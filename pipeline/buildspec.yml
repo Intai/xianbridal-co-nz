@@ -18,7 +18,7 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker images...
       - docker build -t nodejs .
-      - docker build -t nginx -f nginx/Dockerfile .
+      - docker build -t nginx -f nginx/Dockerfile --add-host=nodejs:127.0.0.1 .
       - docker tag nodejs:latest $REPO_URI_NODEJS:$IMAGE_TAG_NAME
       - docker tag nginx:latest $REPO_URI_NGINX:$IMAGE_TAG_NAME
       - docker tag nodejs:latest $REPO_URI_NODEJS:$IMAGE_TAG_COMMIT
