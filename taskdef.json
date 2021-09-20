@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "nodejs",
-      "image": "501045672667.dkr.ecr.us-east-1.amazonaws.com/xianbridal-nodejs:master",
+      "image": "<CONTAINER_IMAGE_NODEJS>",
       "essential": true,
       "logConfiguration": {
         "logDriver": "awslogs",
@@ -17,13 +17,13 @@
       "environment": [
         {
           "name": "CONTAINER_IMAGE",
-          "value": "<CONTAINER_IMAGE_1>"
+          "value": "<CONTAINER_IMAGE_NODEJS>"
         }
       ]
     },
     {
       "name": "nginx",
-      "image": "501045672667.dkr.ecr.us-east-1.amazonaws.com/xianbridal-nginx:master",
+      "image": "<CONTAINER_IMAGE_NGINX>",
       "essential": true,
       "logConfiguration": {
         "logDriver": "awslogs",
