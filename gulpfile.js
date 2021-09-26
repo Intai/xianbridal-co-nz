@@ -32,7 +32,8 @@ function devServer() {
 }
 
 function buildClient() {
-  return gulp.src('app/index.jsx')
+  const env = (process.env.NODE_ENV === 'production') ? 'prod' : 'dev'
+  return gulp.src(`app/index.${env}.jsx`)
     .pipe(webpackStream(require('./webpack/client.config.js'), webpack))
     .pipe(gulp.dest('dist'))
 }

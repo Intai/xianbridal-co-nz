@@ -6,16 +6,11 @@ var R = require('ramda'),
   ESLintPlugin = require('eslint-webpack-plugin'),
   env = (process.env.NODE_ENV === 'production') ? 'prod' : 'dev'
 
-var isNotSystem = function(name) {
-  return !/^(\.|bdux)/.test(name)
-}
-
 var getExternalPair = function(name) {
   return [name, 'commonjs ' + name]
 }
 
 var getExternalObject = R.pipe(
-  R.filter(isNotSystem),
   R.map(getExternalPair),
   R.fromPairs,
 )
