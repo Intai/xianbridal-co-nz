@@ -11,6 +11,10 @@ import {
 import Anchor from './anchor'
 import { smallWidth } from './device'
 import {
+  businessCardFullWidth,
+  businessCardFullHeight,
+} from './dimension'
+import {
   fontTitle,
   fontLogo,
 } from './typography'
@@ -22,20 +26,39 @@ import {
 
 const headerDimension = (props) => {
   const {isCompact} = props
+
+  if (isCompact) {
+    return `
+      width: 100%;
+      height: 100%;
+      max-width: 58px;
+      max-height: 280px;
+
+      @media (orientation: portrait) {
+        max-width: 290px;
+        max-height: 56px;
+      }
+      @media (orientation: portrait) and (max-width: ${smallWidth(props)}) {
+        max-width: 100%;
+      }
+    `
+  }
   return `
     width: 100%;
     height: 100%;
+    max-width: ${businessCardFullWidth(props)};
+    max-height: 190px;
 
-    @media (orientation: landscape) {
-      max-width: ${isCompact ? '58px' : '590px'};
-      max-height: ${isCompact ? '280px' : '190px'};
-    }
-    @media (orientation: portrait) {
-      max-width: ${isCompact ? '290px' : '272px'};
-      max-height: ${isCompact ? '56px' : '120px'};
-    }
-    @media (orientation: portrait) and (max-width: ${smallWidth(props)}) {
+    @media (max-width: ${businessCardFullWidth(props)}) {
       max-width: 100%;
+      max-height: 120px;
+    }
+    @media (max-height: ${businessCardFullHeight(props)}) {
+      max-height: 120px;
+    }
+    @media (orientation: landscape) and (max-width: ${businessCardFullWidth(props)}),
+      (orientation: landscape) and (max-height: ${businessCardFullHeight(props)}) {
+      max-width: 272px
     }
   `
 }
@@ -87,7 +110,8 @@ const ContactAddressItem = styled.li`
   display: block;
   float: ${floatAddress};
 
-  @media (max-width: ${smallWidth}) {
+  @media (max-width: ${businessCardFullWidth}),
+    (max-height: ${businessCardFullHeight}) {
     float: left;
   }
 `
@@ -100,7 +124,8 @@ const Address = styled.address`
   font-style: normal;
   display: inline-block;
 
-  @media (max-width: ${smallWidth}) {
+  @media (max-width: ${businessCardFullWidth}),
+    (max-height: ${businessCardFullHeight}) {
     display: none;
   }
 `

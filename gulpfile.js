@@ -7,7 +7,7 @@ var path = require('path'),
   webpack = require('webpack'),
   webpackStream = require('webpack-stream'),
   WebpackDevServer = require('webpack-dev-server'),
-  port = process.env.PORT || 8080
+  port = process.env.PORT || 80
 
 function clean() {
   return del('dist')

@@ -16,6 +16,11 @@ export default {
     sansserif: 'Lucida Grande, Helvetica, Arial, Sans-Serif',
   },
 
+  dimension: {
+    businessCardFullWidth: 590,
+    businessCardFullHeight: 455,
+  },
+
   device: {
     smallWidth: 480,
   },

@@ -4,7 +4,6 @@ import { createUseBdux } from 'bdux'
 import * as CatalogueAction from '../actions/catalogue-action'
 import CatalogueStore from '../stores/catalogue-store'
 import Product from './product'
-import { smallWidth } from './device'
 
 const List = styled.ul`
   min-height: calc(100vh - 57px);
@@ -15,7 +14,7 @@ const List = styled.ul`
     to { opacity: 1; }
   }
 
-  @media (max-width: ${smallWidth}) {
+  @media (orientation: portrait) {
     margin: 81px 0 0 20px;
   }
 `

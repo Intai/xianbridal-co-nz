@@ -9,8 +9,11 @@ import {
   Router,
   Route,
 } from 'bdux-react-router'
-import { smallWidth } from './device'
 import { fontTitle } from './typography'
+import {
+  businessCardFullWidth,
+  businessCardFullHeight,
+} from './dimension'
 import {
   textWhite,
   backgroundLavender,
@@ -23,7 +26,8 @@ const fullList = (props) => !props.isCompact && `
   left: 20px;
   padding: 10px 0;
 
-  @media (max-width: ${smallWidth(props)}) {
+  @media (max-width: ${businessCardFullWidth(props)}),
+    (max-height: ${businessCardFullHeight(props)}) {
     top: 149px;
   }
 `
@@ -33,7 +37,7 @@ const compactList = (props) => props.isCompact && `
   top: 0;
   left: 68px;
 
-  @media (max-width: ${smallWidth(props)}) {
+  @media (orientation: portrait) {
     opacity: 0;
   }
 `

@@ -2,7 +2,10 @@ import React, { useCallback } from 'react'
 import { useBdux } from 'bdux'
 import { LocationAction } from 'bdux-react-router'
 import styled from 'styled-components'
-import { smallWidth } from './device'
+import {
+  businessCardFullWidth,
+  businessCardFullHeight,
+} from './dimension'
 
 const AnchorContainer = styled.a`
   display: inline-block;
@@ -49,7 +52,8 @@ const Text = styled.span`
   vertical-align: top;
   line-height: 64px;
 
-  @media (max-width: ${smallWidth}) {
+  @media (max-width: ${businessCardFullWidth}),
+    (max-height: ${businessCardFullHeight}) {
     display: none;
   }
 `
@@ -95,4 +99,4 @@ const Anchor = (props) => {
   )
 }
 
-export default Anchor
+export default React.memo(Anchor)
