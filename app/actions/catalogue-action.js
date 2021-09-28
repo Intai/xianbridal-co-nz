@@ -6,6 +6,7 @@ import {
   identity,
   memoizeWith,
   propEq,
+  propSatisfies,
   test,
 } from 'ramda'
 import ActionTypes from './action-types'
@@ -26,8 +27,8 @@ const filterBySearchQuery = (query) => {
 
   return filter(
     either(
-      propEq('id', testQuery),
-      propEq('description', testQuery),
+      propSatisfies(testQuery, 'id'),
+      propSatisfies(testQuery, 'description'),
     ),
     database,
   )
