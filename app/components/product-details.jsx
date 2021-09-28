@@ -8,6 +8,7 @@ import React, {
 } from 'react'
 import styled from 'styled-components'
 import RootPortal from './root-portal'
+import Anchor from './anchor'
 import { textOffWhite } from './color'
 import { fontSerif, fontSans, fontShadow } from './typography'
 import {
@@ -248,9 +249,11 @@ const renderOffer = (product) => (
       >
         {`$${product.price}`}
       </Price>
-      <Value>
-        {`$${product.value}`}
-      </Value>
+      {!!product.value && (
+        <Value>
+          {`$${product.value}`}
+        </Value>
+      )}
       <DetailsData
         content="NZD"
         itemProp="priceCurrency"
@@ -301,6 +304,10 @@ const ProductDetails = ({ product, initialRect }) => {
           itemProp="category"
         />
       </Details>
+      <Anchor
+        href={`/${product.category}`}
+        icon="back"
+      />
     </ProductRootPortal>
   )
 }

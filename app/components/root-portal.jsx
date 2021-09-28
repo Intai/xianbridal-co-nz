@@ -12,7 +12,12 @@ const Container = styled.div`
 const createContainer = () => {
   if (Common.canUseDOM()) {
     const container = document.createElement('div')
-    document.body.appendChild(container)
+    const app = document.getElementById('app')
+    if (app && app.firstChild) {
+      app.insertBefore(container, app.firstChild.nextSibling)
+    } else {
+      document.body.appendChild(container)
+    }
     return container
   }
 }
