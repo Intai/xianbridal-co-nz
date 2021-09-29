@@ -1,9 +1,7 @@
-import { always } from 'ramda'
 import React, {
   useRef,
   useState,
   useCallback,
-  useMemo,
   useEffect,
 } from 'react'
 import styled from 'styled-components'
@@ -147,7 +145,8 @@ const scrollToScale = (refScroll, x, y, scale, nextScale) => {
   }
 }
 
-const handleScale = (e, refScroll, setScale, touchPrev) => {
+const handleScale = (e, refScroll, setScale, refTouchPrev) => {
+  const { current: touchPrev } = refTouchPrev
   const attr = e.target.getAttribute('scale')
   const maxScale = IMAGE_HEIGHT / 2 / window.innerHeight
   const scale = attr ? parseFloat(attr) : 1
@@ -190,7 +189,8 @@ const handleScale = (e, refScroll, setScale, touchPrev) => {
   setScale(nextScale)
 }
 
-const handleTouchStart = (e, touchPrev) => {
+const handleTouchStart = (e, refTouchPrev) => {
+  const { current: touchPrev } = refTouchPrev
   touchPrev.touches = e.touches
 }
 
@@ -262,12 +262,16 @@ const renderOffer = (product) => (
   )
 )
 
-const ProductDetails = ({ product, initialRect }) => {
+const ProductDetails = ({
+  initialRect,
+  product,
+  query,
+}) => {
   const refScroll = useRef(null)
+  const refTouchStart = useRef({})
   const [scale, setScale] = useState(1)
-  const touchStart = useMemo(always({}), [])
-  const updateScale = useCallback(e => handleScale(e, refScroll, setScale, touchStart), [])
-  const updateTouchStart = useCallback(e => handleTouchStart(e, touchStart), [])
+  const updateScale = useCallback(e => handleScale(e, refScroll, setScale, refTouchStart), [])
+  const updateTouchStart = useCallback(e => handleTouchStart(e, refTouchStart), [])
 
   useEffect(() => {
     // clear dom manipulation from scaling.
@@ -305,7 +309,9 @@ const ProductDetails = ({ product, initialRect }) => {
         />
       </Details>
       <Anchor
-        href={`/${product.category}`}
+        href={query
+          ? `/search/${query}`
+          : `/${product.category}`}
         icon="back"
       />
     </ProductRootPortal>

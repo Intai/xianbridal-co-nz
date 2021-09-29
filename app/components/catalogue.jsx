@@ -20,17 +20,18 @@ const List = styled.ul`
 `
 
 // eslint-disable-next-line react/display-name
-const renderProduct = (selected) => (product) => (
+const renderProduct = (selected, query) => (product) => (
   <Product
     key={product.id}
     product={product}
     selected={selected}
+    query={query}
   />
 )
 
-const renderCatalogue = (catalogue) => (
+const renderCatalogue = (catalogue, query) => (
   catalogue && catalogue.products
-    && catalogue.products.map(renderProduct(catalogue.selected))
+    && catalogue.products.map(renderProduct(catalogue.selected, query))
 )
 
 const useBdux = createUseBdux({
@@ -40,19 +41,19 @@ const useBdux = createUseBdux({
 ])
 
 const Catalogue = (props) => {
-  const { location, match: { params: { category, id } } } = props
+  const { match: { params: { category = 'search', query, id } } } = props
   const { state, dispatch } = useBdux(props)
   const { catalogue } = state
 
   useEffect(() => {
-    dispatch(CatalogueAction.load(category, id))
-  }, [location])
+    dispatch(CatalogueAction.load(category, query, id))
+  }, [category, dispatch, id, query])
 
   return useMemo(() => (
     <List key={category}>
-      {renderCatalogue(catalogue)}
+      {renderCatalogue(catalogue, query)}
     </List>
-  ), [catalogue])
+  ), [catalogue, category, query])
 }
 
 export default Catalogue

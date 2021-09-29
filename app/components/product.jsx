@@ -106,11 +106,12 @@ const renderPrice = ({ product }) => (
   )
 )
 
-const renderSelected = ({ product, selected }, boundingBox) => (
+const renderSelected = ({ product, selected, query }, boundingBox) => (
   selected && selected.id === product.id && (
     <ProductDetails
       initialRect={boundingBox}
       product={product}
+      query={query}
     />
   )
 )
@@ -127,10 +128,11 @@ const isEqualRect = (a, b) => (
 )
 
 const Product = (props) => {
-  const { product } = props
+  const { product, query } = props
   const refImage = useRef(null)
   const [boundingBox, setBoundingBox] = useState({})
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const rect = refImage.current.getBoundingClientRect()
     if (!isEqualRect(boundingBox, rect)) {
@@ -140,7 +142,9 @@ const Product = (props) => {
 
   return (
     <ListItem>
-      <Link to={`/${product.category}/${product.id}`}>
+      <Link to={query
+        ? `/search/${query}/${product.id}`
+        : `/${product.category}/${product.id}`}>
         {renderImage(props, refImage)}
         {renderPrice(props)}
       </Link>

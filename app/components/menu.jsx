@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'bdux-react-router'
 import { useBdux, createUseBdux } from 'bdux'
@@ -9,6 +9,7 @@ import {
   Router,
   Route,
 } from 'bdux-react-router'
+import SearchInput from './search-input'
 import { fontTitle } from './typography'
 import {
   businessCardFullWidth,
@@ -61,6 +62,7 @@ const compactListItem = ({ isCompact }) => isCompact && `
 
 const ListItem = styled.li`
   ${compactListItem}
+  position: relative;
 `
 
 const fullMenuLink = ({ isCompact }) => !isCompact && `
@@ -81,17 +83,24 @@ const compactMenuLink = ({ isCompact }) => isCompact && `
 `
 
 const selectedMenuLink = ({ isCompact, isSelected, theme }) => (
+  !isCompact && isSelected && `
+    background: ${theme.color.lavender};
+  `
+)
+
+const selectedCompactLink = ({ isCompact, isSelected, theme }) => (
   isCompact && isSelected && `
     &:after {
-      background: ${theme.color.offLavender}
+      background: ${theme.color.offLavender};
     }
   `
 )
 
-const StripLink = ({ children, className, onMouseEnter, to }) => (
+const StripLink = ({ children, className, onMouseEnter, onMouseUp, to }) => (
   <Link
     className={className}
     onMouseEnter={onMouseEnter}
+    onMouseUp={onMouseUp}
     to={to}
   >
     {children}
@@ -102,6 +111,7 @@ const MenuLink = styled(StripLink)`
   ${fullMenuLink}
   ${compactMenuLink}
   ${selectedMenuLink}
+  ${selectedCompactLink}
   text-decoration: none;
   display: block;
   position: relative;
@@ -111,19 +121,31 @@ const MenuLink = styled(StripLink)`
   }
 `
 
-const useSelectCategory = (category, dispatch) => (
-  useCallback(() => dispatch(BackgroundAction.select(category)), [dispatch])
+const useSelectCategory = (category, dispatch, setIsSearching) => (
+  useCallback(() => {
+    dispatch(BackgroundAction.select(category))
+    if (category && category !== 'search') {
+      setIsSearching(false)
+    }
+  }, [category, dispatch, setIsSearching])
 )
 
 const Menu = (props) => {
   const { match: { params: { category } } } = props
-  const { dispatch } = useBdux(props)
-  const selectGowns = useSelectCategory('gowns', dispatch)
-  const selectSales = useSelectCategory('sales', dispatch)
-  const selectAccessories = useSelectCategory('accessories', dispatch)
-  const selectSearch = useSelectCategory('search', dispatch)
-  const deselectBackground = useSelectCategory(null, dispatch)
   const isCompact = !!category
+  const { dispatch } = useBdux(props)
+  const [isSearching, setIsSearching] = useState(false)
+  const selectGowns = useSelectCategory('gowns', dispatch, setIsSearching)
+  const selectSales = useSelectCategory('sales', dispatch, setIsSearching)
+  const selectAccessories = useSelectCategory('accessories', dispatch, setIsSearching)
+  const selectSearch = useSelectCategory('search', dispatch, setIsSearching)
+  const deselectBackground = useSelectCategory(null, dispatch, setIsSearching)
+  const showSearchInput = useCallback((e) => {
+    setIsSearching(true)
+    if (!isCompact) {
+      e.preventDefault()
+    }
+  }, [isCompact])
 
   return (
     <List
@@ -163,12 +185,20 @@ const Menu = (props) => {
       <ListItem isCompact={isCompact}>
         <MenuLink
           isCompact={isCompact}
-          isSelected={category === 'search'}
+          isSelected={category === 'search' || isSearching}
           onMouseEnter={selectSearch}
-          to="/search"
+          onMouseUp={showSearchInput}
+          to="/"
         >
           {'Search'}
         </MenuLink>
+        {isSearching && (
+          <SearchInput
+            dispatch={dispatch}
+            isCompact={isCompact}
+            setIsSearching={setIsSearching}
+          />
+        )}
       </ListItem>
     </List>
   )

@@ -44,13 +44,15 @@ const findById = memoizeWith(identity, (id) => find(
   database,
 ))
 
-export const load = (category, id) => {
+export const load = (category, query, id) => {
   let products = []
   let selected = null
-
+  console.log('intai', category, query, id)
   if (category === 'search') {
-    products = filterBySearchQuery(id)
-    if (products.length === 1) {
+    products = filterBySearchQuery(query)
+    if (id) {
+      selected = findById(id)
+    } else if (products.length === 1) {
       selected = products[0]
     }
   } else {

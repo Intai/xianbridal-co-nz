@@ -27,6 +27,10 @@ const Routes = (props) => {
       <Switch>
         <Route
           component={Catalogue}
+          path="/search/:query/:id?"
+        />
+        <Route
+          component={Catalogue}
           path="/:category/:id?"
         />
         <Route

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useMemo } from 'react'
 import { useBdux } from 'bdux'
 import { LocationAction } from 'bdux-react-router'
 import styled from 'styled-components'
@@ -83,7 +83,7 @@ const renderText = ({ children, itemProp, text }) => (
 const Anchor = (props) => {
   const { href, target, className} = props
   const { bindToDispatch } = useBdux(props)
-  const handleClick = useCallback(bindToDispatch(pushLocation(href)), [href, bindToDispatch])
+  const handleClick = useMemo(() => bindToDispatch(pushLocation(href)), [href, bindToDispatch])
 
   return (
     <AnchorContainer
