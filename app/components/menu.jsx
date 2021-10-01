@@ -33,7 +33,7 @@ const fullList = (props) => !props.isCompact && `
   }
 `
 
-const compactList = (props) => props.isCompact && `
+const compactList = ({ isCompact }) => isCompact && `
   font-size: 150%;
   top: 0;
   left: 68px;
@@ -43,14 +43,18 @@ const compactList = (props) => props.isCompact && `
   }
 `
 
+const listPosition =({ isCompact }) => `
+  position: ${isCompact ? 'fixed' : 'absolute'};
+`
+
 const List = styled.ul`
   ${fontTitle}
   ${textWhite}
   ${fullList}
   ${compactList}
+  ${listPosition}
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
   background: rgba(0, 0, 0, 0.5);
-  position: absolute;
   transition-property: top, left, opacity;
   transition-duration: 250ms;
   transition-timing-function: ease-out;

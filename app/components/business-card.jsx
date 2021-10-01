@@ -25,7 +25,7 @@ import {
 } from './color'
 
 const headerDimension = (props) => {
-  const {isCompact} = props
+  const { isCompact } = props
 
   if (isCompact) {
     return `
@@ -57,11 +57,15 @@ const headerDimension = (props) => {
   `
 }
 
+const headerPosition =({ isCompact }) => `
+  position: ${isCompact ? 'fixed' : 'absolute'};
+`
+
 const Header = styled.header`
   ${backgroundLavender}
   ${textWhite}
   ${headerDimension}
-  position: absolute;
+  ${headerPosition}
   left: 0;
   top: 0;
   padding: 0 10px 10px 0;
