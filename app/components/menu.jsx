@@ -59,7 +59,10 @@ const List = styled.ul`
   transition-duration: 250ms;
   transition-timing-function: ease-out;
 
-  @media (min-height: 591px) {
+  @media (min-width: 543px) and (min-height: 591px),
+    (min-width: 439px) and (min-height: 694px),
+    (min-width: 280px) and (min-height: 730px),
+    (max-width: 279px) and (min-height: 833px) {
     position: fixed;
   }
 `
