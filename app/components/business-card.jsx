@@ -49,16 +49,10 @@ const headerDimension = (props) => {
     max-width: ${businessCardFullWidth(props)};
     max-height: 190px;
 
-    @media (max-width: ${businessCardFullWidth(props)}) {
-      max-width: 100%;
+    @media (max-width: ${businessCardFullWidth(props)}),
+      (max-height: ${businessCardFullHeight(props)}) {
+      max-width: 272px;
       max-height: 120px;
-    }
-    @media (max-height: ${businessCardFullHeight(props)}) {
-      max-height: 120px;
-    }
-    @media (orientation: landscape) and (max-width: ${businessCardFullWidth(props)}),
-      (orientation: landscape) and (max-height: ${businessCardFullHeight(props)}) {
-      max-width: 272px
     }
   `
 }
@@ -67,7 +61,7 @@ const Header = styled.header`
   ${backgroundLavender}
   ${textWhite}
   ${headerDimension}
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
   padding: 0 10px 10px 0;

@@ -50,7 +50,7 @@ const List = styled.ul`
   ${compactList}
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
   background: rgba(0, 0, 0, 0.5);
-  position: fixed;
+  position: absolute;
   transition-property: top, left, opacity;
   transition-duration: 250ms;
   transition-timing-function: ease-out;
