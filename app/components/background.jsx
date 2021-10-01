@@ -9,6 +9,7 @@ import {
   Route,
 } from 'bdux-react-router'
 import BackgroundStore from '../stores/background-store'
+import { getImageUrl } from '../utils/common-util'
 
 const imageSrc = ({ src }) => `
   background-image: url(${src});
@@ -73,19 +74,19 @@ const renderBackground = (selected) => (
   <React.Fragment key="background">
     <BackgroundImage
       isSelected={selected === 'gowns'}
-      src="/static/images/background/gowns1.jpg"
+      src={getImageUrl('/background/gowns1.jpg')}
     />
     <BackgroundImage
       isSelected={selected === 'sales'}
-      src="/static/images/background/gowns2.jpg"
+      src={getImageUrl('/background/gowns2.jpg')}
     />
     <BackgroundImage
       isSelected={selected === 'accessories'}
-      src="/static/images/background/accessories.jpg"
+      src={getImageUrl('/background/accessories.jpg')}
     />
     <BackgroundImage
       isSelected={selected === 'search'}
-      src="/static/images/background/search.jpg"
+      src={getImageUrl('/background/search.jpg')}
     />
   </React.Fragment>
 )
@@ -97,19 +98,19 @@ const renderSlideShow = (isEnabled) => (
   >
     <SlideShowImage
       index={0}
-      src="/static/images/background/gowns1.jpg"
+      src={getImageUrl('/background/gowns1.jpg')}
     />
     <SlideShowImage
       index={1}
-      src="/static/images/background/gowns2.jpg"
+      src={getImageUrl('/background/gowns2.jpg')}
     />
     <SlideShowImage
       index={2}
-      src="/static/images/background/accessories.jpg"
+      src={getImageUrl('/background/accessories.jpg')}
     />
     <SlideShowImage
       index={3}
-      src="/static/images/background/search.jpg"
+      src={getImageUrl('/background/search.jpg')}
     />
   </SlideShow>
 )

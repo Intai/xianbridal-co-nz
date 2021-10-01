@@ -13,6 +13,13 @@ export const canUseDOM = () => (
     && window.document.createElement
 )
 
+export const getImageUrl = (pathname) => {
+  const cdn = process?.env?.IMAGES_CDN_DOMAIN
+  return cdn
+    ? `${cdn}${pathname}`
+    : `/static/images${pathname}`
+}
+
 export default {
   canUseDOM: once(canUseDOM),
 

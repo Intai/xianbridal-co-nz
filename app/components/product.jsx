@@ -4,6 +4,7 @@ import { Link } from 'bdux-react-router'
 import ProductDetails from './product-details'
 import { textOffWhite } from './color'
 import { fontSans, fontShadow } from './typography'
+import { getImageUrl } from '../utils/common-util'
 
 const gridWidth = (width, count, margin) => () => {
   let styles = ''
@@ -80,8 +81,8 @@ const Price = styled.div`
 `
 
 const getSrcSet = (productId) => `
-  /static/images/product/${productId}-500.jpg 2x,
-  /static/images/product/${productId}-1000.jpg 3x
+  ${getImageUrl(`/product/${productId}-500.jpg`)} 2x,
+  ${getImageUrl(`/product/${productId}-1000.jpg`)} 3x
 `
 
 const renderImage = ({ product }, refImage) => {
@@ -91,7 +92,7 @@ const renderImage = ({ product }, refImage) => {
       <Image
         alt={`Wedding Dress Item#${id}`}
         ref={refImage}
-        src={`/static/images/product/${id}-200.jpg`}
+        src={getImageUrl(`/product/${id}-200.jpg`)}
         srcSet={getSrcSet(id)}
       />
     </ImageRatio>

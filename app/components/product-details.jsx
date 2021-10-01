@@ -10,6 +10,7 @@ import RootPortal from './root-portal'
 import Anchor from './anchor'
 import { textOffWhite } from './color'
 import { fontSerif, fontSans, fontShadow } from './typography'
+import { getImageUrl } from '../utils/common-util'
 import {
   getTouchDistance,
   getTouchCentre,
@@ -112,14 +113,14 @@ const getCategory = (product) => (
     : 'Apparel & Accessories > Clothing > Wedding & Bridal Party Dresses > Wedding Dresses'
 )
 
-const getImage = (product, variation = '') => (
-  `/static/images/product/${product.id}${variation && `-${variation}`}-2000.jpg`
+const getImage = (product, variation = '') => getImageUrl(
+  `/product/${product.id}${variation && `-${variation}`}-2000.jpg`,
 )
 
 const getSrcSet = (product, variation = '') => {
   const filename = `${product.id}${variation && `-${variation}`}`
-  return `/static/images/product/${filename}-1000.jpg 1000w, \
-/static/images/product/${filename}-2000.jpg 2000w`
+  return `${getImageUrl(`/product/${filename}-1000.jpg`)} 1000w, \
+${getImageUrl(`/product/${filename}-2000.jpg`)} 2000w`
 }
 
 const getSizes = once(() => window.devicePixelRatio === 2

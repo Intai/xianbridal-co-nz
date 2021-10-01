@@ -33,6 +33,9 @@ module.exports = {
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.DefinePlugin({
+      IMAGES_CDN_DOMAIN: JSON.stringify(process.env.IMAGES_CDN_DOMAIN || '/static/images'),
+    }),
     new HtmlWebpackPlugin({
       filename: 'server.ejs',
       template: '../app/index.ejs',

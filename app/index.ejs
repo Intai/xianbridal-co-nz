@@ -16,7 +16,7 @@
     <meta name="twitter:creator" content="@XianBridal">
     <meta name="twitter:title" content="Xian Bridal: Auckland based bridal design">
     <meta name="twitter:description" content="Wedding Gowns, Bridesmaid Dresses, Flower Girl Dresses, Bridal Accessories, Veils and Tiaras">
-    <meta name="twitter:image" content="/static/images/background/gowns1.jpg">
+    <meta name="twitter:image" content="<%= IMAGES_CDN_DOMAIN %>/background/gowns1.jpg">
     <meta property="og:title" content="Xian Bridal: Auckland based bridal design">
     <meta property="og:image" content="/static/background/gowns1.jpg">
     <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
@@ -27,6 +27,11 @@
   </head>
   <body>
     <div id="app"><%= htmlWebpackPlugin.options.app %></div>
+    <script>
+      window.process = { env: {
+        IMAGES_CDN_DOMAIN: '<%= IMAGES_CDN_DOMAIN %>',
+      }}
+    </script>
     <style type="text/css">
       @font-face {
         font-family: 'Playfair Display SC';
