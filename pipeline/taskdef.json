@@ -18,10 +18,6 @@
         {
           "name": "CONTAINER_IMAGE",
           "value": "<CONTAINER_IMAGE_NODEJS>"
-        },
-        {
-          "name": "IMAGES_CDN_DOMAIN",
-          "value": "https://d2xkt6h5y4ob3y.cloudfront.net"
         }
       ]
     },

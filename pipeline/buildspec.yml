@@ -3,6 +3,7 @@ version: 0.2
 env:
   variables:
     REGISTRY_URI: "501045672667.dkr.ecr.us-east-1.amazonaws.com"
+    IMAGES_CDN_DOMAIN: "https://d2xkt6h5y4ob3y.cloudfront.net"
 phases:
   pre_build:
     commands:
