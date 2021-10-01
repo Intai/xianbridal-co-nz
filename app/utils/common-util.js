@@ -13,15 +13,23 @@ export const canUseDOM = () => (
     && window.document.createElement
 )
 
+const canUseDOMOnce = once(canUseDOM)
+
+const getEnv = () => (
+  canUseDOMOnce()
+    ? window.env
+    : process.env
+) || {}
+
 export const getImageUrl = (pathname) => {
-  const cdn = process?.env?.IMAGES_CDN_DOMAIN
+  const cdn = getEnv().IMAGES_CDN_DOMAIN
   return cdn
     ? `${cdn}${pathname}`
     : `/static/images${pathname}`
 }
 
 export default {
-  canUseDOM: once(canUseDOM),
+  canUseDOM: canUseDOMOnce,
 
   // map an array of strings to
   // object keys and prefixed values.

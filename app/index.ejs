@@ -28,9 +28,9 @@
   <body>
     <div id="app"><%= htmlWebpackPlugin.options.app %></div>
     <script>
-      window.process = { env: {
+      window.env = {
         IMAGES_CDN_DOMAIN: '<%= IMAGES_CDN_DOMAIN %>',
-      }}
+      }
     </script>
     <style type="text/css">
       @font-face {
