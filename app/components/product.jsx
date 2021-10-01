@@ -85,12 +85,20 @@ const getSrcSet = (productId) => `
   ${getImageUrl(`/product/${productId}-1000.jpg`)} 3x
 `
 
+const handleError = e => {
+  const { target } = e
+  target.src = getImageUrl(`/product/${target.dataset.id}-500.jpg`)
+  target.srcset = ''
+}
+
 const renderImage = ({ product }, refImage) => {
   const { id } = product
   return (
     <ImageRatio>
       <Image
         alt={`Wedding Dress Item#${id}`}
+        data-id={id}
+        onError={handleError}
         ref={refImage}
         src={getImageUrl(`/product/${id}-200.jpg`)}
         srcSet={getSrcSet(id)}
