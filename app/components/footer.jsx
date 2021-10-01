@@ -7,18 +7,15 @@ const Container = styled.footer`
   ${backgroundGrey}
   ${textOffWhite}
   ${fontSerif}
-  padding-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  text-align: left;
 `
 
 const Section = styled.section`
-  display: inline-block;
-  text-align: left;
-  vertical-align: top;
-  margin: 20px 0 0 20px;
-
-  :last-child {
-    margin-right: 20px;
-  }
+  flex: 0 0 auto;
 `
 
 const Title = styled.div`

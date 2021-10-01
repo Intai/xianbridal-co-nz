@@ -12,7 +12,7 @@ export default {
   font: {
     logo: '"Playfair Display SC", Times New Roman, Times,Serif',
     title: '"Alegreya Sans SC", Lucida Grande, Helvetica, Arial, Sans-Serif',
-    serif: 'Times New Roman, Times, Serif',
+    serif: '"PT Serif", Times New Roman, Times, Serif',
     sansserif: 'Lucida Grande, Helvetica, Arial, Sans-Serif',
   },
 
