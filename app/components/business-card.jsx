@@ -71,7 +71,7 @@ const Header = styled.header`
   transition-duration: 250ms;
   transition-timing-function: ease-out;
 
-  @media (min-height: 730px) {
+  @media (min-height: 591px) {
     position: fixed;
   }
 `
