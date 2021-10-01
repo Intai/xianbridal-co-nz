@@ -1,5 +1,6 @@
 FROM public.ecr.aws/bitnami/node:14
 
+ENV IMAGES_CDN_DOMAIN=https://d2xkt6h5y4ob3y.cloudfront.net
 ENV NPM_CONFIG_PRODUCTION=false
 ENV NODE_ENV=production
 ENV PORT=8080
