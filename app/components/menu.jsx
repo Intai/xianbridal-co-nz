@@ -54,6 +54,10 @@ const List = styled.ul`
   transition-property: top, left, opacity;
   transition-duration: 250ms;
   transition-timing-function: ease-out;
+
+  @media (min-height: 730px) {
+    position: fixed;
+  }
 `
 
 const compactListItem = ({ isCompact }) => isCompact && `

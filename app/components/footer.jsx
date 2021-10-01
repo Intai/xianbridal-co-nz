@@ -7,6 +7,7 @@ const Container = styled.footer`
   ${backgroundGrey}
   ${textOffWhite}
   ${fontSerif}
+  padding-bottom: 20px;
 `
 
 const Section = styled.section`
@@ -17,7 +18,6 @@ const Section = styled.section`
 
   :last-child {
     margin-right: 20px;
-    margin-bottom: 20px;
   }
 `
 

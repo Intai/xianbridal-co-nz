@@ -70,6 +70,10 @@ const Header = styled.header`
   transition-property: max-width, max-height;
   transition-duration: 250ms;
   transition-timing-function: ease-out;
+
+  @media (min-height: 730px) {
+    position: fixed;
+  }
 `
 
 const Name = styled.h1`
