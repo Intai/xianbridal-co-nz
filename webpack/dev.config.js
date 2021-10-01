@@ -14,6 +14,7 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       IMAGES_CDN_DOMAIN: JSON.stringify(process.env.IMAGES_CDN_DOMAIN || '/static/images'),
+      FONTS_CDN_DOMAIN: JSON.stringify(`${process.env.IMAGES_CDN_DOMAIN}/fonts` || '/static/fonts'),
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
