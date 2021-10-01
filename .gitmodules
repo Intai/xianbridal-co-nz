@@ -1,0 +1,3 @@
+[submodule "static/images"]
+	path = static/images
+	url = git@github.com:Intai/xianbridal-co-nz-images.git
