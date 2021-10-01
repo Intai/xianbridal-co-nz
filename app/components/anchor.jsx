@@ -44,7 +44,7 @@ const Image = styled.div`
 
   &:hover,
   &:active {
-    transform: scale3d(1.5, 1.5, 1);
+    transform: scale3d(1.3, 1.3, 1);
   }
 `
 

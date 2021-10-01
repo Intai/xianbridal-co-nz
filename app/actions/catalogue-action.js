@@ -1,5 +1,6 @@
 import {
   both,
+  complement,
   either,
   filter,
   find,
@@ -35,7 +36,10 @@ const filterBySearchQuery = (query) => {
 }
 
 const filterByCategory = memoizeWith(identity, (category) => filter(
-  propEq('category', category),
+  both(
+    propEq('category', category),
+    complement(propEq('overlay', 'Sold')),
+  ),
   database,
 ))
 
@@ -47,7 +51,7 @@ const findById = memoizeWith(identity, (id) => find(
 export const load = (category, query, id) => {
   let products = []
   let selected = null
-  console.log('intai', category, query, id)
+
   if (category === 'search') {
     products = filterBySearchQuery(query)
     if (id) {

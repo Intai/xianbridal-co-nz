@@ -1,3 +1,4 @@
+import { once } from 'ramda'
 import React, {
   useRef,
   useState,
@@ -112,7 +113,18 @@ const getCategory = (product) => (
 )
 
 const getImage = (product, variation = '') => (
-  `/static/images/product/${product.id}${variation && `-${variation}`}.jpg`
+  `/static/images/product/${product.id}${variation && `-${variation}`}-2000.jpg`
+)
+
+const getSrcSet = (product, variation = '') => {
+  const filename = `${product.id}${variation && `-${variation}`}`
+  return `/static/images/product/${filename}-1000.jpg 1000w, \
+/static/images/product/${filename}-2000.jpg 2000w`
+}
+
+const getSizes = once(() => window.devicePixelRatio === 2
+  ? '(max-width: 500px) 500px, 1000px'
+  : '(max-width: 1000px) 1000px, 2000px',
 )
 
 const setImageTempStyles = (refScroll, scale) => {
@@ -213,25 +225,20 @@ const renderImages = (
         onTouchMove={updateScale}
         scale={scale}
         src={getImage(product)}
+        srcSet={getSrcSet(product)}
+        sizes={getSizes()}
       />
-      <OptionalImage
-        onClick={updateScale}
-        onTouchMove={updateScale}
-        scale={scale}
-        src={getImage(product, 'side')}
-      />
-      <OptionalImage
-        onClick={updateScale}
-        onTouchMove={updateScale}
-        scale={scale}
-        src={getImage(product, 'back')}
-      />
-      <OptionalImage
-        onClick={updateScale}
-        onTouchMove={updateScale}
-        scale={scale}
-        src={getImage(product, 'close')}
-      />
+      {[1, 2, 3, 4].map(variation => (
+        <OptionalImage
+          key={variation}
+          onClick={updateScale}
+          onTouchMove={updateScale}
+          scale={scale}
+          src={getImage(product, variation)}
+          srcSet={getSrcSet(product, variation)}
+          sizes={getSizes()}
+        />
+      ))}
     </Images>
   </ImagesContainer>
 )
@@ -293,7 +300,7 @@ const ProductDetails = ({
       )}
       <Details>
         <Sku itemProp="identifier">
-          {product.id}
+          {product.name || product.id}
         </Sku>
         {renderOffer(product)}
         <Description itemProp="description">

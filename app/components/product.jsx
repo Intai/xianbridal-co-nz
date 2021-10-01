@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'bdux-react-router'
 import ProductDetails from './product-details'
-import { smallWidth, aboveSmallWidth } from './device'
 import { textOffWhite } from './color'
 import { fontSans, fontShadow } from './typography'
 
@@ -18,24 +17,16 @@ const gridWidth = (width, count, margin) => () => {
   return styles
 }
 
-const media = (funcQuery, funcStyle) => (props) => (
+const media = (firstQuery, funcStyle) => (props) => (
   funcStyle(props).replace(
     /@media\s*\(/gi,
-    `@media (${funcQuery(props)}) and (`,
+    `@media (${firstQuery}) and (`,
   )
 )
 
-const aboveSmallScreen = props => (
-  `min-width: ${aboveSmallWidth(props)}`
-)
-
-const smallScreen = props => (
-  `max-width: ${smallWidth(props)}`
-)
-
 const ListItem = styled.li`
-  ${media(aboveSmallScreen, gridWidth(200, 8, 98))}
-  ${media(smallScreen, gridWidth(160, 8, 0))}
+  ${media('orientation: landscape', gridWidth(200, 8, 83))}
+  ${media('orientation: portrait', gridWidth(150, 8, 20))}
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -88,18 +79,27 @@ const Price = styled.div`
   left: 10px;
 `
 
-const renderImage = ({ product }, refImage) => (
-  <ImageRatio>
-    <Image
-      alt={`Wedding Dress Item#${product.id}`}
-      ref={refImage}
-      src={`/static/images/product/${product.id}.jpg`}
-    />
-  </ImageRatio>
-)
+const getSrcSet = (productId) => `
+  /static/images/product/${productId}-500.jpg 2x,
+  /static/images/product/${productId}-1000.jpg 3x
+`
+
+const renderImage = ({ product }, refImage) => {
+  const { id } = product
+  return (
+    <ImageRatio>
+      <Image
+        alt={`Wedding Dress Item#${id}`}
+        ref={refImage}
+        src={`/static/images/product/${id}-200.jpg`}
+        srcSet={getSrcSet(id)}
+      />
+    </ImageRatio>
+  )
+}
 
 const renderPrice = ({ product }) => (
-  product.value && product.price && (
+  !!(product.value && product.price) && (
     <Price>
       {`$${product.price}`}
     </Price>

@@ -248,7 +248,7 @@ const renderAddress = ({ isCompact }) => (
         </ContactItemData>
       </AddressHeading>
       <div>
-        {'Open 11am to 3pm on Mon, 10am to 4pm on Tue to Sat'}
+        {'Open 10am to 4pm on Tue to Sat'}
       </div>
       <div>
         {'Book an appointment for consultation'}
