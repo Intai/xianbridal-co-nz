@@ -132,6 +132,10 @@ const MenuLink = styled(StripLink)`
   }
 `
 
+const scrollToTop = () => {
+  window.scrollTo(0, 0)
+}
+
 const useSelectCategory = (category, dispatch, setIsSearching) => (
   useCallback(() => {
     dispatch(BackgroundAction.select(category))
@@ -168,6 +172,7 @@ const Menu = (props) => {
           isCompact={isCompact}
           isSelected={category === 'gowns'}
           onMouseEnter={selectGowns}
+          onMouseUp={scrollToTop}
           to="/gowns"
         >
           {'Wedding Gowns'}
@@ -178,6 +183,7 @@ const Menu = (props) => {
           isCompact={isCompact}
           isSelected={category === 'sales'}
           onMouseEnter={selectSales}
+          onMouseUp={scrollToTop}
           to="/sales"
         >
           {'Sample Sales'}
@@ -188,6 +194,7 @@ const Menu = (props) => {
           isCompact={isCompact}
           isSelected={category === 'accessories'}
           onMouseEnter={selectAccessories}
+          onMouseUp={scrollToTop}
           to="/accessories"
         >
           {'Accessories'}

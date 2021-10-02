@@ -40,6 +40,7 @@ const SearchInput = ({
       if (query) {
         // press enter key to search by a query.
         dispatch(LocationAction.push(`/search/${query}`))
+        window.scrollTo(0, 0)
       }
       setIsSearching(false)
     } else if (e.keyCode === 27) {
