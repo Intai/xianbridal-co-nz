@@ -6,17 +6,23 @@ import * as CatalogueAction from '../actions/catalogue-action'
 import CatalogueStore from '../stores/catalogue-store'
 import Product from './product'
 
+const emptyMarginRight = ({ isEmpty }) => isEmpty
+  && 'margin-right: 20px;'
+
 const List = styled.ul`
   min-height: calc(100vh - 57px);
   margin: 57px 0 0 83px;
   animation: 500ms catalogue-fadein;
+  ${emptyMarginRight}
+
   @keyframes catalogue-fadein {
     from { opacity: 0; }
     to { opacity: 1; }
   }
 
   @media (orientation: portrait) {
-    margin: 81px 0 0 20px;
+    margin-top: 81px;
+    margin-left: 20px;
   }
 `
 
@@ -60,13 +66,19 @@ const Catalogue = (props) => {
     dispatch(CatalogueAction.load(category, query, id))
   }, [category, dispatch, id, query])
 
+  const isEmpty = category == 'search'
+    && catalogue && catalogue.products.length <= 0
+
   return useMemo(() => (
-    <List key={category}>
-      {category !== 'search' || !catalogue || catalogue.products.length > 0
-        ? renderCatalogue(catalogue, query, getBackUrl(query, id))
-        : <EmptySearchResult />}
+    <List
+      key={category}
+      isEmpty={isEmpty}
+    >
+      {isEmpty
+        ? <EmptySearchResult />
+        : renderCatalogue(catalogue, query, getBackUrl(query, id))}
     </List>
-  ), [catalogue, category, id, query])
+  ), [catalogue, category, id, isEmpty, query])
 }
 
 export default Catalogue

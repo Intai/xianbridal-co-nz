@@ -7,18 +7,19 @@ import {
   borderOffgrey,
   backgroundWhite,
 } from './color'
+import { fontSerif } from './typography'
 import { getWebUrl } from '../utils/common-util'
 
 const Container = styled.li`
+  ${fontSerif}
   ${backgroundWhite}
-  position: fixed;
-  top: 200px;
-  left: 50%;
+  box-sizing: border-box;
   padding: 20px;
-  margin: -50px 0 0 -150px;
+  margin: 0 auto;
   border-radius: 3px;
   padding: 20px;
-  width: 300px;
+  width: 369px;
+  max-width: 100%;
 `
 
 const Title = styled.div`
