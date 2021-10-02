@@ -47,9 +47,18 @@ const Image = styled.img`
   cursor: ${({ scale }) => (scale <= 1) ? 'zoom-in' : 'zoom-out'};
 `
 
-const handleImageError = (e) => (
-  e.target.style.display='none'
-)
+const handleImageError = e => {
+  const { target } = e
+  if (target.src.indexOf('-1000') >= 0) {
+    target.src = target.src.replace('-1000', '-500')
+    target.srcset = ''
+  } else if (target.src.indexOf('-2000') >= 0) {
+    target.src = target.src.replace('-2000', '-1000')
+    target.srcset = ''
+  } else {
+    target.style.display='none'
+  }
+}
 
 const OptionalImage = ({ onClick, onTouchMove, scale, src }) => (
   <Image
@@ -223,6 +232,7 @@ const renderImages = (
         initialRect={initialRect}
         itemProp="image"
         onClick={updateScale}
+        onError={handleImageError}
         onTouchMove={updateScale}
         scale={scale}
         src={getImage(product)}

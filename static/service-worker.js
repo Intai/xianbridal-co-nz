@@ -30,7 +30,7 @@ self.addEventListener('fetch', event => event.respondWith(
       }
 
       return fetch(event.request).then(response => {
-        if (response && (response.status === 200 || response.status === 404)) {
+        if (response && (response.status === 200 || response.status === 403 || response.status === 404)) {
           const cloned = response.clone()
           caches.open(cacheName)
             .then(cache => {
