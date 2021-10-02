@@ -10,7 +10,7 @@ import RootPortal from './root-portal'
 import Anchor from './anchor'
 import { textOffWhite } from './color'
 import { fontSerif, fontSans, fontShadow } from './typography'
-import { getImageUrl } from '../utils/common-util'
+import { getImageUrl, encodeSku } from '../utils/common-util'
 import {
   getTouchDistance,
   getTouchCentre,
@@ -112,8 +112,8 @@ const Description = styled.div`
 
 const getName = (product) => (
   product.category === 'accessories'
-    ? `Bridal Accessory #${product.id}`
-    : `Wedding Dress #${product.id}`
+    ? `Bridal Accessory #${encodeSku(product.id)}`
+    : `Wedding Dress #${encodeSku(product.id)}`
 )
 
 const getCategory = (product) => (
@@ -311,7 +311,7 @@ const ProductDetails = ({
       )}
       <Details>
         <Sku itemProp="identifier">
-          {product.name || product.id}
+          {encodeSku(product.name || product.id)}
         </Sku>
         {renderOffer(product)}
         <Description itemProp="description">

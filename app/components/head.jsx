@@ -1,5 +1,5 @@
 import React from 'react'
-import { createUseBdux } from 'bdux'
+import { createUseBdux, useBdux } from 'bdux'
 import {
   createLocationHistory,
   LocationAction,
@@ -8,10 +8,11 @@ import {
   Switch,
   Route,
 } from 'bdux-react-router'
-import Common from '../utils/common-util'
+import CatalogueStore from '../stores/catalogue-store'
+import { canUseDOM, encodeSku } from '../utils/common-util'
 
 const renderHead = ({ description, keywords, title }) => {
-  if (Common.canUseDOM()) {
+  if (canUseDOM()) {
     document.title = title
     return false
   }
@@ -33,13 +34,21 @@ const renderHead = ({ description, keywords, title }) => {
   )
 }
 
-const HeadProduct = ({ product }) => (
-  !!product && renderHead({
-    description: `Photos and details of Wedding Gown Item #${product.id}. ${product.description}`,
-    keywords: `#${product.id},${product.keywords}`,
-    title: `Xian Bridal: Wedding Dress Item #${product.id}`,
+const HeadProduct = (props) => {
+  const { state } = useBdux(props, { catalogue: CatalogueStore })
+  const { catalogue } = state
+  const product = catalogue && catalogue.selected
+
+  if (!product) {
+    return false
+  }
+  const sku = encodeSku(product.id)
+  return renderHead({
+    description: `Photos and details of Wedding Gown Item #${sku}. ${product.description}`,
+    keywords: `#${sku},${product.keywords}`,
+    title: `Xian Bridal: Wedding Dress Item #${sku}`,
   })
-)
+}
 
 const HeadHome = () => (
   renderHead({
@@ -50,10 +59,10 @@ const HeadHome = () => (
 )
 
 const shouldUpdateHead = ({ isStandAlone }) => (
-  isStandAlone || Common.canUseDOM()
+  isStandAlone || canUseDOM()
 )
 
-const useBdux = createUseBdux({
+const useBduxHead = createUseBdux({
   location: LocationStore,
 }, [
   // start listening to browser history.
@@ -61,7 +70,7 @@ const useBdux = createUseBdux({
 ])
 
 const Head = (props) => {
-  const { state } = useBdux(props)
+  const { state } = useBduxHead(props)
   const { location } = state
 
   return !!location && shouldUpdateHead(props) && (
@@ -69,7 +78,11 @@ const Head = (props) => {
       <Switch>
         <Route
           component={HeadProduct}
-          path="/:id"
+          path="/search/:query/:id?"
+        />
+        <Route
+          component={HeadProduct}
+          path="/:category/:id?"
         />
         <Route
           component={HeadHome}

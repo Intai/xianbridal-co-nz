@@ -4,7 +4,7 @@ import { Link } from 'bdux-react-router'
 import ProductDetails from './product-details'
 import { textOffWhite } from './color'
 import { fontSans, fontShadow } from './typography'
-import { getImageUrl } from '../utils/common-util'
+import { getImageUrl, encodeSku } from '../utils/common-util'
 
 const gridWidth = (width, count, margin) => () => {
   let styles = ''
@@ -153,8 +153,8 @@ const Product = (props) => {
   return (
     <ListItem>
       <Link to={query
-        ? `/search/${query}/${product.id}`
-        : `/${product.category}/${product.id}`}>
+        ? `/search/${query}/${encodeSku(product.id)}`
+        : `/${product.category}/${encodeSku(product.id)}`}>
         {renderImage(props, refImage)}
         {renderPrice(props)}
       </Link>

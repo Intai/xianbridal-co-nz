@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo } from 'react'
 import styled from 'styled-components'
 import { createUseBdux } from 'bdux'
+import Product from './product'
 import EmptySearchResult from './empty-search-result'
 import * as CatalogueAction from '../actions/catalogue-action'
 import CatalogueStore from '../stores/catalogue-store'
-import Product from './product'
+import { decodeSku } from '../utils/common-util'
 
 const emptyMarginRight = ({ isEmpty }) => isEmpty
   && 'margin-right: 20px;'
@@ -63,7 +64,7 @@ const Catalogue = (props) => {
   const { catalogue } = state
 
   useEffect(() => {
-    dispatch(CatalogueAction.load(category, query, id))
+    dispatch(CatalogueAction.load(category, query, decodeSku(id)))
   }, [category, dispatch, id, query])
 
   const isEmpty = category == 'search'
