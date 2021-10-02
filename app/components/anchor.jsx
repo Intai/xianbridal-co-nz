@@ -6,6 +6,7 @@ import {
   businessCardFullWidth,
   businessCardFullHeight,
 } from './dimension'
+import { getWebUrl } from '../utils/common-util'
 
 const AnchorContainer = styled.a`
   display: inline-block;
@@ -68,7 +69,7 @@ const pushLocation = (href) => (e) => {
 const renderIcon = ({ children, icon, text }) => (
   <Image
     hasText={children || text}
-    src={`/static/icons/${icon}.svg`}
+    src={getWebUrl(`/static/icons/${icon}.svg`)}
   />
 )
 

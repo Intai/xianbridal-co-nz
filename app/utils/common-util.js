@@ -28,6 +28,13 @@ export const getImageUrl = (pathname) => {
     : `/static/images${pathname}`
 }
 
+export const getWebUrl = (pathname) => {
+  const cdn = getEnv().WEB_CDN_DOMAIN
+  return cdn
+    ? `${cdn}${pathname}`
+    : pathname
+}
+
 export default {
   canUseDOM: canUseDOMOnce,
 

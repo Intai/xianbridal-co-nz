@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { LocationAction } from 'bdux-react-router'
 import { borderOffLavender } from './color'
+import { getWebUrl } from '../utils/common-util'
 
 const Input = styled.input`
   ${borderOffLavender}
@@ -68,7 +69,7 @@ const SearchInput = ({
         ref={inputRef}
         type="text"
       />
-      <Image src={'/static/icons/search.svg'} />
+      <Image src={getWebUrl('/static/icons/search.svg')} />
     </>
   )
 }
