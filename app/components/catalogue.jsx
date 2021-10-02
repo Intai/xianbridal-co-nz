@@ -20,7 +20,7 @@ const List = styled.ul`
     to { opacity: 1; }
   }
 
-  @media (orientation: portrait) {
+  @media (orientation: portrait), (max-width: 632px) {
     margin-top: 81px;
     margin-left: 20px;
   }

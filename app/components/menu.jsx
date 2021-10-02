@@ -38,7 +38,7 @@ const compactList = ({ isCompact }) => isCompact && `
   top: 0;
   left: 68px;
 
-  @media (orientation: portrait) {
+  @media (orientation: portrait), (max-width: 632px) {
     opacity: 0;
   }
 `

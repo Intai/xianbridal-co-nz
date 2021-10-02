@@ -9,7 +9,6 @@ import {
   Route,
 } from 'bdux-react-router'
 import Anchor from './anchor'
-import { smallWidth } from './device'
 import {
   businessCardFullWidth,
   businessCardFullHeight,
@@ -34,12 +33,9 @@ const headerDimension = (props) => {
       max-width: 58px;
       max-height: 280px;
 
-      @media (orientation: portrait) {
+      @media (orientation: portrait), (max-width: 632px) {
         max-width: 290px;
         max-height: 56px;
-      }
-      @media (orientation: portrait) and (max-width: ${smallWidth(props)}) {
-        max-width: 100%;
       }
     `
   }
