@@ -29,7 +29,6 @@ const Image = styled.img`
 
 const SearchInput = ({
   dispatch,
-  isCompact,
   setIsSearching,
 }) => {
   const inputRef = useRef()
@@ -64,7 +63,6 @@ const SearchInput = ({
   return (
     <>
       <Input
-        isCompact={isCompact}
         onBlur={handleBlur}
         onKeyDown={handleKeyDown}
         ref={inputRef}

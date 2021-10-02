@@ -213,7 +213,6 @@ const Menu = (props) => {
         {isSearching && (
           <SearchInput
             dispatch={dispatch}
-            isCompact={isCompact}
             setIsSearching={setIsSearching}
           />
         )}

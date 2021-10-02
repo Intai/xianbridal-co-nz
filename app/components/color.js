@@ -18,6 +18,10 @@ export const textOffLavender = ({ theme }) => `
   color: ${theme.color.offLavender};
 `
 
+export const borderOffgrey = ({ theme }) => `
+  border-color: ${theme.color.offgrey};
+`
+
 export const borderOffLavender = ({ theme }) => `
   border-color: ${theme.color.offLavender};
 `
@@ -26,8 +30,8 @@ export const textAlert = ({ theme }) => `
   color: ${theme.color.alert};
 `
 
-export const backgroundOffWhite = ({ theme }) => `
-  background-color: ${theme.color.offwhite};
+export const backgroundWhite = ({ theme }) => `
+  background-color: ${theme.color.white};
 `
 
 export const backgroundGrey = ({ theme }) => `

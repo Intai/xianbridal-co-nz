@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo } from 'react'
 import styled from 'styled-components'
 import { createUseBdux } from 'bdux'
+import EmptySearchResult from './empty-search-result'
 import * as CatalogueAction from '../actions/catalogue-action'
 import CatalogueStore from '../stores/catalogue-store'
 import Product from './product'
@@ -51,7 +52,9 @@ const Catalogue = (props) => {
 
   return useMemo(() => (
     <List key={category}>
-      {renderCatalogue(catalogue, query)}
+      {category !== 'search' || !catalogue || catalogue.products.length > 0
+        ? renderCatalogue(catalogue, query)
+        : <EmptySearchResult />}
     </List>
   ), [catalogue, category, query])
 }
