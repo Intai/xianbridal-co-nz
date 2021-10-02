@@ -14,7 +14,7 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       IMAGES_CDN_DOMAIN: JSON.stringify(process.env.IMAGES_CDN_DOMAIN || '/static/images'),
-      WEB_CDN_DOMAIN: JSON.stringify(`${process.env.WEB_CDN_DOMAIN || ''}`),
+      WEB_CDN_DOMAIN: JSON.stringify(process.env.WEB_CDN_DOMAIN || ''),
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
