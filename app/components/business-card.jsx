@@ -147,11 +147,16 @@ const renderName = ({ isCompact }) => (
   )
 )
 
+const scrollToTop = () => {
+  window.scrollTo(0, 0)
+}
+
 const renderBack = ({ isCompact }) => (
   !!isCompact && (
     <BackAnchor
       href="/"
       icon="back"
+      onMouseUp={scrollToTop}
     />
   )
 )

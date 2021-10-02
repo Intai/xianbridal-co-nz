@@ -82,7 +82,7 @@ const renderText = ({ children, itemProp, text }) => (
 )
 
 const Anchor = (props) => {
-  const { href, target, className} = props
+  const { href, target, className, onMouseUp } = props
   const { bindToDispatch } = useBdux(props)
   const handleClick = useMemo(() => bindToDispatch(pushLocation(href)), [href, bindToDispatch])
 
@@ -91,6 +91,7 @@ const Anchor = (props) => {
       className={className}
       href={href}
       onClick={handleClick}
+      onMouseUp={onMouseUp}
       rel="noreferrer noopener"
       target={target}
     >
