@@ -20,19 +20,29 @@ const List = styled.ul`
   }
 `
 
+const getBackUrl = (query, id) => {
+  if (query && id) {
+    return `/search/${query}`
+  } if (query) {
+    return '/'
+  }
+  return null
+}
+
 // eslint-disable-next-line react/display-name
-const renderProduct = (selected, query) => (product) => (
+const renderProduct = (selected, query, backUrl) => (product) => (
   <Product
     key={product.id}
     product={product}
     selected={selected}
     query={query}
+    backUrl={backUrl}
   />
 )
 
-const renderCatalogue = (catalogue, query) => (
+const renderCatalogue = (catalogue, query, backUrl) => (
   catalogue && catalogue.products
-    && catalogue.products.map(renderProduct(catalogue.selected, query))
+    && catalogue.products.map(renderProduct(catalogue.selected, query, backUrl))
 )
 
 const useBdux = createUseBdux({
@@ -53,10 +63,10 @@ const Catalogue = (props) => {
   return useMemo(() => (
     <List key={category}>
       {category !== 'search' || !catalogue || catalogue.products.length > 0
-        ? renderCatalogue(catalogue, query)
+        ? renderCatalogue(catalogue, query, getBackUrl(query, id))
         : <EmptySearchResult />}
     </List>
-  ), [catalogue, category, query])
+  ), [catalogue, category, id, query])
 }
 
 export default Catalogue

@@ -283,7 +283,7 @@ const renderOffer = (product) => (
 const ProductDetails = ({
   initialRect,
   product,
-  query,
+  backUrl,
 }) => {
   const refScroll = useRef(null)
   const refTouchStart = useRef({})
@@ -327,9 +327,7 @@ const ProductDetails = ({
         />
       </Details>
       <Anchor
-        href={query
-          ? `/search/${query}`
-          : `/${product.category}`}
+        href={backUrl || `/${product.category}`}
         icon="back"
       />
     </ProductRootPortal>

@@ -116,12 +116,12 @@ const renderPrice = ({ product }) => {
   return false
 }
 
-const renderSelected = ({ product, selected, query }, boundingBox) => (
+const renderSelected = ({ product, selected, backUrl }, boundingBox) => (
   selected && selected.id === product.id && (
     <ProductDetails
       initialRect={boundingBox}
       product={product}
-      query={query}
+      backUrl={backUrl}
     />
   )
 )
