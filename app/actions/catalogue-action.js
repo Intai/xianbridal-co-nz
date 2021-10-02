@@ -1,6 +1,5 @@
 import {
   both,
-  complement,
   either,
   filter,
   find,
@@ -36,10 +35,7 @@ const filterBySearchQuery = (query) => {
 }
 
 const filterByCategory = memoizeWith(identity, (category) => filter(
-  both(
-    propEq('category', category),
-    complement(propEq('overlay', 'Sold')),
-  ),
+  propEq('category', category),
   database,
 ))
 

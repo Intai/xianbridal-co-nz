@@ -38,7 +38,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 1490,
+  price: 0,
   value: 0,
 },{
   id: 'L1155c',
@@ -94,7 +94,7 @@ export default [{
   id: 'L1105',
   category: 'gowns',
   description: '',
-  overlay: '',
+  overlay: 'Sold',
   price: 1390,
   value: 0,
 },{
@@ -171,14 +171,7 @@ export default [{
   id: 'XF16130',
   category: 'gowns',
   description: '',
-  overlay: '',
-  price: 1490,
-  value: 0,
-},{
-  id: 'L1557',
-  category: 'gowns',
-  description: '',
-  overlay: '',
+  overlay: 'Sold',
   price: 0,
   value: 0,
 },{
@@ -227,7 +220,7 @@ export default [{
   id: 'XF16130A',
   category: 'gowns',
   description: '',
-  overlay: '',
+  overlay: 'Sold',
   price: 0,
   value: 0,
 },{
@@ -264,13 +257,6 @@ export default [{
   description: '',
   overlay: '',
   price: 1290,
-  value: 0,
-},{
-  id: 'F448',
-  category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 0,
   value: 0,
 },{
   id: 'X037T',
@@ -329,13 +315,6 @@ export default [{
   price: 1490,
   value: 0,
 },{
-  id: 'U006',
-  category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 0,
-  value: 0,
-},{
   id: 'L0764',
   category: 'gowns',
   description: '',
@@ -364,13 +343,6 @@ export default [{
   price: 0,
   value: 0,
 },{
-  id: 'L0019',
-  category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 0,
-  value: 0,
-},{
   id: 'WS034',
   category: 'gowns',
   description: '',
@@ -388,7 +360,7 @@ export default [{
   id: '1867',
   category: 'gowns',
   description: '',
-  overlay: '',
+  overlay: 'Sold',
   price: 1390,
   value: 0,
 },{
@@ -409,7 +381,7 @@ export default [{
   id: 'V0276',
   category: 'gowns',
   description: '',
-  overlay: '',
+  overlay: 'Sold',
   price: 1180,
   value: 0,
 },{
@@ -455,20 +427,6 @@ export default [{
   price: 0,
   value: 0,
 },{
-  id: 'L0310',
-  category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 1360,
-  value: 0,
-},{
-  id: 'QL1314',
-  category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 0,
-  value: 0,
-},{
   id: '8004',
   category: 'gowns',
   description: '',
@@ -479,9 +437,9 @@ export default [{
   id: 'XIAN04',
   category: 'gowns',
   description: '',
-  overlay: '',
-  price: 0,
-  value: 0,
+  overlay: '$490',
+  price: 490,
+  value: 1490,
 },{
   id: 'SD004',
   category: 'gowns',
@@ -500,7 +458,7 @@ export default [{
   id: 'L0763',
   category: 'gowns',
   description: '',
-  overlay: '',
+  overlay: 'Sold',
   price: 0,
   value: 0,
 },{
@@ -537,7 +495,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 1590,
+  price: 0,
   value: 0,
 },{
   id: 'XF1010X',
@@ -565,7 +523,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 1690,
+  price: 0,
   value: 0,
 },{
   id: 'L0321',
@@ -671,7 +629,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 1690,
+  price: 0,
   value: 0,
 },{
   id: 'MA09E',
@@ -705,7 +663,7 @@ export default [{
   id: 'L0611',
   category: 'gowns',
   description: '',
-  overlay: '',
+  overlay: 'Sold',
   price: 0,
   value: 0,
 },{
@@ -727,7 +685,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 1590,
+  price: 0,
   value: 0,
 },{
   id: 'QL132',
@@ -748,7 +706,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 1890,
+  price: 0,
   value: 0,
 },{
   id: 'L0364',
@@ -772,20 +730,6 @@ export default [{
   price: 1290,
   value: 0,
 },{
-  id: 'L0311',
-  category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 0,
-  value: 0,
-},{
-  id: 'XF161-18X',
-  category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 0,
-  value: 0,
-},{
   id: 'L1021',
   category: 'gowns',
   description: '',
@@ -803,7 +747,7 @@ export default [{
   id: 'L0115',
   category: 'sales',
   description: 'Size 14 in Ivory and 20 in White',
-  overlay: '$890',
+  overlay: 'Sold',
   price: 890,
   value: 1490,
 },{
@@ -835,26 +779,12 @@ export default [{
   price: 860,
   value: 1090,
 },{
-  id: '6079T',
-  category: 'sales',
-  description: 'Size 12 Ivory',
-  overlay: '$780',
-  price: 780,
-  value: 1290,
-},{
   id: 'L1289',
   category: 'sales',
   description: '',
   overlay: 'Sold',
   price: 890,
   value: 1290,
-},{
-  id: 'X027T',
-  category: 'sales',
-  description: 'Ivory size 12, white size 8',
-  overlay: '$780',
-  price: 780,
-  value: 1480,
 },{
   id: 'M356T',
   category: 'sales',
@@ -911,13 +841,6 @@ export default [{
   overlay: '$1290',
   price: 1290,
   value: 2000,
-},{
-  id: 'XF1017X',
-  category: 'sales',
-  description: 'Ivory size 12',
-  overlay: '$790',
-  price: 790,
-  value: 1690,
 },{
   id: 'L0018',
   category: 'sales',
@@ -978,14 +901,14 @@ export default [{
   id: 'SL268',
   category: 'sales',
   description: 'Ivory size 10',
-  overlay: '$890',
+  overlay: 'Sold',
   price: 890,
   value: 2500,
 },{
   id: 'A9013',
   category: 'sales',
   description: 'White size 14',
-  overlay: '$680',
+  overlay: 'Sold',
   price: 680,
   value: 1100,
 },{
@@ -1013,7 +936,7 @@ export default [{
   id: 'J1452',
   category: 'sales',
   description: 'White size 20',
-  overlay: '$790',
+  overlay: 'Sold',
   price: 790,
   value: 1280,
 },{
@@ -1030,13 +953,6 @@ export default [{
   overlay: '$380',
   price: 380,
   value: 780,
-},{
-  id: 'F300',
-  category: 'sales',
-  description: 'Ivory size 12',
-  overlay: '$790',
-  price: 790,
-  value: 1280,
 },{
   id: 'XIAN03',
   category: 'sales',
@@ -1122,13 +1038,6 @@ export default [{
   price: 1290,
   value: 2200,
 },{
-  id: 'A9976',
-  category: 'sales',
-  description: 'White size 18',
-  overlay: '$580',
-  price: 580,
-  value: 980,
-},{
   id: 'GS029',
   category: 'sales',
   description: '',
@@ -1139,8 +1048,8 @@ export default [{
   id: 'GS002',
   category: 'sales',
   description: '',
-  overlay: '$780',
-  price: 780,
+  overlay: '$560',
+  price: 560,
   value: 1600,
 },{
   id: 'F011',
@@ -1223,15 +1132,15 @@ export default [{
   id: '3763',
   category: 'sales',
   description: '',
-  overlay: '$780',
-  price: 780,
+  overlay: '$490',
+  price: 490,
   value: 1680,
 },{
   id: '3753',
   category: 'sales',
   description: 'Available in White and Ivory',
-  overlay: '$690',
-  price: 690,
+  overlay: '$490',
+  price: 490,
   value: 1380,
 },{
   id: 'YSN316',
@@ -1278,9 +1187,9 @@ export default [{
 },{
   id: 'X030T',
   category: 'sales',
-  description: 'Size 8-20',
-  overlay: '$680',
-  price: 680,
+  description: 'Size 8 White',
+  overlay: '$490',
+  price: 490,
   value: 1290,
 },{
   id: '3704',
@@ -1321,7 +1230,7 @@ export default [{
   id: 'GS192',
   category: 'sales',
   description: 'Ivory size 10',
-  overlay: '$880',
+  overlay: 'Sold',
   price: 880,
   value: 1690,
 },{
@@ -1335,8 +1244,8 @@ export default [{
   id: 'XIAN05',
   category: 'sales',
   description: 'White and ivory size 10 to 14',
-  overlay: '$680',
-  price: 680,
+  overlay: '$490',
+  price: 490,
   value: 1290,
 },{
   id: '2331',
@@ -1570,13 +1479,6 @@ export default [{
   price: 260,
   value: 880,
 },{
-  id: 'T2072',
-  category: 'sales',
-  description: 'Size 6 Ivory',
-  overlay: '$190',
-  price: 190,
-  value: 1180,
-},{
   id: 'QL004',
   category: 'sales',
   description: 'Size 8 Ivory',
@@ -1755,15 +1657,8 @@ export default [{
   id: 'A207',
   category: 'sales',
   description: '',
-  overlay: 'Sold',
-  price: 0,
-  value: 0,
-},{
-  id: 'A206',
-  category: 'sales',
-  description: 'Size 6',
-  overlay: '$590',
-  price: 590,
+  overlay: '$480',
+  price: 480,
   value: 680,
 },{
   id: '9378',
@@ -1772,13 +1667,6 @@ export default [{
   overlay: '$290',
   price: 290,
   value: 680,
-},{
-  id: '8054',
-  category: 'sales',
-  description: 'Size 8 to 16',
-  overlay: '$360',
-  price: 360,
-  value: 780,
 },{
   id: '2194',
   category: 'sales',
@@ -1850,13 +1738,6 @@ export default [{
   price: 500,
   value: 680,
 },{
-  id: 'A267',
-  category: 'sales',
-  description: 'Size 10 White',
-  overlay: '$360',
-  price: 360,
-  value: 650,
-},{
   id: 'B40',
   category: 'sales',
   description: 'Size 8 to 16',
@@ -1880,7 +1761,7 @@ export default [{
 },{
   id: '897B',
   category: 'sales',
-  description: '',
+  description: 'Burgandy sold. Available in pink and light blue',
   overlay: '$68',
   price: 68,
   value: 380,
@@ -1912,13 +1793,6 @@ export default [{
   overlay: '$120',
   price: 120,
   value: 360,
-},{
-  id: 'C39',
-  category: 'sales',
-  description: 'Size 12 in Purple, Size 10 in Gold',
-  overlay: '',
-  price: 260,
-  value: 320,
 },{
   id: '801',
   category: 'sales',

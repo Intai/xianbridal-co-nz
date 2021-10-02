@@ -107,13 +107,14 @@ const renderImage = ({ product }, refImage) => {
   )
 }
 
-const renderPrice = ({ product }) => (
-  !!(product.value && product.price) && (
-    <Price>
-      {`$${product.price}`}
-    </Price>
-  )
-)
+const renderPrice = ({ product }) => {
+  if (product.value && product.price) {
+    return <Price>{`$${product.price}`}</Price>
+  } if (product.overlay) {
+    return <Price>{product.overlay}</Price>
+  }
+  return false
+}
 
 const renderSelected = ({ product, selected, query }, boundingBox) => (
   selected && selected.id === product.id && (
