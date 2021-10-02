@@ -54,9 +54,7 @@ const renderCatalogue = (catalogue, query, backUrl) => (
 
 const useBdux = createUseBdux({
   catalogue: CatalogueStore,
-}, [
-  CatalogueAction.init,
-])
+})
 
 const Catalogue = (props) => {
   const { match: { params: { category = 'search', query, id } } } = props

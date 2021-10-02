@@ -68,8 +68,3 @@ export const load = (category, query, id) => {
     selected,
   }
 }
-
-export const init = ({ props }) => {
-  const { match: { params: { category, id } } } = props
-  return load(category, id)
-}
