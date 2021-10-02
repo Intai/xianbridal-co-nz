@@ -108,10 +108,10 @@ const renderImage = ({ product }, refImage) => {
 }
 
 const renderPrice = ({ product }) => {
-  if (product.value && product.price) {
-    return <Price>{`$${product.price}`}</Price>
-  } if (product.overlay) {
+  if (product.overlay) {
     return <Price>{product.overlay}</Price>
+  } if (product.value && product.price) {
+    return <Price>{`$${product.price}`}</Price>
   }
   return false
 }

@@ -343,13 +343,6 @@ export default [{
   price: 0,
   value: 0,
 },{
-  id: 'WS034',
-  category: 'gowns',
-  description: '',
-  overlay: 'Sold',
-  price: 0,
-  value: 0,
-},{
   id: 'L0229',
   category: 'gowns',
   description: '',
@@ -740,7 +733,7 @@ export default [{
   id: '37002',
   category: 'sales',
   description: 'Size 16 White',
-  overlay: '$790',
+  overlay: 'Sold',
   price: 790,
   value: 1590,
 },{
