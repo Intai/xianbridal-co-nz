@@ -74,19 +74,19 @@ const renderBackground = (selected) => (
   <React.Fragment key="background">
     <BackgroundImage
       isSelected={!selected || selected === 'gowns'}
-      src={getImageUrl('/background/gowns2.jpg')}
+      src={getImageUrl('/background/gowns2.webp')}
     />
     <BackgroundImage
       isSelected={selected === 'sales'}
-      src={getImageUrl('/background/gowns1.jpg')}
+      src={getImageUrl('/background/gowns1.webp')}
     />
     <BackgroundImage
       isSelected={selected === 'accessories'}
-      src={getImageUrl('/background/accessories.jpg')}
+      src={getImageUrl('/background/accessories.webp')}
     />
     <BackgroundImage
       isSelected={selected === 'search'}
-      src={getImageUrl('/background/search.jpg')}
+      src={getImageUrl('/background/search.webp')}
     />
   </React.Fragment>
 )
@@ -98,19 +98,19 @@ const renderSlideShow = (isEnabled) => (
   >
     <SlideShowImage
       index={0}
-      src={getImageUrl('/background/gowns1.jpg')}
+      src={getImageUrl('/background/gowns1.webp')}
     />
     <SlideShowImage
       index={1}
-      src={getImageUrl('/background/gowns2.jpg')}
+      src={getImageUrl('/background/gowns2.webp')}
     />
     <SlideShowImage
       index={2}
-      src={getImageUrl('/background/accessories.jpg')}
+      src={getImageUrl('/background/accessories.webp')}
     />
     <SlideShowImage
       index={3}
-      src={getImageUrl('/background/search.jpg')}
+      src={getImageUrl('/background/search.webp')}
     />
   </SlideShow>
 )
