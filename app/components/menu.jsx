@@ -232,7 +232,7 @@ const MenuRoutes = (props) => {
   const { state } = useBduxForRoutes(props)
   const { location } = state
 
-  return (
+  return !!location && (
     <Router history={createLocationHistory(location)}>
       <Route
         component={Menu}

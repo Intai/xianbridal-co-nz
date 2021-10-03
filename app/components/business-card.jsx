@@ -315,7 +315,7 @@ const BusinessCardRoutes = (props) => {
   const { state } = useBdux(props)
   const { location } = state
 
-  return (
+  return !!location && (
     <Router history={createLocationHistory(location)}>
       <Route
         component={BusinessCard}
