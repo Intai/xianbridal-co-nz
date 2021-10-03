@@ -19,6 +19,7 @@ const renderApp = (req, res) => {
     const [head, afterHead] = file.split('<%- head %>')
     const [beforeApp, afterApp] = afterHead.split('<%- app %>')
     const [beforePortal, tail] = afterApp.split('<%- portal %>')
+    res.set('Content-Type', 'text/html')
     res.write(head)
     res.write(HeadRoot.renderToString(req, res))
     res.write(beforeApp)
