@@ -315,11 +315,11 @@ const BusinessCardRoutes = (props) => {
   const { state } = useBdux(props)
   const { location } = state
 
-  return !!location && (
+  return (
     <Router history={createLocationHistory(location)}>
       <Route
         component={BusinessCard}
-        path="/:category?/:id?"
+        path="/:category?"
       />
     </Router>
   )

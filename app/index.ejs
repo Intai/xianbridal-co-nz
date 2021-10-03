@@ -27,6 +27,7 @@
   </head>
   <body>
     <div id="app"><%= htmlWebpackPlugin.options.app %></div>
+    <%= htmlWebpackPlugin.options.portal %>
     <script>
       window.env = {
         IMAGES_CDN_DOMAIN: '<%= IMAGES_CDN_DOMAIN %>',

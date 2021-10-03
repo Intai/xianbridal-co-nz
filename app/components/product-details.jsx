@@ -1,15 +1,17 @@
-import { once } from 'ramda'
 import React, {
   useRef,
   useState,
   useCallback,
   useEffect,
 } from 'react'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
+import { createUseBdux } from 'bdux'
 import RootPortal from './root-portal'
 import Anchor from './anchor'
+import theme from './theme'
 import { textOffWhite } from './color'
 import { fontSerif, fontSans, fontShadow } from './typography'
+import CatalogueStore from '../stores/catalogue-store'
 import { getImageUrl, encodeSku } from '../utils/common-util'
 import {
   getTouchDistance,
@@ -60,13 +62,15 @@ const handleImageError = e => {
   }
 }
 
-const OptionalImage = ({ onClick, onTouchMove, scale, src }) => (
+const OptionalImage = ({ onClick, onTouchMove, scale, src, srcSet, sizes }) => (
   <Image
     onClick={onClick}
     onError={handleImageError}
     onTouchMove={onTouchMove}
     scale={scale}
     src={src}
+    srcSet={srcSet}
+    sizes={sizes}
   />
 )
 
@@ -132,10 +136,12 @@ const getSrcSet = (product, variation = '') => {
 ${getImageUrl(`/product/${filename}-2000.jpg`)} 2000w`
 }
 
-const getSizes = once(() => window.devicePixelRatio === 2
-  ? '(max-width: 500px) 500px, 1000px'
-  : '(max-width: 1000px) 1000px, 2000px',
-)
+const srcSizes = '\
+(max-width: 500px) and (-webkit-device-pixel-ratio: 4) 250px, \
+(max-width: 500px) and (-webkit-device-pixel-ratio: 3) 333px, \
+(max-width: 500px) and (-webkit-device-pixel-ratio: 2) 500px, \
+(max-width: 500px) and (-webkit-device-pixel-ratio: 1) 1000px, \
+2000px'
 
 const setImageTempStyles = (refScroll, scale) => {
   const container = refScroll.current
@@ -237,7 +243,7 @@ const renderImages = (
         scale={scale}
         src={getImage(product)}
         srcSet={getSrcSet(product)}
-        sizes={getSizes()}
+        sizes={srcSizes}
       />
       {[1, 2, 3, 4].map(variation => (
         <OptionalImage
@@ -247,7 +253,7 @@ const renderImages = (
           scale={scale}
           src={getImage(product, variation)}
           srcSet={getSrcSet(product, variation)}
-          sizes={getSizes()}
+          sizes={srcSizes}
         />
       ))}
     </Images>
@@ -297,10 +303,7 @@ const ProductDetails = ({
   })
 
   return (
-    <ProductRootPortal
-      itemScope
-      itemType="http://data-vocabulary.org/Product"
-    >
+    <>
       {renderImages(
         product,
         initialRect,
@@ -330,8 +333,47 @@ const ProductDetails = ({
         href={backUrl || `/${product.category}`}
         icon="back"
       />
-    </ProductRootPortal>
+    </>
   )
 }
 
-export default ProductDetails
+const useBdux = createUseBdux({
+  catalogue: CatalogueStore,
+})
+
+export const ProductDetailsForSeo = (props) => {
+  const { state } = useBdux(props)
+  const { catalogue } = state
+  const product = catalogue && catalogue.selected
+
+  return !!product && (
+    <div id={`root-portal-${product.id}`}>
+      <div
+        itemScope
+        itemType="http://data-vocabulary.org/Product"
+        // react doesn't support hydration for portal yet.
+        // rendering hidden just for seo.
+        style={{ display: 'none' }}
+      >
+        <ThemeProvider theme={theme}>
+          <ProductDetails
+            product={product}
+            backUrl="/"
+          />
+        </ThemeProvider>
+      </div>
+    </div>
+  )
+}
+
+const ProductDetailsWithPortal = (props) => (
+  <ProductRootPortal
+    id={`root-portal-${props.product.id}`}
+    itemScope
+    itemType="http://data-vocabulary.org/Product"
+  >
+    <ProductDetails {...props} />
+  </ProductRootPortal>
+)
+
+export default ProductDetailsWithPortal

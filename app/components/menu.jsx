@@ -232,11 +232,11 @@ const MenuRoutes = (props) => {
   const { state } = useBduxForRoutes(props)
   const { location } = state
 
-  return !!location && (
+  return (
     <Router history={createLocationHistory(location)}>
       <Route
         component={Menu}
-        path="/:category?/:id?"
+        path="/:category?"
       />
     </Router>
   )

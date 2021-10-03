@@ -22,7 +22,7 @@ const Routes = (props) => {
   const { state } = useBdux(props)
   const { location } = state
 
-  return !!location && (
+  return (
     <Router history={createLocationHistory(location)}>
       <Switch>
         <Route

@@ -42,6 +42,7 @@ module.exports = {
       template: '../app/index.ejs',
       head:  '<%- head %>',
       app: '<%- app %>',
+      portal: '<%- portal %>',
       inject: false,
       minify: {
         collapseWhitespace: true,

@@ -4,10 +4,10 @@ import { createRoot } from 'bdux-universal'
 import { extractPathParams } from './routes'
 import * as CatalogueAction from '../actions/catalogue-action'
 import CatalogueStore from '../stores/catalogue-store'
-import Head from '../components/head'
+import { ProductDetailsForSeo } from '../components/product-details'
 import { decodeSku } from '../utils/common-util'
 
-export const renderElement = ({ dispatch }, req) => {
+export const renderElement = ({ dispatch }, req, _res) => {
   const { path } = req
   const { category, query, id } = extractPathParams(path)
 
@@ -16,7 +16,7 @@ export const renderElement = ({ dispatch }, req) => {
   if (category) {
     dispatch(CatalogueAction.load(category, query, decodeSku(id)))
   }
-  return <Head isStandAlone />
+  return <ProductDetailsForSeo />
 }
 
 export default createRoot(

@@ -6,14 +6,14 @@ var path = require('path'),
   spawn = require('child_process').spawn,
   webpack = require('webpack'),
   webpackStream = require('webpack-stream'),
-  WebpackDevServer = require('webpack-dev-server'),
-  port = process.env.PORT || 80
+  WebpackDevServer = require('webpack-dev-server')
 
 function clean() {
   return del('dist')
 }
 
 function devServer() {
+  const port = process.env.PORT || 80
   const compiler = webpack(require('./webpack/dev.config.js'))
 
   new WebpackDevServer({
@@ -57,7 +57,8 @@ function setEnv(env) {
 }
 
 function prodServer(cb) {
-  var cmd = spawn('node', [
+  const port = process.env.PORT || 8080
+  const cmd = spawn('node', [
     'dist/server.js',
   ], {
     stdio: 'inherit',

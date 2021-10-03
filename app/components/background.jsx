@@ -73,12 +73,12 @@ const SlideShow = styled.div`
 const renderBackground = (selected) => (
   <React.Fragment key="background">
     <BackgroundImage
-      isSelected={selected === 'gowns'}
-      src={getImageUrl('/background/gowns1.jpg')}
+      isSelected={!selected || selected === 'gowns'}
+      src={getImageUrl('/background/gowns2.jpg')}
     />
     <BackgroundImage
       isSelected={selected === 'sales'}
-      src={getImageUrl('/background/gowns2.jpg')}
+      src={getImageUrl('/background/gowns1.jpg')}
     />
     <BackgroundImage
       isSelected={selected === 'accessories'}
@@ -138,11 +138,11 @@ const BackgroundRoutes = (props) => {
   const { state } = useBduxForRoutes(props)
   const { location } = state
 
-  return !!location && (
+  return (
     <Router history={createLocationHistory(location)}>
       <Route
         component={Background}
-        path="/:category?/:id?"
+        path="/:category?"
       />
     </Router>
   )

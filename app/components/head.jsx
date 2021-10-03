@@ -45,7 +45,7 @@ const HeadProduct = (props) => {
   const sku = encodeSku(product.id)
   return renderHead({
     description: `Photos and details of Wedding Gown Item #${sku}. ${product.description}`,
-    keywords: `#${sku},${product.keywords}`,
+    keywords: `#${sku},${product.keywords || ''}`,
     title: `Xian Bridal: Wedding Dress Item #${sku}`,
   })
 }
@@ -73,7 +73,7 @@ const Head = (props) => {
   const { state } = useBduxHead(props)
   const { location } = state
 
-  return !!location && shouldUpdateHead(props) && (
+  return shouldUpdateHead(props) && (
     <Router history={createLocationHistory(location)}>
       <Switch>
         <Route

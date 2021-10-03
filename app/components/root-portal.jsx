@@ -1,7 +1,7 @@
 import React, { useMemo, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
-import Common from '../utils/common-util'
+import { canUseDOM } from '../utils/common-util'
 
 const Container = styled.div`
   position: absolute;
@@ -9,8 +9,16 @@ const Container = styled.div`
   left: 0;
 `
 
-const createContainer = () => {
-  if (Common.canUseDOM()) {
+const createContainer = (id) => {
+  if (canUseDOM()) {
+    if (id) {
+      // use the existing div by id if already exist.
+      const container = document.getElementById(id)
+      if (container) {
+        container?.firstChild?.remove()
+        return container
+      }
+    }
     const container = document.createElement('div')
     const app = document.getElementById('app')
     if (app && app.firstChild) {
@@ -23,25 +31,26 @@ const createContainer = () => {
 }
 
 const removeContainer =  (portalContainer) => () => {
-  if (Common.canUseDOM()) {
+  if (canUseDOM()) {
     portalContainer.parentNode.removeChild(portalContainer)
   }
 }
 
 const RootPortal = (props) => {
-  const portalContainer = useMemo(createContainer, [])
+  const { id, children, className, itemScope, itemType } = props
+  const portalContainer = useMemo(() => createContainer(id), [id])
   useEffect(() => removeContainer(portalContainer),
     // remove the div container when unmounting.
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [])
 
-  return ReactDOM.createPortal(
+  return canUseDOM() && ReactDOM.createPortal(
     <Container
-      className={props.className}
-      itemScope={props.itemScope}
-      itemType={props.itemType}
+      className={className}
+      itemScope={itemScope}
+      itemType={itemType}
     >
-      {props.children}
+      {children}
     </Container>,
     portalContainer,
   )
