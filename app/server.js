@@ -11,6 +11,15 @@ const port = process.env.PORT || 8080
 const defaultDigest = Date.now()
 
 const renderApp = (req, res) => {
+  const image = process.env.CONTAINER_IMAGE
+  const digest = image ? image.replace(/^.*@sha256:/, '') : defaultDigest
+  const etag = `W/"${digest}"`
+
+  if (req.header('If-None-Match') === etag) {
+    res.sendStatus(304)
+    return
+  }
+
   fs.readFile('./dist/server.ejs', 'utf8', (err, file) => {
     if (err) {
       throw err
@@ -20,6 +29,7 @@ const renderApp = (req, res) => {
     const [beforeApp, afterApp] = afterHead.split('<%- app %>')
     const [beforePortal, tail] = afterApp.split('<%- portal %>')
     res.set('Content-Type', 'text/html')
+    res.set('Etag', etag)
     res.write(head)
     res.write(HeadRoot.renderToString(req, res))
     res.write(beforeApp)
