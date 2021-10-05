@@ -8,7 +8,9 @@ import { hasUniversalStates } from 'bdux-universal'
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/service-worker').then()
-    navigator.serviceWorker.register('https://images.xianbridal.co.nz/service-worker.js').then()
+    const iframe = document.createElement('iframe')
+    iframe.src = 'https://images.xianbridal.co.nz/service-worker.html'
+    document.body.appendChild(iframe)
   })
 }
 
