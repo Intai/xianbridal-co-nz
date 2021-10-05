@@ -19,29 +19,27 @@ exports.handler = (event, context, callback) => {
       },
     },
   }, (errCdn, errData) => {
-    console.log('finish invalidation', {
+    console.log('put lifecycle event hook', {
       errCdn,
       errData,
     })
-  })
 
-  console.log('put lifecycle event hook')
+    codedeploy.putLifecycleEventHookExecutionStatus({
+      deploymentId: event.DeploymentId,
+      lifecycleEventHookExecutionId: event.LifecycleEventHookExecutionId,
+      status: errCdn ? 'Failed' : 'Succeeded',
+    }, (errDeploy, dataDeploy) => {
+      console.log('finish putting lifecycle', {
+        errDeploy,
+        dataDeploy,
+      })
 
-  codedeploy.putLifecycleEventHookExecutionStatus({
-    deploymentId: event.DeploymentId,
-    lifecycleEventHookExecutionId: event.LifecycleEventHookExecutionId,
-    status: 'Succeeded',
-  }, (errDeploy, dataDeploy) => {
-    console.log('finish putting lifecycle', {
-      errDeploy,
-      dataDeploy,
+      if (errDeploy) {
+        callback('validation test failed')
+      } else {
+        callback(null, 'validation test succeeded')
+      }
     })
-
-    if (errDeploy) {
-      callback('validation test failed')
-    } else {
-      callback(null, 'validation test succeeded')
-    }
   })
 
   return context.logStreamName
