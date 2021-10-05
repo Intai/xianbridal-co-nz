@@ -28,4 +28,6 @@ exports.handler = (event, context, callback) => {
       }
     })
   })
+
+  return context.logStreamName
 }
