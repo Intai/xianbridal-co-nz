@@ -7,3 +7,5 @@ Resources:
         LoadBalancerInfo:
           ContainerName: "nginx"
           ContainerPort: 443
+Hooks:
+  - AfterAllowTraffic: "arn:aws:lambda:us-east-1:501045672667:function:xianbridal-create-invalidation"
