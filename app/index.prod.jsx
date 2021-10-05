@@ -8,6 +8,7 @@ import { hasUniversalStates } from 'bdux-universal'
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/service-worker').then()
+    navigator.serviceWorker.register('https://images.xianbridal.co.nz/service-worker.js').then()
   })
 }
 
