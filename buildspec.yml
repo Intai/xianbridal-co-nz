@@ -18,14 +18,16 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker images...
       - docker build -t nodejs .
-      - docker build -t nginx -f nginx/Dockerfile .
       - docker tag nodejs:latest $REPO_URI_NODEJS:$IMAGE_TAG_NAME
-      - docker tag nginx:latest $REPO_URI_NGINX:$IMAGE_TAG_NAME
       - docker tag nodejs:latest $REPO_URI_NODEJS:$IMAGE_TAG_COMMIT
-      - docker tag nginx:latest $REPO_URI_NGINX:$IMAGE_TAG_COMMIT
+      - if [ $IMAGE_TAG_NAME = "nginx" ]; then
+          docker build -t nginx -f nginx/Dockerfile .
+          docker tag nginx:latest $REPO_URI_NGINX:$IMAGE_TAG_NAME
+          docker tag nginx:latest $REPO_URI_NGINX:$IMAGE_TAG_COMMIT; fi
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
       - docker push $REPO_URI_NODEJS
-      - docker push $REPO_URI_NGINX
+      - if [ $IMAGE_TAG_NAME = "nginx" ]; then
+          docker push $REPO_URI_NGINX; fi
