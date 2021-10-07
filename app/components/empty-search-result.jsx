@@ -8,7 +8,7 @@ import {
   backgroundWhite,
 } from './color'
 import { fontSerif } from './typography'
-import { getWebUrl } from '../utils/common-util'
+import { getStaticUrl } from '../utils/common-util'
 
 const Container = styled.li`
   ${fontSerif}
@@ -91,7 +91,7 @@ const Search = (props) => {
         type="text"
       />
       <SearchIcon
-        src={getWebUrl('/static/icons/search.svg')}
+        src={getStaticUrl('/icons/search.svg')}
       />
     </SearchContainer>
   )

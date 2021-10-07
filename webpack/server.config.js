@@ -4,7 +4,8 @@ var R = require('ramda'),
   fs = require('fs'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   ESLintPlugin = require('eslint-webpack-plugin'),
-  env = (process.env.NODE_ENV === 'production') ? 'prod' : 'dev'
+  env = (process.env.NODE_ENV === 'production') ? 'prod' : 'dev',
+  digest = process.env.CONTAINER_IMAGE || ''
 
 var getExternalPair = function(name) {
   return [name, 'commonjs ' + name]
@@ -35,7 +36,7 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       IMAGES_CDN_DOMAIN: JSON.stringify(process.env.IMAGES_CDN_DOMAIN || '/static/images'),
-      WEB_CDN_DOMAIN: JSON.stringify(process.env.WEB_CDN_DOMAIN || ''),
+      STATIC_CDN_DOMAIN: JSON.stringify(`${process.env.WEB_CDN_DOMAIN || ''}/static-${digest}`),
     }),
     new HtmlWebpackPlugin({
       filename: 'server.ejs',
@@ -49,7 +50,7 @@ module.exports = {
       },
       files: {
         css: [],
-        js: ['/static/client.js'],
+        js: [`/static-${digest}/client.js`],
       },
     }),
     new ESLintPlugin({

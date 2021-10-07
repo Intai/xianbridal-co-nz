@@ -6,8 +6,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - ./:/usr/src/app
 
   nginx:
     depends_on:

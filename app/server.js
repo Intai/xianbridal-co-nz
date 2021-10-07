@@ -61,7 +61,7 @@ const serviceWorker = (req, res) => {
 }
 
 app.set('etag', 'weak')
-app.use('/static', express.static('dist', { maxAge: 15552000000 }))
+app.use(/^\/static[^/]*/, express.static('dist', { maxAge: 15552000000 }))
 app.use('/favicon.ico', express.static('dist/favicon'))
 app.get('/service-worker', serviceWorker)
 app.get('*', renderApp)

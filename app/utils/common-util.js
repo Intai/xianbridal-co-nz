@@ -27,8 +27,8 @@ export const getImageUrl = (pathname) => {
     : `/static/images${pathname}`
 }
 
-export const getWebUrl = (pathname) => {
-  const cdn = getEnv().WEB_CDN_DOMAIN
+export const getStaticUrl = (pathname) => {
+  const cdn = getEnv().STATIC_CDN_DOMAIN
   return cdn
     ? `${cdn}${pathname}`
     : pathname
