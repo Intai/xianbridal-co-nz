@@ -1,30 +1,21 @@
-var R = require('ramda'),
-  path = require('path'),
+var path = require('path'),
   webpack = require('webpack'),
-  fs = require('fs'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   ESLintPlugin = require('eslint-webpack-plugin'),
   env = (process.env.NODE_ENV === 'production') ? 'prod' : 'dev',
   timestamp = process.env.TIMESTAMP || ''
 
-var getExternalPair = function(name) {
-  return [name, 'commonjs ' + name]
-}
-
-var getExternalObject = R.pipe(
-  R.map(getExternalPair),
-  R.fromPairs,
-)
-
-var getExternals = function() {
-  return getExternalObject(
-    fs.readdirSync(path.join(__dirname, '../node_modules')))
+var isExternal = function({ request }, callback) {
+  if (request[0] !== '.') {
+    return callback(null, 'commonjs ' + request)
+  }
+  callback()
 }
 
 module.exports = {
   mode: 'production',
   target: 'node',
-  externals: getExternals(),
+  externals: [isExternal],
   context: path.join(__dirname, '../app'),
   entry: [
     './server',
@@ -54,7 +45,7 @@ module.exports = {
       },
     }),
     new ESLintPlugin({
-      extensions: ['jjs', 'jsx'],
+      extensions: ['js', 'jsx'],
       exclude: 'node_modules',
     }),
   ],
