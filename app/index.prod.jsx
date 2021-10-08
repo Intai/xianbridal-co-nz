@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import BduxContext from 'bdux/context'
 import { createDispatcher } from 'bdux/dispatcher'
 import { hasUniversalStates } from 'bdux-universal/has-universal-states'
+import App from './components/app'
 
 // register service worker for offline cache.
 if ('serviceWorker' in navigator) {
@@ -16,10 +17,6 @@ const bduxContext = {
   dispatcher: createDispatcher(),
   stores: new WeakMap(),
 }
-
-const App = React.lazy(() => (
-  import(/* webpackChunkName: "app" */ './components/app')
-))
 
 const renderApp = () => (
   <Suspense fallback={false}>
