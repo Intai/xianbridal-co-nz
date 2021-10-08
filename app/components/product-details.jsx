@@ -5,7 +5,7 @@ import React, {
   useEffect,
 } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
-import { createUseBdux } from 'bdux'
+import { createUseBdux } from 'bdux/hook'
 import RootPortal from './root-portal'
 import Anchor from './anchor'
 import theme from './theme'

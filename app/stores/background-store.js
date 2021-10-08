@@ -7,10 +7,10 @@ import {
   prop,
   when,
 } from 'ramda'
-import * as Bacon from 'baconjs'
+import { Bus } from 'baconjs'
 import ActionTypes from '../actions/action-types'
 import StoreNames from '../stores/store-names'
-import { createStore } from 'bdux'
+import { createStore } from 'bdux/store'
 
 const isAction = pathEq(
   ['action', 'type'],
@@ -25,7 +25,7 @@ const whenSelect = when(
 )
 
 export const getReducer = () => {
-  const reducerStream = new Bacon.Bus()
+  const reducerStream = new Bus()
   return {
     input: reducerStream,
     output: reducerStream

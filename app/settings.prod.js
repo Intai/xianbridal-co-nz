@@ -1,5 +1,5 @@
-import * as Universal from 'bdux-universal'
-import { applyMiddleware } from 'bdux'
+import * as Universal from 'bdux-universal/middleware'
+import { applyMiddleware } from 'bdux/middleware'
 
 applyMiddleware(
   Universal,

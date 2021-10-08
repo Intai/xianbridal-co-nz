@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { useBdux } from 'bdux'
+import { useBdux } from 'bdux/hook'
 import { LocationAction } from 'bdux-react-router'
 import styled from 'styled-components'
 import {
