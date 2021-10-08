@@ -31,7 +31,7 @@ export const getStaticUrl = (pathname) => {
   const cdn = getEnv().STATIC_CDN_DOMAIN
   return cdn
     ? `${cdn}${pathname}`
-    : pathname
+    : `/static${pathname}`
 }
 
 export const encodeSku = memoizeWith(identity, (name) => (
