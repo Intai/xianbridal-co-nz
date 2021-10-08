@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'bdux-react-router'
-import { useBdux, createUseBdux } from 'bdux/hook'
+import { useBdux, createUseBdux } from 'bdux'
 import {
   createLocationHistory,
   LocationAction,

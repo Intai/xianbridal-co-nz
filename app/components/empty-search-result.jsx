@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { useBdux } from 'bdux/hook'
+import { useBdux } from 'bdux'
 import { LocationAction } from 'bdux-react-router'
 import {
   textGrey,

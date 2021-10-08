@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useBdux, createUseBdux } from 'bdux/hook'
+import { useBdux, createUseBdux } from 'bdux'
 import {
   createLocationHistory,
   LocationAction,

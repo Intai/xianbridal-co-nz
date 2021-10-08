@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from 'react'
 import styled from 'styled-components'
-import { createUseBdux } from 'bdux/hook'
+import { createUseBdux } from 'bdux'
 import Product from './product'
 import EmptySearchResult from './empty-search-result'
 import * as CatalogueAction from '../actions/catalogue-action'

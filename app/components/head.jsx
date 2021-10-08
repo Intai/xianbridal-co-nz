@@ -1,5 +1,5 @@
 import React from 'react'
-import { createUseBdux, useBdux } from 'bdux/hook'
+import { createUseBdux, useBdux } from 'bdux'
 import {
   createLocationHistory,
   LocationAction,
