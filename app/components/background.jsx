@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { useBdux, createUseBdux } from 'bdux/hook'
 import {
@@ -11,115 +11,77 @@ import {
 import BackgroundStore from '../stores/background-store'
 import { getImageUrl } from '../utils/common-util'
 
-const imageSelected = ({ isSelected }) => isSelected && `
-  transition: opacity 500ms linear;
-  opacity: 1;
+const imageSelected = ({ isSelected }) => `
+  opacity: ${isSelected ? 1 : 0};
 `
-
-const imageDeselected = ({ isSelected }) => !isSelected && `
-  transition: opacity 500ms linear;
-  opacity: 0;
-`
-
-const imageSlideShow = ({ index }) => {
-  const fadein = (index > 0 )
-    ? `${index * 25 - 5}% { opacity: 0; }`
-    : ''
-  const fadeout = (index < 3)
-    ? `${(index + 1) * 25 + 5}% { opacity: 0; }`
-    : ''
-
-  return `
-    opacity: 0;
-    animation: 10s infinite alternate slideshow-${index};
-    @keyframes slideshow-${index} {
-      ${fadein}
-      ${index * 25}% { opacity: 1; }
-      ${(index + 1) * 25}% { opacity: 1; }
-      ${fadeout}
-    }
-  `
-}
 
 const Image = styled.img`
+  ${imageSelected}
+  transition: opacity 500ms linear;
   object-fit: cover;
   object-position: center;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: -1;
 `
 
-const SlideShowImage = styled(Image)`
-  ${imageSlideShow}
-`
-
-const BackgroundImage = styled(Image)`
-  ${imageSelected}
-  ${imageDeselected}
-`
-
-const SlideShow = styled.div`
-  ${({ isEnabled }) => !isEnabled && 'display: none'}
-`
-
 const renderBackground = (selected) => (
-  <React.Fragment key="background">
-    <BackgroundImage
+  <>
+    <Image
       isSelected={!selected || selected === 'gowns'}
       src={getImageUrl('/background/gowns2.webp')}
     />
-    <BackgroundImage
+    <Image
       isSelected={selected === 'sales'}
       src={getImageUrl('/background/gowns1.webp')}
     />
-    <BackgroundImage
+    <Image
       isSelected={selected === 'accessories'}
       src={getImageUrl('/background/accessories.webp')}
     />
-    <BackgroundImage
+    <Image
       isSelected={selected === 'search'}
       src={getImageUrl('/background/search.webp')}
     />
-  </React.Fragment>
+  </>
 )
 
-const renderSlideShow = (isEnabled) => (
-  <SlideShow
-    isEnabled={isEnabled}
-    key="slideshow"
-  >
-    <SlideShowImage
-      index={0}
-      src={getImageUrl('/background/gowns1.webp')}
-    />
-    <SlideShowImage
-      index={1}
-      src={getImageUrl('/background/gowns2.webp')}
-    />
-    <SlideShowImage
-      index={2}
-      src={getImageUrl('/background/accessories.webp')}
-    />
-    <SlideShowImage
-      index={3}
-      src={getImageUrl('/background/search.webp')}
-    />
-  </SlideShow>
-)
+const selectNext = prev => {
+  switch(prev) {
+  case 'gowns':
+    return 'sales'
+  case 'sales':
+    return 'accessories'
+  case 'accessories':
+    return 'search'
+  default:
+    return 'gowns'
+  }
+}
 
 const Background = (props) => {
   const { state } = useBdux(props, { background: BackgroundStore })
   const { background } = state
   const { match: { params: { category } } } = props
-  const selected = (background && background.selected) || category
+  const selected = background && background.selected
+  const [current, setCurrent] = useState(selected || category)
+  const refInterval = useRef()
 
-  return [
-    renderSlideShow(typeof category !== 'string'),
-    renderBackground(selected),
-  ]
+  useEffect(() => {
+    clearInterval(refInterval.current)
+    if (selected) {
+      setCurrent(selected)
+    } else if (!category) {
+      refInterval.current = setInterval(() => {
+        setCurrent(selectNext)
+      }, 5000)
+    }
+  }, [category, selected])
+
+  return renderBackground(current)
 }
 
 const useBduxForRoutes = createUseBdux({

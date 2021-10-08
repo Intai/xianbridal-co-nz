@@ -26,14 +26,6 @@
     <%= htmlWebpackPlugin.options.head %>
   </head>
   <body>
-    <div id="app"><%= htmlWebpackPlugin.options.app %></div>
-    <%= htmlWebpackPlugin.options.portal %>
-    <script>
-      window.env = {
-        IMAGES_CDN_DOMAIN: '<%= IMAGES_CDN_DOMAIN %>',
-        STATIC_CDN_DOMAIN: '<%= STATIC_CDN_DOMAIN %>',
-      }
-    </script>
     <style type="text/css">
       @font-face {
         font-family: 'Playfair Display SC';
@@ -86,6 +78,16 @@
         color: inherit;
       }
     </style>
+
+    <div id="app"><%= htmlWebpackPlugin.options.app %></div>
+    <%= htmlWebpackPlugin.options.portal %>
+
+    <script>
+      window.env = {
+        IMAGES_CDN_DOMAIN: '<%= IMAGES_CDN_DOMAIN %>',
+        STATIC_CDN_DOMAIN: '<%= STATIC_CDN_DOMAIN %>',
+      }
+    </script>
 
     <% htmlWebpackPlugin.options.files.css.forEach(function(href) { %>
       <link href="<%= href %>" rel="stylesheet">
