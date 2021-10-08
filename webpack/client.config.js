@@ -3,7 +3,7 @@ var path = require('path'),
   // BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
   ESLintPlugin = require('eslint-webpack-plugin'),
   env = (process.env.NODE_ENV === 'production') ? 'prod' : 'dev',
-  digest = process.env.CONTAINER_IMAGE || ''
+  timestamp = process.env.TIMESTAMP || ''
 
 module.exports = {
   mode: 'production',
@@ -33,7 +33,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, '../dist'),
-    publicPath: `/static-${digest}/`,
+    publicPath: `/static-${timestamp}/`,
     filename: 'client.js',
     chunkFilename: '[name].client.js',
   },
