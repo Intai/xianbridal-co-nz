@@ -11,12 +11,6 @@ import {
 import BackgroundStore from '../stores/background-store'
 import { getImageUrl } from '../utils/common-util'
 
-const imageSrc = ({ src }) => `
-  background-image: url(${src});
-  background-size: cover;
-  background-position: center;
-`
-
 const imageSelected = ({ isSelected }) => isSelected && `
   transition: opacity 500ms linear;
   opacity: 1;
@@ -47,8 +41,9 @@ const imageSlideShow = ({ index }) => {
   `
 }
 
-const Image = styled.div`
-  ${imageSrc}
+const Image = styled.img`
+  object-fit: cover;
+  object-position: center;
   position: fixed;
   top: 0;
   left: 0;
