@@ -84,6 +84,7 @@ const Name = styled.h1`
   font-size: 225%;
   margin: 3px 0 5px 15px;
   padding: 0;
+  min-height: 48px;
 `
 
 const Contact = styled.ul`
@@ -101,6 +102,7 @@ const ContactData = styled.li`
 const ContactItem = styled.li`
   display: block;
   float: left;
+  overflow: hidden;
 `
 
 const floatAddress = ({ isCompact }) => (
@@ -195,6 +197,7 @@ const renderEmail = ({ isCompact }) => (
     <Anchor
       href="mailto:info@xianbridal.co.nz?subject=&body="
       icon="mail"
+      maxWidth={253}
       text={isCompact ? '' : 'info@xianbridal.co.nz'}
     />
   </ContactItem>
@@ -206,6 +209,7 @@ const renderPhone = ({ isCompact }) => (
       href="tel:098271286"
       icon="phone"
       itemProp="telephone"
+      maxWidth={161}
       text={isCompact ? '' : '(09) 8271286'}
     />
   </ContactItem>
@@ -218,6 +222,7 @@ const renderMobile = ({ isCompact }) => (
       href="tel:0211409204"
       icon="mobile"
       itemProp="telephone"
+      maxWidth={163}
       text={isCompact ? '' : '021-1409204'}
     />
   </ContactItem>

@@ -8,8 +8,14 @@ import {
 } from './dimension'
 import { getStaticUrl } from '../utils/common-util'
 
+const maxWidth = ({ maxWidth }) => maxWidth && `
+  max-width: ${maxWidth}px;
+`
+
 const AnchorContainer = styled.a`
+  ${maxWidth}
   display: inline-block;
+  white-space: nowrap;
 `
 
 const imageMargin = ({ hasText }) => `
@@ -82,7 +88,7 @@ const renderText = ({ children, itemProp, text }) => (
 )
 
 const Anchor = (props) => {
-  const { href, target, className, onMouseUp } = props
+  const { href, target, className, maxWidth, onMouseUp } = props
   const { bindToDispatch } = useBdux(props)
   const handleClick = useMemo(() => bindToDispatch(pushLocation(href)), [href, bindToDispatch])
 
@@ -90,6 +96,7 @@ const Anchor = (props) => {
     <AnchorContainer
       className={className}
       href={href}
+      maxWidth={maxWidth}
       onClick={handleClick}
       onMouseUp={onMouseUp}
       rel="noreferrer noopener"
