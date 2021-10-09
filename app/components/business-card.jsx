@@ -102,7 +102,6 @@ const ContactData = styled.li`
 const ContactItem = styled.li`
   display: block;
   float: left;
-  overflow: hidden;
 `
 
 const floatAddress = ({ isCompact }) => (
