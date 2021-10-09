@@ -26,25 +26,50 @@ const Image = styled.img`
   width: 100vw;
   height: 100vh;
   z-index: -1;
+
+  @media (max-width: 480px) {
+    filter: blur(2px);
+  }
 `
+
+const getSrcSet = (filename) => {
+  return `${getImageUrl(`/background/${filename}-480.webp`)} 480w, \
+${getImageUrl(`/background/${filename}-960.webp`)} 960w, \
+${getImageUrl(`/background/${filename}-1920.webp`)} 1920w`
+}
+
+const srcSizes = '\
+(max-width: 480px) and (-webkit-device-pixel-ratio: 4) 240px, \
+(max-width: 480px) and (-webkit-device-pixel-ratio: 3) 320px, \
+(max-width: 480px) and (-webkit-device-pixel-ratio: 2) 240px, \
+(max-width: 480px) and (-webkit-device-pixel-ratio: 1) 480px, \
+1920px'
 
 const renderBackground = (selected) => (
   <>
     <Image
       isSelected={!selected || selected === 'gowns'}
-      src={getImageUrl('/background/gowns2.webp')}
+      src={getImageUrl('/background/gowns2-1920.webp')}
+      srcSet={getSrcSet('gowns2')}
+      sizes={srcSizes}
     />
     <Image
       isSelected={selected === 'sales'}
-      src={getImageUrl('/background/gowns1.webp')}
+      src={getImageUrl('/background/gowns1-1920.webp')}
+      srcSet={getSrcSet('gowns1')}
+      sizes={srcSizes}
     />
     <Image
       isSelected={selected === 'accessories'}
-      src={getImageUrl('/background/accessories.webp')}
+      src={getImageUrl('/background/accessories-1920.webp')}
+      srcSet={getSrcSet('accessories')}
+      sizes={srcSizes}
     />
     <Image
       isSelected={selected === 'search'}
-      src={getImageUrl('/background/search.webp')}
+      src={getImageUrl('/background/search-1920.webp')}
+      srcSet={getSrcSet('search')}
+      sizes={srcSizes}
     />
   </>
 )
