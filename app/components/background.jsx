@@ -107,6 +107,8 @@ const Background = (props) => {
       refInterval.current = setInterval(() => {
         setCurrent(selectNext)
       }, 5000)
+    } else {
+      setCurrent(category)
     }
   }, [category, selected])
 
