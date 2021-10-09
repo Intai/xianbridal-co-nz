@@ -72,10 +72,11 @@ const pushLocation = (href) => (e) => {
   }
 }
 
-const renderIcon = ({ children, icon, text }) => (
+const renderIcon = ({ children, icon, text, title }) => (
   <Image
     hasText={children || text}
     src={getStaticUrl(`/icons/${icon}.svg`)}
+    title={title}
   />
 )
 

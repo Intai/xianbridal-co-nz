@@ -48,24 +48,28 @@ const srcSizes = '\
 const renderBackground = (selected) => (
   <>
     <Image
+      alt="Gowns background"
       isSelected={!selected || selected === 'gowns'}
       src={getImageUrl('/background/gowns2-1920.webp')}
       srcSet={getSrcSet('gowns2')}
       sizes={srcSizes}
     />
     <Image
+      alt="Sales background"
       isSelected={selected === 'sales'}
       src={getImageUrl('/background/gowns1-1920.webp')}
       srcSet={getSrcSet('gowns1')}
       sizes={srcSizes}
     />
     <Image
+      alt="Accessories background"
       isSelected={selected === 'accessories'}
       src={getImageUrl('/background/accessories-1920.webp')}
       srcSet={getSrcSet('accessories')}
       sizes={srcSizes}
     />
     <Image
+      alt="Search background"
       isSelected={selected === 'search'}
       src={getImageUrl('/background/search-1920.webp')}
       srcSet={getSrcSet('search')}

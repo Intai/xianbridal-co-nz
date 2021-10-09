@@ -199,6 +199,7 @@ const renderEmail = ({ isCompact }) => (
       icon="mail"
       maxWidth={253}
       text={isCompact ? '' : 'info@xianbridal.co.nz'}
+      title="info@xianbridal.co.nz"
     />
   </ContactItem>
 )
@@ -211,6 +212,7 @@ const renderPhone = ({ isCompact }) => (
       itemProp="telephone"
       maxWidth={161}
       text={isCompact ? '' : '(09) 8271286'}
+      title="(09) 8271286"
     />
   </ContactItem>
 
@@ -224,6 +226,7 @@ const renderMobile = ({ isCompact }) => (
       itemProp="telephone"
       maxWidth={163}
       text={isCompact ? '' : '021-1409204'}
+      title="021-1409204"
     />
   </ContactItem>
 )
@@ -278,6 +281,7 @@ const renderLocation = (props) => {
         href={mapUrl}
         icon="map"
         target="_blank"
+        title="Shop 5 New Lynn Plaza, 3115 Great North Rd"
       >
         {renderAddress(props)}
       </Anchor>

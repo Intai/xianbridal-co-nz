@@ -1,0 +1,3 @@
+User-agent: *
+Sitemap: https://xianbridal.co.nz/sitemap.xml
+Sitemap: https://www.xianbridal.co.nz/sitemap.xml
