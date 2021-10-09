@@ -42,7 +42,7 @@ const srcSizes = '\
 (max-width: 480px) and (-webkit-device-pixel-ratio: 4) 240px, \
 (max-width: 480px) and (-webkit-device-pixel-ratio: 3) 320px, \
 (max-width: 480px) and (-webkit-device-pixel-ratio: 2) 240px, \
-(max-width: 480px) and (-webkit-device-pixel-ratio: 1) 480px, \
+(max-width: 480px) 480px, \
 1920px'
 
 const renderBackground = (selected) => (
