@@ -19,4 +19,4 @@ setTimeout(() => {
   gtag('js', new Date())
   gtag('config', 'G-M60CFNHRLK')
   gtag('config', 'AW-980617762')
-}, 100)
+}, 1000)
