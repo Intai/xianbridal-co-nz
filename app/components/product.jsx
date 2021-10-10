@@ -4,7 +4,7 @@ import { Link } from 'bdux-react-router'
 import ProductDetails from './product-details'
 import { textOffWhite } from './color'
 import { fontSans, fontShadow } from './typography'
-import { canUseDOM, getImageUrl, encodeSku } from '../utils/common-util'
+import { getImageUrl, encodeSku } from '../utils/common-util'
 
 const gridWidth = (width, count, margin) => () => {
   let styles = ''
