@@ -1,10 +1,11 @@
-import React, { useCallback, useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'bdux-react-router'
 import ProductDetails from './product-details'
 import { textOffWhite } from './color'
 import { fontSans, fontShadow } from './typography'
 import { getImageUrl, encodeSku } from '../utils/common-util'
+import { trackConversion } from '../utils/gtag-util'
 
 const gridWidth = (width, count, margin) => () => {
   let styles = ''
@@ -141,14 +142,6 @@ const Product = (props) => {
   const { product, query } = props
   const refImage = useRef(null)
   const [boundingBox, setBoundingBox] = useState({})
-
-  const trackConversion = useCallback(() => {
-    if (window.gtag) {
-      window.gtag('event', 'conversion', {
-        'send_to': 'AW-980617762/M7TPCPmT4PoCEKKUzNMD',
-      })
-    }
-  }, [])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
