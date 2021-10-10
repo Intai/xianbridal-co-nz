@@ -98,11 +98,13 @@
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZGHKT91D"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-M60CFNHRLK');
-      gtag('config', 'AW-980617762');
+      setTimeout(function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-M60CFNHRLK');
+        gtag('config', 'AW-980617762');
+      }, 0)
     </script>
   </body>
 </html>
