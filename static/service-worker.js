@@ -22,22 +22,30 @@ self.addEventListener('activate', event => event.waitUntil(
     .then(() => self.clients.claim()),
 ))
 
-self.addEventListener('fetch', event => event.respondWith(
-  caches.match(event.request)
-    .then(response => {
-      if (response) {
-        return response
-      }
+self.addEventListener('fetch', event => {
+  const { request } = event
+  if (request.method !== 'GET'
+    || !/^https?:\/\/([^.]+\.)?xianbridal.co.nz/i.test(request.url)) {
+    return
+  }
 
-      return fetch(event.request, { mode: 'cors' }).then(response => {
-        if (response && (response.status === 200 || response.status === 403 || response.status === 404)) {
-          const cloned = response.clone()
-          caches.open(cacheName)
-            .then(cache => {
-              cache.put(event.request, cloned)
-            })
+  return event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        if (response) {
+          return response
         }
-        return response
-      })
-    }),
-))
+
+        return fetch(event.request, { mode: 'cors' }).then(response => {
+          if (response && (response.status === 200 || response.status === 403 || response.status === 404)) {
+            const cloned = response.clone()
+            caches.open(cacheName)
+              .then(cache => {
+                cache.put(event.request, cloned)
+              })
+          }
+          return response
+        })
+      }),
+  )
+})
