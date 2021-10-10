@@ -95,20 +95,5 @@
     <% htmlWebpackPlugin.options.files.js.forEach(function(src) { %>
       <script src="<%= src %>"></script>
     <% }) %>
-
-    <script>
-      setTimeout(function() {
-        var script = document.createElement('script');
-        script.defer = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-9WZGHKT91D';
-        document.head.appendChild(script);
-
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-M60CFNHRLK');
-        gtag('config', 'AW-980617762');
-      }, 0)
-    </script>
   </body>
 </html>

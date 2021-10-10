@@ -143,7 +143,7 @@ const Product = (props) => {
   const [boundingBox, setBoundingBox] = useState({})
 
   const trackConversion = useCallback(() => {
-    if (canUseDOM() && window.gtag) {
+    if (window.gtag) {
       window.gtag('event', 'conversion', {
         'send_to': 'AW-980617762/M7TPCPmT4PoCEKKUzNMD',
       })
