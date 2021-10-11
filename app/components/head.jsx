@@ -54,7 +54,7 @@ const HeadHome = () => (
   renderHead({
     description: 'Wedding Gowns in Auckland. Bridesmaid Dresses, Flower Girl Dresses, Ball Gowns, Bridal Accessories, Veils and Tiaras',
     keywords: 'Wedding,Dress,Gown,Auckland,New Zealand,Bridesmaid,Flower Girl,Accessories,Veils,Tiaras',
-    title: 'Wedding Dresses NZ Auckland. Bridesmaid, Flower Girl',
+    title: 'Xian Bridal: Wedding Dresses Auckland. Bridesmaid, Flower Girl',
   })
 )
 
