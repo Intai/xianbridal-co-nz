@@ -1,10 +1,13 @@
 import './settings'
 import fs from 'fs'
+import path from 'path'
 import express from 'express'
 import { ServerStyleSheet } from 'styled-components'
 import HeadRoot from './roots/head-root'
 import AppRoot from './roots/app-root'
 import PortalRoot from './roots/portal-root'
+import database from './actions/database'
+import { encodeSku } from './utils/common-util'
 
 const app = express()
 const port = process.env.PORT || 8080
@@ -60,10 +63,19 @@ const serviceWorker = (req, res) => {
   })
 }
 
+const sitemap = (req, res) => {
+  res.render(path.join(__dirname, '/sitemap'), {
+    database,
+    encodeSku,
+  })
+}
+
 app.set('etag', 'weak')
+app.set('view engine', 'ejs')
 app.use(/^\/static[^/]*/, express.static('dist', { maxAge: 15552000000 }))
 app.use('/favicon.ico', express.static('dist/favicon'))
 app.get('/service-worker', serviceWorker)
+app.get('/sitemap.xml', sitemap)
 app.get('*', renderApp)
 
 app.listen(port)

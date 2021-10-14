@@ -44,6 +44,11 @@ function buildServer() {
     .pipe(gulp.dest('dist'))
 }
 
+function copyViews() {
+  return gulp.src('app/sitemap.ejs')
+    .pipe(gulp.dest('dist'))
+}
+
 function copyStatic() {
   return gulp.src('static/**/*')
     .pipe(gulp.dest('dist'))
@@ -72,6 +77,7 @@ const build = gulp.series(
   clean,
   buildClient,
   buildServer,
+  copyViews,
   copyStatic,
 )
 
