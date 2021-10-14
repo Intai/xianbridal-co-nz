@@ -64,6 +64,7 @@ const serviceWorker = (req, res) => {
 }
 
 const sitemap = (req, res) => {
+  res.set('Content-Type', 'application/xml')
   res.render(path.join(__dirname, '/sitemap'), {
     database,
     encodeSku,
