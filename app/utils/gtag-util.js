@@ -9,15 +9,18 @@ const loadTagManager = once(() => {
   window.dataLayer = window.dataLayer || []
   function gtag() { window.dataLayer.push(arguments) }
   gtag('js', new Date())
-  gtag('config', 'G-M60CFNHRLK')
   gtag('config', 'AW-980617762')
+  gtag('config', 'G-M60CFNHRLK')
 })
 
 export const trackConversion = () => {
   loadTagManager()
   if (window.gtag) {
     window.gtag('event', 'conversion', {
-      'send_to': 'AW-980617762/M7TPCPmT4PoCEKKUzNMD',
+      'send_to': [
+        'AW-980617762/M7TPCPmT4PoCEKKUzNMD',
+        'G-M60CFNHRLK',
+      ],
     })
   }
 }
