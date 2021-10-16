@@ -82,13 +82,13 @@ const Price = styled.div`
 `
 
 const getSrcSet = (productId) => `
-  ${getImageUrl(`/product/${productId}-500.jpg`)} 2x,
-  ${getImageUrl(`/product/${productId}-1000.jpg`)} 3x
+  ${getImageUrl(`/product/${productId}-500.webp`)} 2x,
+  ${getImageUrl(`/product/${productId}-1000.webp`)} 3x
 `
 
 const handleError = e => {
   const { target } = e
-  target.src = getImageUrl(`/product/${target.dataset.id}-500.jpg`)
+  target.src = getImageUrl(`/product/${target.dataset.id}-500.webp`)
   target.srcset = ''
 }
 
@@ -101,7 +101,7 @@ const renderImage = ({ product }, refImage) => {
         data-id={id}
         onError={handleError}
         ref={refImage}
-        src={getImageUrl(`/product/${id}-200.jpg`)}
+        src={getImageUrl(`/product/${id}-200.webp`)}
         srcSet={getSrcSet(id)}
       />
     </ImageRatio>

@@ -127,13 +127,13 @@ const getCategory = (product) => (
 )
 
 const getImage = (product, variation = '') => getImageUrl(
-  `/product/${product.id}${variation && `-${variation}`}-2000.jpg`,
+  `/product/${product.id}${variation && `-${variation}`}-2000.webp`,
 )
 
 const getSrcSet = (product, variation = '') => {
   const filename = `${product.id}${variation && `-${variation}`}`
-  return `${getImageUrl(`/product/${filename}-1000.jpg`)} 1000w, \
-${getImageUrl(`/product/${filename}-2000.jpg`)} 2000w`
+  return `${getImageUrl(`/product/${filename}-1000.webp`)} 1000w, \
+${getImageUrl(`/product/${filename}-2000.webp`)} 2000w`
 }
 
 const srcSizes = '\
