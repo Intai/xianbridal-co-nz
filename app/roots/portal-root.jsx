@@ -7,7 +7,7 @@ import CatalogueStore from '../stores/catalogue-store'
 import { ProductDetailsForSeo } from '../components/product-details'
 import { decodeSku } from '../utils/common-util'
 
-export const renderElement = ({ dispatch }, req, _res) => {
+export const renderElement = ({ dispatch }, req, _res, sheet) => {
   const { path } = req
   const { category, query, id } = extractPathParams(path)
 
@@ -16,7 +16,7 @@ export const renderElement = ({ dispatch }, req, _res) => {
   if (category) {
     dispatch(CatalogueAction.load(category, query, decodeSku(id)))
   }
-  return <ProductDetailsForSeo />
+  return sheet.collectStyles(<ProductDetailsForSeo />)
 }
 
 export default createRoot(

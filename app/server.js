@@ -41,8 +41,12 @@ const renderApp = (req, res) => {
       AppRoot.renderToNodeStream(req, res, sheetApp))
     stream.pipe(res, { end: false })
     stream.on('end', () => {
+      const sheetPortal = new ServerStyleSheet()
+      const htmlPortal = PortalRoot.renderToString(req, res, sheetPortal)
       res.write(beforePortal)
-      res.write(PortalRoot.renderToString(req, res))
+      res.write(sheetPortal.getStyleTags())
+      res.write(htmlPortal)
+      sheetPortal.seal()
       res.write(tail)
       res.end()
     })

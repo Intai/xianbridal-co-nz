@@ -27,6 +27,14 @@ const ProductRootPortal = styled(RootPortal)`
   height: 100%;
 `
 
+const ContainerForSeo = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+`
+
 const ImagesContainer = styled.div`
   background: rgba(0, 0, 0, 0.75);
   position: absolute;
@@ -62,8 +70,9 @@ const handleImageError = e => {
   }
 }
 
-const OptionalImage = ({ onClick, onTouchMove, scale, src, srcSet, sizes }) => (
+const OptionalImage = ({ alt, onClick, onTouchMove, scale, src, srcSet, sizes }) => (
   <Image
+    alt={alt}
     onClick={onClick}
     onError={handleImageError}
     onTouchMove={onTouchMove}
@@ -114,11 +123,12 @@ const Description = styled.div`
   margin-top: 10px;
 `
 
-const getName = (product) => (
-  product.category === 'accessories'
-    ? `Bridal Accessory #${encodeSku(product.id)}`
-    : `Wedding Dress #${encodeSku(product.id)}`
-)
+const getName = (product, variation) => {
+  const suffix = variation ? `-${variation}` : ''
+  return product.category === 'accessories'
+    ? `Bridal Accessory #${encodeSku(product.id)}${suffix}`
+    : `Wedding Dress #${encodeSku(product.id)}${suffix}`
+}
 
 const getCategory = (product) => (
   product.category === 'accessories'
@@ -247,6 +257,7 @@ const renderImages = (
       />
       {[1, 2, 3, 4].map(variation => (
         <OptionalImage
+          alt={getName(product, variation)}
           key={variation}
           onClick={updateScale}
           onTouchMove={updateScale}
@@ -348,12 +359,9 @@ export const ProductDetailsForSeo = (props) => {
 
   return !!product && (
     <div id={`root-portal-${product.id}`}>
-      <div
+      <ContainerForSeo
         itemScope
         itemType="http://data-vocabulary.org/Product"
-        // react doesn't support hydration for portal yet.
-        // rendering hidden just for seo.
-        style={{ display: 'none' }}
       >
         <ThemeProvider theme={theme}>
           <ProductDetails
@@ -361,7 +369,7 @@ export const ProductDetailsForSeo = (props) => {
             backUrl="/"
           />
         </ThemeProvider>
-      </div>
+      </ContainerForSeo>
     </div>
   )
 }

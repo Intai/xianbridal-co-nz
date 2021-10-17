@@ -15,7 +15,6 @@ const createContainer = (id) => {
       // use the existing div by id if already exist.
       const container = document.getElementById(id)
       if (container) {
-        container?.firstChild?.remove()
         return container
       }
     }
