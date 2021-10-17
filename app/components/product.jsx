@@ -55,7 +55,14 @@ const ImageRatio = styled.div`
   overflow: hidden;
 `
 
-const Image = styled.img`
+const ImageDom = (props, ref) => (
+  <img
+    {...props}
+    ref={ref}
+  />
+)
+
+const Image = styled(React.forwardRef(ImageDom))`
   position: absolute;
   top: 0;
   left: 0;
@@ -92,13 +99,14 @@ const handleError = e => {
   target.srcset = ''
 }
 
-const renderImage = ({ product }, refImage) => {
+const renderImage = ({ product, importance }, refImage) => {
   const { id } = product
   return (
     <ImageRatio>
       <Image
         alt={`Wedding Dress Item#${id}`}
         data-id={id}
+        importance={importance}
         onError={handleError}
         ref={refImage}
         src={getImageUrl(`/product/${id}-200.webp`)}

@@ -31,13 +31,14 @@ const getBackUrl = (query, id) => {
 }
 
 // eslint-disable-next-line react/display-name
-const renderProduct = (selected, query, backUrl) => (product) => (
+const renderProduct = (selected, query, backUrl) => (product, index) => (
   <Product
+    backUrl={backUrl}
+    importance={index <= 1 ? 'high' : 'auto'}
     key={product.id}
     product={product}
-    selected={selected}
     query={query}
-    backUrl={backUrl}
+    selected={selected}
   />
 )
 
