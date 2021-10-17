@@ -115,7 +115,6 @@ const renderImage = ({ product, importance }, refImage) => {
         data-id={id}
         importance={importance}
         onError={handleError}
-        onLoad={handleLoad}
         ref={refImage}
         src={getImageUrl(`/product/${id}-200.webp`)}
       />
@@ -160,9 +159,17 @@ const Product = (props) => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    const rect = refImage.current.getBoundingClientRect()
-    if (!isEqualRect(boundingBox, rect)) {
-      setBoundingBox(rect)
+    const { current: image } = refImage
+    if (image) {
+      const rect = image.getBoundingClientRect()
+      if (!isEqualRect(boundingBox, rect)) {
+        setBoundingBox(rect)
+      }
+      const { src, srcset } = image
+      if (!srcset) {
+        image.onload = handleLoad
+        image.src = src
+      }
     }
   })
 
