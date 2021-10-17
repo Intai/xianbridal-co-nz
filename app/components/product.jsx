@@ -91,7 +91,7 @@ const Price = styled.div`
 const getSrcSet = (productId) => `\
 ${getImageUrl(`/product/${productId}-500.webp`)} 2x, \
 ${getImageUrl(`/product/${productId}-500.webp`)} 3x, \
-${getImageUrl(`/product/${productId}-500.webp`)} 4x`
+${getImageUrl(`/product/${productId}-1000.webp`)} 4x`
 
 const handleError = e => {
   const { target } = e
