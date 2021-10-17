@@ -19,11 +19,11 @@ const Container = styled.div`
 const AppLayout = () => (
   <ThemeProvider theme={theme}>
     <Container>
-      <Background />
       <Routes />
       <Head />
       <Menu />
       <BusinessCard />
+      <Background />
       <Footer />
     </Container>
   </ThemeProvider>
