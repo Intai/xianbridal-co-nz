@@ -99,6 +99,13 @@ const handleError = e => {
   target.srcset = ''
 }
 
+const handleLoad = e => {
+  const { target } = e
+  if (!target.srcset) {
+    target.srcset = getSrcSet(target.dataset.id)
+  }
+}
+
 const renderImage = ({ product, importance }, refImage) => {
   const { id } = product
   return (
@@ -108,9 +115,9 @@ const renderImage = ({ product, importance }, refImage) => {
         data-id={id}
         importance={importance}
         onError={handleError}
+        onLoad={handleLoad}
         ref={refImage}
         src={getImageUrl(`/product/${id}-200.webp`)}
-        srcSet={getSrcSet(id)}
       />
     </ImageRatio>
   )
