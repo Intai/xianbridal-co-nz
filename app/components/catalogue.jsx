@@ -13,13 +13,7 @@ const emptyMarginRight = ({ isEmpty }) => isEmpty
 const List = styled.ul`
   min-height: calc(100vh - 57px);
   margin: 57px 0 0 83px;
-  animation: 500ms catalogue-fadein;
   ${emptyMarginRight}
-
-  @keyframes catalogue-fadein {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
 
   @media (orientation: portrait), (max-width: 632px) {
     margin-top: 81px;
