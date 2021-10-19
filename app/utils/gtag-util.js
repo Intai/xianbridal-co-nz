@@ -16,11 +16,7 @@ const loadTagManager = once(() => {
 export const trackConversion = () => {
   loadTagManager()
   if (window.gtag) {
-    window.gtag('event', 'conversion', {
-      'send_to': [
-        'AW-980617762/M7TPCPmT4PoCEKKUzNMD',
-        'G-M60CFNHRLK',
-      ],
-    })
+    window.gtag('event', 'conversion', { 'send_to': 'AW-980617762/M7TPCPmT4PoCEKKUzNMD' })
+    window.gtag('event', 'conversion', { 'send_to': 'G-M60CFNHRLK' })
   }
 }
