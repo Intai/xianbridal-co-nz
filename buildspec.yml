@@ -29,5 +29,5 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - if [ $IMAGE_TAG_NAME = "master" ]; then docker push --all-tags $REPO_URI_NODEJS; fi
-      - if [ $IMAGE_TAG_NAME = "nginx" ]; then docker push --all-tags $REPO_URI_NGINX; fi
+      - if [ $IMAGE_TAG_NAME = "master" ]; then docker push $REPO_URI_NODEJS; fi
+      - if [ $IMAGE_TAG_NAME = "nginx" ]; then docker push $REPO_URI_NGINX; fi
