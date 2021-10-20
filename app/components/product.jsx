@@ -8,7 +8,11 @@ import { getImageUrl, encodeSku } from '../utils/common-util'
 import { trackConversion } from '../utils/gtag-util'
 
 const gridWidth = (width, count, margin) => () => {
-  let styles = ''
+  let styles = `
+    @media (min-width: ${(count + 1) * width + margin}px) {
+      width: ${100 / count}%;
+    }
+  `
   for (let i = count; i > 0; --i) {
     styles = `${styles}
       @media (max-width: ${(i + 1) * width + margin - 1}px) {
