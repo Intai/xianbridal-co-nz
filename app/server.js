@@ -29,24 +29,27 @@ const renderApp = (req, res) => {
     }
 
     const [head, afterHead] = file.split('<%- head %>')
-    const [beforeApp, afterApp] = afterHead.split('<%- app %>')
-    const [beforePortal, tail] = afterApp.split('<%- portal %>')
+    const [beforePortal, afterPortal] = afterHead.split('<%- portal %>')
+    const [beforeApp, tail] = afterPortal.split('<%- app %>')
+
     res.set('Content-Type', 'text/html')
     res.set('Etag', etag)
     res.write(head)
     res.write(HeadRoot.renderToString(req, res))
+
+    const sheetPortal = new ServerStyleSheet()
+    const htmlPortal = PortalRoot.renderToString(req, res, sheetPortal)
+    res.write(beforePortal)
+    res.write(sheetPortal.getStyleTags())
+    res.write(htmlPortal)
+    sheetPortal.seal()
+
     res.write(beforeApp)
     const sheetApp = new ServerStyleSheet()
     const stream = sheetApp.interleaveWithNodeStream(
       AppRoot.renderToNodeStream(req, res, sheetApp))
     stream.pipe(res, { end: false })
     stream.on('end', () => {
-      const sheetPortal = new ServerStyleSheet()
-      const htmlPortal = PortalRoot.renderToString(req, res, sheetPortal)
-      res.write(beforePortal)
-      res.write(sheetPortal.getStyleTags())
-      res.write(htmlPortal)
-      sheetPortal.seal()
       res.write(tail)
       res.end()
     })

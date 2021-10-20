@@ -358,7 +358,14 @@ export const ProductDetailsForSeo = (props) => {
   const product = catalogue && catalogue.selected
 
   return !!product && (
-    <div id={`root-portal-${product.id}`}>
+    <div id={`root-portal-${product.id}`} style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100vw',
+      height: '100vh',
+      zIndex: 1,
+    }}>
       <ContainerForSeo
         itemScope
         itemType="http://data-vocabulary.org/Product"
