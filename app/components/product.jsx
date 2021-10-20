@@ -27,8 +27,8 @@ const media = (firstQuery, funcStyle) => (props) => (
 )
 
 const ListItem = styled.li`
-  ${media('orientation: landscape', gridWidth(200, 8, 83))}
-  ${media('orientation: portrait', gridWidth(150, 8, 20))}
+  ${media('orientation: landscape', gridWidth(200, 20, 83))}
+  ${media('orientation: portrait', gridWidth(150, 20, 20))}
   position: relative;
   display: inline-block;
   vertical-align: top;
