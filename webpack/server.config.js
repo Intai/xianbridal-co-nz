@@ -28,6 +28,7 @@ module.exports = {
     new webpack.DefinePlugin({
       IMAGES_CDN_DOMAIN: JSON.stringify(process.env.IMAGES_CDN_DOMAIN || '/static/images'),
       STATIC_CDN_DOMAIN: JSON.stringify(`${process.env.WEB_CDN_DOMAIN || ''}/static-${timestamp}`),
+      TIMESTAMP: JSON.stringify(timestamp),
     }),
     new HtmlWebpackPlugin({
       filename: 'server.ejs',

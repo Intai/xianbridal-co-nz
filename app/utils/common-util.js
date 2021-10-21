@@ -21,9 +21,11 @@ const getEnv = () => (
 ) || {}
 
 export const getImageUrl = (pathname) => {
-  const cdn = getEnv().IMAGES_CDN_DOMAIN
+  const env = getEnv()
+  const cdn = env.IMAGES_CDN_DOMAIN
+  const timestamp = env.TIMESTAMP
   return cdn
-    ? `${cdn}${pathname}`
+    ? `${cdn}${pathname}?${timestamp}`
     : `/static/images${pathname}`
 }
 
