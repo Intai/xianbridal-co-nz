@@ -1,3 +1,4 @@
+import { omit } from 'ramda'
 import React, {
   useMemo,
   useRef,
@@ -51,6 +52,11 @@ const Images = styled.div`
   min-width: calc(100% + 1px);
 `
 
+const cleanImgProps = omit([
+  'initialRect',
+  'initialScale',
+])
+
 const ImageDom = (props) => {
   const refImage = useRef(null)
 
@@ -68,7 +74,7 @@ const ImageDom = (props) => {
 
   return (
     <img
-      {...props}
+      {...cleanImgProps(props)}
       ref={refImage}
     />
   )
@@ -83,7 +89,11 @@ const Image = styled(ImageDom)`
 
 const handleImageError = e => {
   const { target } = e
-  if (target.src.indexOf('-1000') >= 0) {
+
+  if (target.src.indexOf('-200') >= 0) {
+    target.src = target.src.replace('-200', '-500')
+    target.srcset = ''
+  } else if (target.src.indexOf('-1000') >= 0) {
     target.src = target.src.replace('-1000', '-500')
     target.srcset = ''
   } else if (target.src.indexOf('-2000') >= 0) {
@@ -92,13 +102,16 @@ const handleImageError = e => {
   } else {
     target.style.display='none'
   }
+  target.dataset.error = true
 }
 
 const handleLoad = e => {
   const { target } = e
   if (!target.srcset) {
-    const { id, variation } = target.dataset
-    target.srcset = getSrcSet(id, variation)
+    const { id, variation, error } = target.dataset
+    if (!error) {
+      target.srcset = getSrcSet(id, variation)
+    }
   }
 }
 
