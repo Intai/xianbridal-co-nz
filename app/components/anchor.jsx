@@ -16,6 +16,7 @@ const AnchorContainer = styled.a`
   ${maxWidth}
   display: inline-block;
   white-space: nowrap;
+  user-select: none;
 `
 
 const imageMargin = ({ hasText }) => `

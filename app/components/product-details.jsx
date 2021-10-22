@@ -46,7 +46,6 @@ const ImagesContainer = styled.div`
 `
 
 const Images = styled.div`
-  text-align: center;
   white-space : nowrap;
   height: 100%;
   min-width: calc(100% + 1px);
@@ -162,7 +161,8 @@ const getImage = (product, variation = '') => getImageUrl(
 
 const getSrcSet = (productId, variation = '') => {
   const filename = `${productId}${variation && `-${variation}`}`
-  return `${getImageUrl(`/product/${filename}-1000.webp`)} 1000w, \
+  return `${getImageUrl(`/product/${filename}-500.webp`)} 500w, \
+${getImageUrl(`/product/${filename}-1000.webp`)} 1000w, \
 ${getImageUrl(`/product/${filename}-2000.webp`)} 2000w`
 }
 
