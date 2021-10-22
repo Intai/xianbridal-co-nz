@@ -1,4 +1,5 @@
 import React, {
+  useMemo,
   useRef,
   useState,
   useCallback,
@@ -12,7 +13,7 @@ import theme from './theme'
 import { textOffWhite } from './color'
 import { fontSerif, fontSans, fontShadow } from './typography'
 import CatalogueStore from '../stores/catalogue-store'
-import { getImageUrl, encodeSku } from '../utils/common-util'
+import { canUseDOM, getImageUrl, encodeSku } from '../utils/common-util'
 import {
   getTouchDistance,
   getTouchCentre,
@@ -51,8 +52,32 @@ const Images = styled.div`
   min-width: calc(100% + 1px);
 `
 
-const Image = styled.img`
+const ImageDom = (props) => {
+  const refImage = useRef(null)
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    const { current: image } = refImage
+    if (image) {
+      const { src, srcset } = image
+      if (!srcset) {
+        image.onload = handleLoad
+        image.src = src
+      }
+    }
+  })
+
+  return (
+    <img
+      {...props}
+      ref={refImage}
+    />
+  )
+}
+
+const Image = styled(ImageDom)`
   height: ${({ scale }) => scale * 100}%;
+  min-height: ${({ initialScale }) => initialScale * 100}%;
   vertical-align: top;
   cursor: ${({ scale }) => (scale <= 1) ? 'zoom-in' : 'zoom-out'};
 `
@@ -70,18 +95,13 @@ const handleImageError = e => {
   }
 }
 
-const OptionalImage = ({ alt, onClick, onTouchMove, scale, src, srcSet, sizes }) => (
-  <Image
-    alt={alt}
-    onClick={onClick}
-    onError={handleImageError}
-    onTouchMove={onTouchMove}
-    scale={scale}
-    src={src}
-    srcSet={srcSet}
-    sizes={sizes}
-  />
-)
+const handleLoad = e => {
+  const { target } = e
+  if (!target.srcset) {
+    const { id, variation } = target.dataset
+    target.srcset = getSrcSet(id, variation)
+  }
+}
 
 const Details = styled.div`
   position: absolute;
@@ -137,11 +157,11 @@ const getCategory = (product) => (
 )
 
 const getImage = (product, variation = '') => getImageUrl(
-  `/product/${product.id}${variation && `-${variation}`}-2000.webp`,
+  `/product/${product.id}${variation && `-${variation}`}-200.webp`,
 )
 
-const getSrcSet = (product, variation = '') => {
-  const filename = `${product.id}${variation && `-${variation}`}`
+const getSrcSet = (productId, variation = '') => {
+  const filename = `${productId}${variation && `-${variation}`}`
   return `${getImageUrl(`/product/${filename}-1000.webp`)} 1000w, \
 ${getImageUrl(`/product/${filename}-2000.webp`)} 2000w`
 }
@@ -183,11 +203,11 @@ const scrollToScale = (refScroll, x, y, scale, nextScale) => {
   }
 }
 
-const handleScale = (e, refScroll, setScale, refTouchPrev) => {
+const handleScale = (e, refScroll, setScale, refTouchPrev, initialScale) => {
   const { current: touchPrev } = refTouchPrev
   const attr = e.target.getAttribute('scale')
-  const maxScale = IMAGE_HEIGHT / 2 / window.innerHeight
-  const scale = attr ? parseFloat(attr) : 1
+  const maxScale = Math.max(1, initialScale * IMAGE_HEIGHT / 2 / window.innerHeight)
+  const scale = attr ? parseFloat(attr) : initialScale
   let focusX = 0
   let focusY = 0
   let nextScale = scale
@@ -196,7 +216,8 @@ const handleScale = (e, refScroll, setScale, refTouchPrev) => {
   if (e.type === 'click') {
     focusX = e.clientX
     focusY = e.clientY
-    nextScale = (scale <= 1) ? maxScale : 1
+    nextScale = (scale > (initialScale + maxScale) / 2)
+      ? initialScale : maxScale
   }
   // pinch to zoom.
   else if (e.type === 'touchmove'
@@ -207,7 +228,7 @@ const handleScale = (e, refScroll, setScale, refTouchPrev) => {
     const centre = getTouchCentre(e.touches)
     focusX = centre.x
     focusY = centre.y
-    nextScale = clamp(1, maxScale, scale * currentDist / prevDist)
+    nextScale = clamp(initialScale, maxScale, scale * currentDist / prevDist)
     touchPrev.touches = e.touches
   }
   else {
@@ -235,6 +256,7 @@ const handleTouchStart = (e, refTouchPrev) => {
 const renderImages = (
   product,
   initialRect,
+  initialScale,
   refScroll,
   scale,
   updateScale,
@@ -245,25 +267,30 @@ const renderImages = (
       <Image
         alt={getName(product)}
         content={getImage(product)}
+        data-id={product.id}
+        importance="high"
         initialRect={initialRect}
+        initialScale={initialScale}
         itemProp="image"
         onClick={updateScale}
         onError={handleImageError}
         onTouchMove={updateScale}
         scale={scale}
         src={getImage(product)}
-        srcSet={getSrcSet(product)}
         sizes={srcSizes}
       />
       {[1, 2, 3, 4].map(variation => (
-        <OptionalImage
+        <Image
           alt={getName(product, variation)}
+          data-id={product.id}
+          data-variation={variation}
+          initialScale={initialScale}
           key={variation}
           onClick={updateScale}
+          onError={handleImageError}
           onTouchMove={updateScale}
           scale={scale}
           src={getImage(product, variation)}
-          srcSet={getSrcSet(product, variation)}
           sizes={srcSizes}
         />
       ))}
@@ -297,6 +324,10 @@ const renderOffer = (product) => (
   )
 )
 
+const getInitScale = ({ category }) => canUseDOM() && category === 'accessories'
+  ? (window.innerWidth / (window.innerHeight * 2000 / 1333))
+  : 1
+
 const ProductDetails = ({
   initialRect,
   product,
@@ -304,8 +335,9 @@ const ProductDetails = ({
 }) => {
   const refScroll = useRef(null)
   const refTouchStart = useRef({})
-  const [scale, setScale] = useState(1)
-  const updateScale = useCallback(e => handleScale(e, refScroll, setScale, refTouchStart), [])
+  const initialScale = useMemo(() => getInitScale(product), [product])
+  const [scale, setScale] = useState(initialScale)
+  const updateScale = useCallback(e => handleScale(e, refScroll, setScale, refTouchStart, initialScale), [initialScale])
   const updateTouchStart = useCallback(e => handleTouchStart(e, refTouchStart), [])
 
   useEffect(() => {
@@ -318,6 +350,7 @@ const ProductDetails = ({
       {renderImages(
         product,
         initialRect,
+        initialScale,
         refScroll,
         scale,
         updateScale,

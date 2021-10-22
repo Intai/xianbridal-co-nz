@@ -31,10 +31,10 @@ const getBackUrl = (query, id) => {
 }
 
 // eslint-disable-next-line react/display-name
-const renderProduct = (selected, query, backUrl) => (product, index) => (
+const renderProduct = (selected, query, id, backUrl) => (product, index) => (
   <Product
     backUrl={backUrl}
-    importance={index <= 1 ? 'high' : 'auto'}
+    importance={!id && index <= 1 ? 'high' : 'auto'}
     key={product.id}
     product={product}
     query={query}
@@ -42,9 +42,9 @@ const renderProduct = (selected, query, backUrl) => (product, index) => (
   />
 )
 
-const renderCatalogue = (catalogue, query, backUrl) => (
+const renderCatalogue = (catalogue, query, id, backUrl) => (
   catalogue && catalogue.products
-    && catalogue.products.map(renderProduct(catalogue.selected, query, backUrl))
+    && catalogue.products.map(renderProduct(catalogue.selected, query, id, backUrl))
 )
 
 const useBdux = createUseBdux({
@@ -70,7 +70,7 @@ const Catalogue = (props) => {
     >
       {isEmpty
         ? <EmptySearchResult />
-        : renderCatalogue(catalogue, query, getBackUrl(query, id))}
+        : renderCatalogue(catalogue, query, id, getBackUrl(query, id))}
     </List>
   ), [catalogue, category, id, isEmpty, query])
 }
