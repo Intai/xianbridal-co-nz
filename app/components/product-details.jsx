@@ -1,4 +1,4 @@
-import { omit } from 'ramda'
+import { keys, omit, pluck } from 'ramda'
 import React, {
   useMemo,
   useRef,
@@ -53,6 +53,7 @@ const Images = styled.div`
 `
 
 const cleanImgProps = omit([
+  'aspectRatio',
   'initialRect',
   'initialScale',
 ])
@@ -85,6 +86,8 @@ const Image = styled(ImageDom)`
   min-height: ${({ initialScale }) => initialScale * 100}%;
   vertical-align: top;
   cursor: ${({ scale }) => (scale <= 1) ? 'zoom-in' : 'zoom-out'};
+  aspect-ratio: ${({ aspectRatio }) => aspectRatio};
+  display: inline-block;
 `
 
 const handleImageError = e => {
@@ -108,9 +111,9 @@ const handleImageError = e => {
 const handleLoad = e => {
   const { target } = e
   if (!target.srcset) {
-    const { id, variation, error } = target.dataset
+    const { id, variation, widths, error } = target.dataset
     if (!error) {
-      target.srcset = getSrcSet(id, variation)
+      target.srcset = getSrcSet(id, variation, widths)
     }
   }
 }
@@ -155,6 +158,13 @@ const Description = styled.div`
   margin-top: 10px;
 `
 
+const getWidths = pluck(0)
+
+const getAspectRatio = resolutions => {
+  const resolution = resolutions[0]
+  return resolution[0] / resolution[1]
+}
+
 const getName = (product, variation) => {
   const suffix = variation ? `-${variation}` : ''
   return product.category === 'accessories'
@@ -172,11 +182,11 @@ const getImage = (product, variation = '') => getImageUrl(
   `/product/${product.id}${variation && `-${variation}`}-200.webp`,
 )
 
-const getSrcSet = (productId, variation = '') => {
+const getSrcSet = (productId, variation = '', widths = '') => {
   const filename = `${productId}${variation && `-${variation}`}`
-  return `${getImageUrl(`/product/${filename}-500.webp`)} 500w, \
-${getImageUrl(`/product/${filename}-1000.webp`)} 1000w, \
-${getImageUrl(`/product/${filename}-2000.webp`)} 2000w`
+  return widths.split(',')
+    .map(width => `${getImageUrl(`/product/${filename}-${width}.webp`)} ${width}w`)
+    .join(', ')
 }
 
 const srcSizes = '\
@@ -279,8 +289,10 @@ const renderImages = (
     <Images onTouchStart={updateTouchStart}>
       <Image
         alt={getName(product)}
+        aspectRatio={getAspectRatio(product.images[0])}
         content={getImage(product)}
         data-id={product.id}
+        data-widths={getWidths(product.images[0])}
         importance="high"
         initialRect={initialRect}
         initialScale={initialScale}
@@ -292,11 +304,13 @@ const renderImages = (
         src={getImage(product)}
         sizes={srcSizes}
       />
-      {[1, 2, 3, 4].map(variation => (
+      {keys(product.images).slice(1).map(variation => (
         <Image
           alt={getName(product, variation)}
+          aspectRatio={getAspectRatio(product.images[variation])}
           data-id={product.id}
           data-variation={variation}
+          data-widths={getWidths(product.images[variation])}
           initialScale={initialScale}
           key={variation}
           onClick={updateScale}
