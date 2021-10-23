@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { canUseDOM } from '../utils/common-util'
 
 const Container = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 `
