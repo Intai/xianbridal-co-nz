@@ -14,9 +14,11 @@ const maxWidth = ({ maxWidth }) => maxWidth && `
 
 const AnchorContainer = styled.a`
   ${maxWidth}
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
   display: inline-block;
   white-space: nowrap;
-  user-select: none;
+  touch-callout: none;
+  user-select: text;
 `
 
 const imageMargin = ({ hasText }) => `

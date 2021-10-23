@@ -189,7 +189,7 @@ const getImage = (product, variation = '', width = 200) => getImageUrl(
 
 const getSrcSet = (productId, variation = '', widths = '') => {
   const filename = `${productId}${variation && `-${variation}`}`
-  return widths.split(',')
+  return widths.split(',').slice(0, -1)
     .map(width => `${getImageUrl(`/product/${filename}-${width}.webp`)} ${width}w`)
     .join(', ')
 }
