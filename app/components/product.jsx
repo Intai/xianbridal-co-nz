@@ -93,10 +93,15 @@ const Price = styled.div`
 `
 
 const getSrcSet = (productId) => `\
-${getImageUrl(`/product/${productId}-1000.webp`)} 4x, \
-${getImageUrl(`/product/${productId}-500.webp`)} 3x, \
-${getImageUrl(`/product/${productId}-500.webp`)} 2x, \
-${getImageUrl(`/product/${productId}-200.webp`)}`
+${getImageUrl(`/product/${productId}-1000.webp`)} 1000w, \
+${getImageUrl(`/product/${productId}-500.webp`)} 500w, \
+${getImageUrl(`/product/${productId}-200.webp`)} 200w`
+
+const srcSizes = '\
+(max-width: 500px) and (-webkit-device-pixel-ratio: 4) 50px, \
+(max-width: 500px) and (-webkit-device-pixel-ratio: 3) 66px, \
+(max-width: 500px) and (-webkit-device-pixel-ratio: 2) 100px, \
+200px'
 
 const handleError = e => {
   const { target } = e
@@ -122,6 +127,7 @@ const renderImage = ({ product, importance }, refImage) => {
         onError={handleError}
         ref={refImage}
         src={getImageUrl(`/product/${id}-200.webp`)}
+        sizes={srcSizes}
       />
     </ImageRatio>
   )
