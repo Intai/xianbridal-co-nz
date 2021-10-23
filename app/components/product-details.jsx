@@ -199,7 +199,7 @@ const srcSizes = '\
 (max-width: 500px) and (-webkit-device-pixel-ratio: 3) 333px, \
 (max-width: 500px) and (-webkit-device-pixel-ratio: 2) 500px, \
 (max-width: 500px) 500px, \
-1000px'
+2000px'
 
 const setImageTempStyles = (refScroll, scale) => {
   const container = refScroll.current
