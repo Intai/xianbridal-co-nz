@@ -101,6 +101,7 @@ const srcSizes = '\
 (max-width: 500px) and (-webkit-device-pixel-ratio: 4) 50px, \
 (max-width: 500px) and (-webkit-device-pixel-ratio: 3) 66px, \
 (max-width: 500px) and (-webkit-device-pixel-ratio: 2) 100px, \
+(max-width: 500px) 100px, \
 200px'
 
 const handleError = e => {
