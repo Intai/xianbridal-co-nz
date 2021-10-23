@@ -189,7 +189,7 @@ const getImage = (product, variation = '', width = 200) => getImageUrl(
 
 const getSrcSet = (productId, variation = '', widths = '') => {
   const filename = `${productId}${variation && `-${variation}`}`
-  return widths.split(',').slice(0, -1)
+  return widths.split(',')
     .map(width => `${getImageUrl(`/product/${filename}-${width}.webp`)} ${width}w`)
     .join(', ')
 }
@@ -198,8 +198,8 @@ const srcSizes = '\
 (max-width: 500px) and (-webkit-device-pixel-ratio: 4) 250px, \
 (max-width: 500px) and (-webkit-device-pixel-ratio: 3) 333px, \
 (max-width: 500px) and (-webkit-device-pixel-ratio: 2) 500px, \
-(max-width: 500px) and (-webkit-device-pixel-ratio: 1) 500px, \
-2000px'
+(max-width: 500px) 500px, \
+1000px'
 
 const setImageTempStyles = (refScroll, scale) => {
   const container = refScroll.current
