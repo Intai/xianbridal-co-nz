@@ -66,7 +66,7 @@ const ImageDom = (props) => {
     const { current: image } = refImage
     if (image) {
       const { src, srcset } = image
-      if (!srcset) {
+      if (!srcset && !image.dataset.final) {
         image.onload = handleLoad
         image.src = src
       }
@@ -105,14 +105,14 @@ const handleImageError = e => {
   } else {
     target.style.display='none'
   }
-  target.dataset.error = true
+  target.dataset.final = true
 }
 
 const handleLoad = e => {
   const { target } = e
   if (!target.srcset) {
-    const { id, variation, widths, error } = target.dataset
-    if (!error) {
+    const { id, variation, widths, final } = target.dataset
+    if (!final) {
       target.srcset = getSrcSet(id, variation, widths)
     }
   }
@@ -160,6 +160,11 @@ const Description = styled.div`
 
 const getWidths = pluck(0)
 
+const getMaxWidth = resolutions => {
+  const resolution = resolutions[resolutions.length - 1]
+  return resolution[0]
+}
+
 const getAspectRatio = resolutions => {
   const resolution = resolutions[0]
   return resolution[0] / resolution[1]
@@ -178,8 +183,8 @@ const getCategory = (product) => (
     : 'Apparel & Accessories > Clothing > Wedding & Bridal Party Dresses > Wedding Dresses'
 )
 
-const getImage = (product, variation = '') => getImageUrl(
-  `/product/${product.id}${variation && `-${variation}`}-200.webp`,
+const getImage = (product, variation = '', width = 200) => getImageUrl(
+  `/product/${product.id}${variation && `-${variation}`}-${width}.webp`,
 )
 
 const getSrcSet = (productId, variation = '', widths = '') => {
@@ -193,7 +198,7 @@ const srcSizes = '\
 (max-width: 500px) and (-webkit-device-pixel-ratio: 4) 250px, \
 (max-width: 500px) and (-webkit-device-pixel-ratio: 3) 333px, \
 (max-width: 500px) and (-webkit-device-pixel-ratio: 2) 500px, \
-(max-width: 500px) and (-webkit-device-pixel-ratio: 1) 1000px, \
+(max-width: 500px) and (-webkit-device-pixel-ratio: 1) 500px, \
 2000px'
 
 const setImageTempStyles = (refScroll, scale) => {
@@ -202,6 +207,12 @@ const setImageTempStyles = (refScroll, scale) => {
     container.querySelectorAll('img').forEach(img => {
       img.style.height = `${scale * 100}%`
       img.setAttribute('scale', scale)
+
+      if (img.srcset) {
+        img.src = img.dataset.src
+        img.srcset = ''
+        img.dataset.final = true
+      }
     })
   }
 }
@@ -292,6 +303,7 @@ const renderImages = (
         aspectRatio={getAspectRatio(product.images[0])}
         content={getImage(product)}
         data-id={product.id}
+        data-src={getImage(product, '', getMaxWidth(product.images[0]))}
         data-widths={getWidths(product.images[0])}
         importance="high"
         initialRect={initialRect}
@@ -309,6 +321,7 @@ const renderImages = (
           alt={getName(product, variation)}
           aspectRatio={getAspectRatio(product.images[variation])}
           data-id={product.id}
+          data-src={getImage(product, variation, getMaxWidth(product.images[variation]))}
           data-variation={variation}
           data-widths={getWidths(product.images[variation])}
           initialScale={initialScale}
