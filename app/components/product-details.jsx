@@ -44,6 +44,7 @@ const ImagesContainer = styled.div`
   overflow: auto;
   height: 100%;
   width: 100%;
+  margin: 1px;
 `
 
 const Images = styled.div`
