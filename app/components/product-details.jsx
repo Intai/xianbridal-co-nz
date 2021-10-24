@@ -89,6 +89,10 @@ const Image = styled(ImageDom)`
   cursor: ${({ scale }) => (scale <= 1) ? 'zoom-in' : 'zoom-out'};
   aspect-ratio: ${({ aspectRatio }) => aspectRatio};
   display: inline-block;
+
+  &:last-child {
+    margin-right: 1px;
+  }
 `
 
 const handleImageError = e => {
