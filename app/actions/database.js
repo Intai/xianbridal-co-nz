@@ -2561,7 +2561,7 @@ export default [{
 },{
   id: 'X003T',
   category: 'sales',
-  description: 'Size 18 Ivory',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 1180,
   value: 0,
