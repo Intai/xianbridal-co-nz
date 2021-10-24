@@ -11,7 +11,7 @@ import { createUseBdux } from 'bdux/hook'
 import RootPortal from './root-portal'
 import Anchor from './anchor'
 import theme from './theme'
-import { textOffWhite } from './color'
+import { backgroundGrey, textOffWhite } from './color'
 import { fontSerif, fontSans, fontShadow } from './typography'
 import CatalogueStore from '../stores/catalogue-store'
 import { canUseDOM, getImageUrl, encodeSku } from '../utils/common-util'
@@ -38,13 +38,14 @@ const ContainerForSeo = styled.div`
 `
 
 const ImagesContainer = styled.div`
-  background: rgba(0, 0, 0, 0.75);
+  ${backgroundGrey}
   position: absolute;
   overscroll-behavior: contain;
   overflow: auto;
   height: 100%;
   width: 100%;
-  margin: 1px;
+  padding: 1px;
+  box-sizing: border-box;
 `
 
 const Images = styled.div`
