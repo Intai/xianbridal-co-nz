@@ -35,6 +35,16 @@ const Anchor = styled.a`
   display: block;
 `
 
+const FacebookAnchor = styled(Anchor)`
+  padding-top: 10px;
+  margin-top: -10px;
+`
+
+const InstagramAnchor = styled(Anchor)`
+  padding-bottom: 10px;
+  margin-bottom: -10px;
+`
+
 const Footer = () => (
   <Container>
     <Section>
@@ -55,20 +65,20 @@ const Footer = () => (
     </Section>
     <Section>
       <Title>{'Social'}</Title>
-      <Anchor
+      <FacebookAnchor
         href="https://www.facebook.com/xianbridal"
         rel="noreferrer"
         target="_blank"
       >
         {'Facebook'}
-      </Anchor>
-      <Anchor
+      </FacebookAnchor>
+      <InstagramAnchor
         href="https://www.instagram.com/xianbridal"
         rel="noreferrer"
         target="_blank"
       >
         {'Instagram'}
-      </Anchor>
+      </InstagramAnchor>
     </Section>
   </Container>
 )
