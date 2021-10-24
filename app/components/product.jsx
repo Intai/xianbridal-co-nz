@@ -152,17 +152,6 @@ const renderSelected = ({ product, selected, backUrl }) => (
   )
 )
 
-const isEqualFloat = (a, b) => (
-  Math.abs(a - b) < 1
-)
-
-const isEqualRect = (a, b) => (
-  isEqualFloat(a.top, b.top)
-    && isEqualFloat(a.left, b.left)
-    && isEqualFloat(a.height, b.height)
-    && isEqualFloat(a.width, b.width)
-)
-
 const Product = (props) => {
   const { product, query } = props
   const refImage = useRef(null)
