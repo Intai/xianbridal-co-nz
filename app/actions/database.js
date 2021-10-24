@@ -1302,7 +1302,7 @@ export default [{
 },{
   id: '37002',
   category: 'sales',
-  description: 'Size 16 White',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 790,
   value: 1590,
@@ -1314,7 +1314,7 @@ export default [{
 },{
   id: 'L0115',
   category: 'sales',
-  description: 'Size 14 in Ivory and 20 in White',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 890,
   value: 1490,
@@ -1404,7 +1404,7 @@ export default [{
 },{
   id: 'K050321X',
   category: 'sales',
-  description: 'Ivory size 12',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 780,
   value: 1890,
@@ -1482,7 +1482,7 @@ export default [{
 },{
   id: 'SL268',
   category: 'sales',
-  description: 'Ivory size 10',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 890,
   value: 2500,
@@ -1494,7 +1494,7 @@ export default [{
 },{
   id: 'A9013',
   category: 'sales',
-  description: 'White size 14',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 680,
   value: 1100,
@@ -1545,7 +1545,7 @@ export default [{
 },{
   id: 'J1452',
   category: 'sales',
-  description: 'White size 20',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 790,
   value: 1280,
@@ -1863,7 +1863,7 @@ export default [{
 },{
   id: '3781',
   category: 'sales',
-  description: 'Size 12 Ivory',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 680,
   value: 1100,
@@ -1916,7 +1916,7 @@ export default [{
 },{
   id: 'YSN316',
   category: 'sales',
-  description: 'Size 10 Ivory',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 680,
   value: 2250,
@@ -2010,7 +2010,7 @@ export default [{
 },{
   id: '3489',
   category: 'sales',
-  description: 'Size 8 Ivory',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 890,
   value: 1380,
@@ -2058,7 +2058,7 @@ export default [{
 },{
   id: 'GS192',
   category: 'sales',
-  description: 'Ivory size 10',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 880,
   value: 1690,
@@ -2326,7 +2326,7 @@ export default [{
 },{
   id: 'L129',
   category: 'sales',
-  description: 'Size 12 Ivory',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 1100,
   value: 0,
@@ -2547,7 +2547,7 @@ export default [{
 },{
   id: 'WJ1109A',
   category: 'sales',
-  description: 'Size 10 Ivory',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 1290,
   value: 1680,
