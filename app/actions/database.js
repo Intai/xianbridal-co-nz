@@ -93,7 +93,7 @@ export default [{
 },{
   id: 'RAN001',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -171,7 +171,7 @@ export default [{
 },{
   id: 'L1105',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 1390,
   value: 0,
@@ -288,7 +288,7 @@ export default [{
 },{
   id: 'L1020',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -301,7 +301,7 @@ export default [{
 },{
   id: 'XF16130',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -353,7 +353,7 @@ export default [{
 },{
   id: 'L1040',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -366,7 +366,7 @@ export default [{
 },{
   id: 'SL129B',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -393,7 +393,7 @@ export default [{
 },{
   id: 'XF16130A',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -419,7 +419,7 @@ export default [{
 },{
   id: 'L0268',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -446,7 +446,7 @@ export default [{
 },{
   id: 'L0116',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -483,7 +483,7 @@ export default [{
 },{
   id: 'F607',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -496,7 +496,7 @@ export default [{
 },{
   id: 'SL253',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -509,7 +509,7 @@ export default [{
 },{
   id: 'QL129B',
   category: 'gowns',
-  description: 'Out of stock.',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -523,7 +523,7 @@ export default [{
 },{
   id: 'SL298',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -550,7 +550,7 @@ export default [{
 },{
   id: 'K251001Z',
   category: 'gowns',
-  description: 'Out of stock.',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -563,7 +563,7 @@ export default [{
 },{
   id: 'J1451',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 1490,
   value: 0,
@@ -603,7 +603,7 @@ export default [{
 },{
   id: 'F365',
   category: 'gowns',
-  description: 'Out of stock.',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -615,7 +615,7 @@ export default [{
 },{
   id: 'L0173',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -639,7 +639,7 @@ export default [{
 },{
   id: '1867',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 1390,
   value: 0,
@@ -664,7 +664,7 @@ export default [{
 },{
   id: 'V0276',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 1180,
   value: 0,
@@ -699,7 +699,7 @@ export default [{
 },{
   id: 'L0153',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -711,7 +711,7 @@ export default [{
 },{
   id: '8211',
   category: 'gowns',
-  description: 'Out of stock.',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -724,7 +724,7 @@ export default [{
 },{
   id: 'V0316',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -736,7 +736,7 @@ export default [{
 },{
   id: 'VA036',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -802,7 +802,7 @@ export default [{
 },{
   id: 'L0763',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -815,7 +815,7 @@ export default [{
 },{
   id: 'XF621X',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -881,7 +881,7 @@ export default [{
 },{
   id: 'XF1010X',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -908,7 +908,7 @@ export default [{
 },{
   id: 'L0525',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -934,7 +934,7 @@ export default [{
 },{
   id: 'L0321',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -947,7 +947,7 @@ export default [{
 },{
   id: 'XF1009X',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -985,7 +985,7 @@ export default [{
 },{
   id: 'BABORX',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -1009,7 +1009,7 @@ export default [{
 },{
   id: 'L0142',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -1150,7 +1150,7 @@ export default [{
 },{
   id: 'L0775',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -1174,7 +1174,7 @@ export default [{
 },{
   id: 'L0611',
   category: 'gowns',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -1212,7 +1212,7 @@ export default [{
 },{
   id: 'QL132',
   category: 'gowns',
-  description: 'Out of stock.',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 0,
   value: 0,
@@ -1366,7 +1366,7 @@ export default [{
 },{
   id: 'L1289',
   category: 'sales',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 890,
   value: 1290,
@@ -1391,7 +1391,7 @@ export default [{
 },{
   id: '17637',
   category: 'sales',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 780,
   value: 1280,
@@ -2034,7 +2034,7 @@ export default [{
 },{
   id: '201219',
   category: 'sales',
-  description: '',
+  description: 'Out of stock',
   overlay: 'Sold',
   price: 1490,
   value: 2500,
