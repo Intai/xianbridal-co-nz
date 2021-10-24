@@ -54,7 +54,6 @@ const Images = styled.div`
 
 const cleanImgProps = omit([
   'aspectRatio',
-  'initialRect',
   'initialScale',
 ])
 
@@ -289,7 +288,6 @@ const handleTouchStart = (e, refTouchPrev) => {
 
 const renderImages = (
   product,
-  initialRect,
   initialScale,
   refScroll,
   scale,
@@ -306,7 +304,6 @@ const renderImages = (
         data-src={getImage(product, '', getMaxWidth(product.images[0]))}
         data-widths={getWidths(product.images[0])}
         importance="high"
-        initialRect={initialRect}
         initialScale={initialScale}
         itemProp="image"
         onClick={updateScale}
@@ -369,7 +366,6 @@ const getInitScale = ({ category }) => canUseDOM() && category === 'accessories'
   : 1
 
 const ProductDetails = ({
-  initialRect,
   product,
   backUrl,
 }) => {
@@ -389,7 +385,6 @@ const ProductDetails = ({
     <>
       {renderImages(
         product,
-        initialRect,
         initialScale,
         refScroll,
         scale,
