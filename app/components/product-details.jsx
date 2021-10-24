@@ -181,7 +181,7 @@ const getCategory = (product) => (
     : 'Apparel & Accessories > Clothing > Wedding & Bridal Party Dresses > Wedding Dresses'
 )
 
-const getImage = (product, variation = '', width = 500) => getImageUrl(
+const getImage = (product, variation = '', width = 200) => getImageUrl(
   `/product/${product.id}${variation && `-${variation}`}-${width}.webp`,
 )
 
@@ -425,14 +425,18 @@ export const ProductDetailsForSeo = (props) => {
   const product = catalogue && catalogue.selected
 
   return !!product && (
-    <div id={`root-portal-${product.id}`} style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100vw',
-      height: '100vh',
-      zIndex: 1,
-    }}>
+    <div
+      id={`root-portal-${product.id}`}
+      data-final=""
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: 1,
+      }}
+    >
       <ContainerForSeo
         itemScope
         itemType="http://data-vocabulary.org/Product"

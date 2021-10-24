@@ -1,4 +1,5 @@
-import React, { useMemo, useEffect } from 'react'
+import { inc } from 'ramda'
+import React, { useEffect, useMemo, useState } from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import { canUseDOM } from '../utils/common-util'
@@ -37,12 +38,25 @@ const removeContainer =  (portalContainer) => () => {
 
 const RootPortal = (props) => {
   const { id, children, className, itemScope, itemType } = props
+  const [, forceUpdate] = useState(0)
   const portalContainer = useMemo(() => createContainer(id), [id])
-  const shouldRender = !portalContainer || !portalContainer.style.zIndex
-  useEffect(() => removeContainer(portalContainer),
+  const shouldRender = !portalContainer || !portalContainer.style.zIndex || portalContainer.dataset.final
+
+  useEffect(() => {
+    if (portalContainer && portalContainer.style.zIndex && !portalContainer.dataset.final) {
+      const handleUpdate = () => {
+        portalContainer.dataset.final = true
+        portalContainer.removeEventListener('mousemove', handleUpdate)
+        portalContainer.removeEventListener('touchstart', handleUpdate)
+        forceUpdate(inc)
+      }
+      portalContainer.addEventListener('mousemove', handleUpdate)
+      portalContainer.addEventListener('touchstart', handleUpdate)
+    }
+    return removeContainer(portalContainer)
     // remove the div container when unmounting.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [])
+  }, [])
 
   return shouldRender && canUseDOM() && ReactDOM.createPortal(
     <Container
