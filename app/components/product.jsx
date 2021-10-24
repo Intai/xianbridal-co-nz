@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'bdux-react-router'
 import ProductDetails from './product-details'
