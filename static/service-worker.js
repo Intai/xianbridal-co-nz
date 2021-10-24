@@ -36,7 +36,7 @@ self.addEventListener('fetch', event => {
           return response
         }
 
-        return fetch(event.request, { mode: 'cors' }).then(response => {
+        return fetch(event.request, { mode: 'no-cors' }).then(response => {
           if (response && response.status === 200) {
             const cloned = response.clone()
             caches.open(cacheName)
