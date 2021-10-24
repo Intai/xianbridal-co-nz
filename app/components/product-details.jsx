@@ -185,7 +185,7 @@ const getCategory = (product) => (
     : 'Apparel & Accessories > Clothing > Wedding & Bridal Party Dresses > Wedding Dresses'
 )
 
-const getImage = (product, variation = '', width = 200) => getImageUrl(
+const getImage = (product, variation = '', width = 500) => getImageUrl(
   `/product/${product.id}${variation && `-${variation}`}-${width}.webp`,
 )
 
