@@ -36,6 +36,11 @@ const removeContainer =  (portalContainer) => () => {
   }
 }
 
+const eventOption = {
+  once: true,
+  passive: true,
+}
+
 const RootPortal = (props) => {
   const { id, children, className, itemScope, itemType } = props
   const [, forceUpdate] = useState(0)
@@ -50,8 +55,8 @@ const RootPortal = (props) => {
         portalContainer.removeEventListener('touchstart', handleUpdate)
         forceUpdate(inc)
       }
-      portalContainer.addEventListener('mousemove', handleUpdate)
-      portalContainer.addEventListener('touchstart', handleUpdate)
+      portalContainer.addEventListener('mousemove', handleUpdate, eventOption)
+      portalContainer.addEventListener('touchstart', handleUpdate, eventOption)
     }
     return removeContainer(portalContainer)
     // remove the div container when unmounting.
