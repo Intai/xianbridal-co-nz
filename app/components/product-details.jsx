@@ -94,10 +94,7 @@ const Image = styled(ImageDom)`
 const handleImageError = e => {
   const { target } = e
 
-  if (target.src.indexOf('-200') >= 0) {
-    target.src = target.src.replace('-200', '-500')
-    target.srcset = ''
-  } else if (target.src.indexOf('-1000') >= 0) {
+  if (target.src.indexOf('-1000') >= 0) {
     target.src = target.src.replace('-1000', '-500')
     target.srcset = ''
   } else if (target.src.indexOf('-2000') >= 0) {
@@ -184,7 +181,7 @@ const getCategory = (product) => (
     : 'Apparel & Accessories > Clothing > Wedding & Bridal Party Dresses > Wedding Dresses'
 )
 
-const getImage = (product, variation = '', width = 200) => getImageUrl(
+const getImage = (product, variation = '', width = 500) => getImageUrl(
   `/product/${product.id}${variation && `-${variation}`}-${width}.webp`,
 )
 

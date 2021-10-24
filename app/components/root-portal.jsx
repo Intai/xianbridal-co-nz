@@ -38,12 +38,13 @@ const removeContainer =  (portalContainer) => () => {
 const RootPortal = (props) => {
   const { id, children, className, itemScope, itemType } = props
   const portalContainer = useMemo(() => createContainer(id), [id])
+  const shouldRender = !portalContainer || !portalContainer.style.zIndex
   useEffect(() => removeContainer(portalContainer),
     // remove the div container when unmounting.
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [])
 
-  return canUseDOM() && ReactDOM.createPortal(
+  return shouldRender && canUseDOM() && ReactDOM.createPortal(
     <Container
       className={className}
       itemScope={itemScope}
