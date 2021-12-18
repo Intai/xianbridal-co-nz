@@ -2,3 +2,4 @@
 .tags*
 dist
 node_modules
+cloud-formation/packaged.yaml
