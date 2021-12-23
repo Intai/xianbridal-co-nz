@@ -52,7 +52,10 @@ const Footer = () => (
       <Line>{'Mon Closed'}</Line>
       <Line>{'Tue-Sat 10:30am - 4pm'}</Line>
       <Line>{'Sunday & Public Holidays Closed'}</Line>
-      <Line>{'Book an appointment for consultation'}</Line>
+      <Line>
+        {/* 'Book an appointment for consultation' */}
+        {'Closed from 24th Dec to 6th of Jan'}
+      </Line>
     </Section>
     <Section>
       <Title>{'Contact'}</Title>
