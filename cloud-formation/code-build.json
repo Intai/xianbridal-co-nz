@@ -61,19 +61,8 @@
         }]
       }
     },
-    "CodeBuildSourceCredential": {
-      "Type": "AWS::CodeBuild::SourceCredential",
-      "Properties": {
-        "Token": "{{resolve:secretsmanager:github:SecretString:token}}",
-        "ServerType": "GITHUB",
-        "AuthType": "PERSONAL_ACCESS_TOKEN"
-      }
-    },
     "CodeBuild": {
       "Type": "AWS::CodeBuild::Project",
-      "DependsOn": [
-        "CodeBuildSourceCredential"
-      ],
       "Properties": {
         "Name": {
           "Ref": "AWSStackName"
@@ -100,6 +89,9 @@
         },
         "Source": {
           "Type": "GITHUB",
+          "Auth": {
+            "Type": "OAUTH"
+          },
           "Location": {
             "Fn::Join": [
               "", [
