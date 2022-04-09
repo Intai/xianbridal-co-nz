@@ -261,12 +261,13 @@ const renderAddress = ({ isCompact }) => (
         </ContactItemData>
       </AddressHeading>
       <div>
-        {'Open 10:30am to 4pm on Tue to Sat'}
+        {/* 'Open 10:30am to 4pm on Tue to Sat' */}
+        {'Open 10:30am to 3pm on 16th of Apr'}
       </div>
       <div>
         {/* 'Book an appointment for consultation' */}
         {/* 'Open in Covid 19 Level 3 Step 2, appointment only' */}
-        {'Closed from 29th to 31st of Jan'}
+        {'Closed from 12th to 15th of Apr'}
       </div>
     </Address>
   )

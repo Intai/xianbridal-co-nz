@@ -50,11 +50,14 @@ const Footer = () => (
     <Section>
       <Title>{'Opening Hours'}</Title>
       <Line>{'Mon Closed'}</Line>
-      <Line>{'Tue-Sat 10:30am - 4pm'}</Line>
+      <Line>
+        {/* 'Tue-Sat 10:30am - 3pm' */}
+        {'10:30am - 3pm on 16th of Apr'}
+      </Line>
       <Line>{'Sunday & Public Holidays Closed'}</Line>
       <Line>
         {/* 'Book an appointment for consultation' */}
-        {'Closed from 29th to 31st of Jan'}
+        {'Closed from 12th to 15th of Apr'}
       </Line>
     </Section>
     <Section>

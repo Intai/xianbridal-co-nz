@@ -36,7 +36,7 @@ export const getStaticUrl = (pathname) => {
 }
 
 export const encodeSku = memoizeWith(identity, (name) => (
-  `${md5(name).slice(0, 3).toUpperCase()}${name}`
+  name && `${md5(name).slice(0, 3).toUpperCase()}${name}`
 ))
 
 export const decodeSku = (code) => (

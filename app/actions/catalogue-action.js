@@ -5,12 +5,14 @@ import {
   find,
   identity,
   memoizeWith,
+  pipe,
   propEq,
   propSatisfies,
   test,
 } from 'ramda'
 import ActionTypes from './action-types'
 import database from './database'
+import { encodeSku } from '../utils/common-util'
 
 const escapeRegex = (value) => (
   (value && typeof value === 'string')
@@ -27,7 +29,7 @@ const filterBySearchQuery = (query) => {
 
   return filter(
     either(
-      propSatisfies(testQuery, 'id'),
+      propSatisfies(pipe(encodeSku, testQuery), 'id'),
       propSatisfies(testQuery, 'description'),
     ),
     database,
