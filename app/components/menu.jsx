@@ -1,13 +1,15 @@
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
+import { useParams } from 'react-router'
 import { Link } from 'bdux-react-router'
 import { useBdux, createUseBdux } from 'bdux/hook'
 import {
-  createLocationHistory,
   LocationAction,
   LocationStore,
   Router,
+  Routes,
   Route,
+  updateRouterLocation,
 } from 'bdux-react-router'
 import SearchInput from './search-input'
 import { fontTitle } from './typography'
@@ -109,6 +111,7 @@ const selectedCompactLink = ({ isCompact, isSelected, theme }) => (
 
 const StripLink = ({ children, className, onMouseEnter, onMouseUp, to }) => (
   <Link
+    as="a"
     className={className}
     onMouseEnter={onMouseEnter}
     onMouseUp={onMouseUp}
@@ -146,7 +149,7 @@ const useSelectCategory = (category, dispatch, setIsSearching) => (
 )
 
 const Menu = (props) => {
-  const { match: { params: { category } } } = props
+  const { category } = useParams()
   const isCompact = !!category
   const { dispatch } = useBdux(props)
   const [isSearching, setIsSearching] = useState(false)
@@ -233,11 +236,17 @@ const MenuRoutes = (props) => {
   const { location } = state
 
   return !!location && (
-    <Router history={createLocationHistory(location)}>
-      <Route
-        component={Menu}
-        path="/:category?"
-      />
+    <Router location={updateRouterLocation(location)}>
+      <Routes>
+        <Route
+          element={<Menu />}
+          path="/:category/*"
+        />
+        <Route
+          element={<Menu />}
+          index
+        />
+      </Routes>
     </Router>
   )
 }

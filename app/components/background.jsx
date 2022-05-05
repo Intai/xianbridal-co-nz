@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
+import { useParams } from 'react-router'
 import { useBdux, createUseBdux } from 'bdux/hook'
 import {
-  createLocationHistory,
   LocationAction,
   LocationStore,
   Router,
+  Routes,
   Route,
+  updateRouterLocation,
 } from 'bdux-react-router'
 import BackgroundStore from '../stores/background-store'
 import { getImageUrl } from '../utils/common-util'
@@ -94,7 +96,7 @@ const selectNext = prev => {
 const Background = (props) => {
   const { state } = useBdux(props, { background: BackgroundStore })
   const { background } = state
-  const { match: { params: { category } } } = props
+  const { category } = useParams()
   const selected = background && background.selected
   const [current, setCurrent] = useState(selected || category)
   const refInterval = useRef()
@@ -127,11 +129,17 @@ const BackgroundRoutes = (props) => {
   const { location } = state
 
   return (
-    <Router history={createLocationHistory(location)}>
-      <Route
-        component={Background}
-        path="/:category?"
-      />
+    <Router location={updateRouterLocation(location)}>
+      <Routes>
+        <Route
+          element={<Background />}
+          path="/:category/*"
+        />
+        <Route
+          element={<Background />}
+          index
+        />
+      </Routes>
     </Router>
   )
 }

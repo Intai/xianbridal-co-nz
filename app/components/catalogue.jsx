@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo } from 'react'
 import styled from 'styled-components'
+import { useParams } from 'react-router'
 import { createUseBdux } from 'bdux/hook'
 import Product from './product'
 import EmptySearchResult from './empty-search-result'
@@ -52,7 +53,7 @@ const useBdux = createUseBdux({
 })
 
 const Catalogue = (props) => {
-  const { match: { params: { category = 'search', query, id } } } = props
+  const { category = 'search', query, id } = useParams()
   const { state, dispatch } = useBdux(props)
   const { catalogue } = state
 

@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useParams } from 'react-router'
 import { createUseBdux } from 'bdux/hook'
 import {
-  createLocationHistory,
   LocationAction,
   LocationStore,
   Router,
+  Routes,
   Route,
+  updateRouterLocation,
 } from 'bdux-react-router'
 import Anchor from './anchor'
 import {
@@ -299,7 +301,7 @@ const useBdux = createUseBdux({
 ])
 
 const BusinessCard = (props) => {
-  const { match: { params: { category } } } = props
+  const { category } = useParams()
   const isCompact = !!category
   const data = { ...props, isCompact }
 
@@ -327,11 +329,17 @@ const BusinessCardRoutes = (props) => {
   const { location } = state
 
   return !!location && (
-    <Router history={createLocationHistory(location)}>
-      <Route
-        component={BusinessCard}
-        path="/:category?"
-      />
+    <Router location={updateRouterLocation(location)}>
+      <Routes>
+        <Route
+          element={<BusinessCard />}
+          path="/:category/*"
+        />
+        <Route
+          element={<BusinessCard />}
+          index
+        />
+      </Routes>
     </Router>
   )
 }

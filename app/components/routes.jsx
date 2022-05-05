@@ -1,12 +1,12 @@
 import React from 'react'
 import { createUseBdux } from 'bdux/hook'
 import {
-  createLocationHistory,
   LocationAction,
   LocationStore,
   Router,
-  Switch,
+  Routes,
   Route,
+  updateRouterLocation,
 } from 'bdux-react-router'
 import Home from './home'
 import Catalogue from './catalogue'
@@ -18,28 +18,42 @@ const useBdux = createUseBdux({
   LocationAction.listen,
 ])
 
-const Routes = (props) => {
+const MainRoutes = (props) => {
   const { state } = useBdux(props)
   const { location } = state
 
   return (
-    <Router history={createLocationHistory(location)}>
-      <Switch>
+    <Router location={updateRouterLocation(location)}>
+      <Routes>
+        <Route path="/search/:query">
+          <Route
+            element={<Catalogue />}
+            path=":id"
+          />
+          <Route
+            element={<Catalogue />}
+            index
+          />
+        </Route>
+
+        <Route path="/:category">
+          <Route
+            element={<Catalogue />}
+            path=":id"
+          />
+          <Route
+            element={<Catalogue />}
+            index
+          />
+        </Route>
+
         <Route
-          component={Catalogue}
-          path="/search/:query/:id?"
-        />
-        <Route
-          component={Catalogue}
-          path="/:category/:id?"
-        />
-        <Route
-          component={Home}
+          element={<Home />}
           path="/"
         />
-      </Switch>
+      </Routes>
     </Router>
   )
 }
 
-export default Routes
+export default MainRoutes

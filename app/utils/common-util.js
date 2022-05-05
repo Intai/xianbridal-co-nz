@@ -8,7 +8,7 @@ const mapToKeyValue = (obj, key) => {
   return obj
 }
 
-export const canUseDOM = once(() => (
+export const canUseDOM = once(() => !!(
   typeof window !== 'undefined'
     && window.document
     && window.document.createElement

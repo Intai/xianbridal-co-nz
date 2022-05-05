@@ -1,12 +1,13 @@
 import React from 'react'
+import { useParams } from 'react-router'
 import { createUseBdux, useBdux } from 'bdux/hook'
 import {
-  createLocationHistory,
   LocationAction,
   LocationStore,
   Router,
-  Switch,
+  Routes,
   Route,
+  updateRouterLocation,
 } from 'bdux-react-router'
 import CatalogueStore from '../stores/catalogue-store'
 import { canUseDOM, encodeSku } from '../utils/common-util'
@@ -35,7 +36,7 @@ const renderHead = ({ description, keywords, title }) => {
 }
 
 const HeadSearchResult = (props) => {
-  const { match: { params: { query } } } = props
+  const { query } = useParams()
   const { state } = useBdux(props, { catalogue: CatalogueStore })
   const { catalogue } = state
   const product = catalogue?.selected
@@ -76,8 +77,8 @@ const HeadProduct = (props) => {
   })
 }
 
-const HeadCategory = (props) => {
-  const { match: { params: { category } } } = props
+const HeadCategory = () => {
+  const { category } = useParams()
   const description = categoryDescriptions[category]
 
   if (!description) {
@@ -121,29 +122,35 @@ const Head = (props) => {
   const { location } = state
 
   return shouldUpdateHead(props) && (
-    <Router history={createLocationHistory(location)}>
-      <Switch>
+    <Router location={updateRouterLocation(location)}>
+      <Routes>
+        <Route path="/search/:query">
+          <Route
+            element={<HeadProduct />}
+            path=":id"
+          />
+          <Route
+            element={<HeadSearchResult />}
+            index
+          />
+        </Route>
+
+        <Route path="/:category">
+          <Route
+            element={<HeadProduct />}
+            path=":id"
+          />
+          <Route
+            element={<HeadCategory />}
+            index
+          />
+        </Route>
+
         <Route
-          component={HeadProduct}
-          path="/search/:query/:id"
-        />
-        <Route
-          component={HeadSearchResult}
-          path="/search/:query"
-        />
-        <Route
-          component={HeadProduct}
-          path="/:category/:id"
-        />
-        <Route
-          component={HeadCategory}
-          path="/:category"
-        />
-        <Route
-          component={HeadHome}
+          element={<HeadHome />}
           path="/"
         />
-      </Switch>
+      </Routes>
     </Router>
   )
 }

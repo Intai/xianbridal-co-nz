@@ -171,6 +171,7 @@ const Product = (props) => {
   return (
     <ListItem>
       <Link
+        as="a"
         onMouseUp={trackConversion}
         to={query
           ? `/search/${query}/${encodeSku(product.id)}`

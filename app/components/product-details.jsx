@@ -120,6 +120,14 @@ const handleLoad = e => {
   }
 }
 
+const Anchors = styled.div`
+  max-width: 58px;
+
+  @media (orientation: portrait), (max-width: 632px) {
+    max-width: none;
+  }
+`
+
 const Details = styled.div`
   position: absolute;
   bottom: 25px;
@@ -378,6 +386,7 @@ const ProductDetails = ({
   const [scale, setScale] = useState(initialScale)
   const updateScale = useCallback(e => handleScale(e, refScroll, setScale, refTouchStart, initialScale), [initialScale])
   const updateTouchStart = useCallback(e => handleTouchStart(e, refTouchStart), [])
+  const sku = encodeSku(product.name || product.id)
 
   useEffect(() => {
     // clear dom manipulation from scaling.
@@ -396,7 +405,7 @@ const ProductDetails = ({
       )}
       <Details>
         <Sku itemProp="identifier">
-          {encodeSku(product.name || product.id)}
+          {sku}
         </Sku>
         {renderOffer(product)}
         <Description itemProp="description">
@@ -411,10 +420,17 @@ const ProductDetails = ({
           itemProp="category"
         />
       </Details>
-      <Anchor
-        href={backUrl || `/${product.category}`}
-        icon="back"
-      />
+      <Anchors>
+        <Anchor
+          href={backUrl || `/${product.category}`}
+          icon="back"
+        />
+        <Anchor
+          href={`mailto:info@xianbridal.co.nz?subject=Enquiry%20about%20#${sku}&body=`}
+          icon="mail"
+          title="info@xianbridal.co.nz"
+        />
+      </Anchors>
     </>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import BduxContext from 'bdux/context'
 import { createDispatcher } from 'bdux/dispatcher'
 import { hasUniversalStates } from 'bdux-universal/has-universal-states'
@@ -16,11 +16,11 @@ const renderApp = () => (
   </BduxContext.Provider>
 )
 
-const ReactDOMRender = hasUniversalStates()
-  ? ReactDOM.hydrate
-  : ReactDOM.render
+const container = document.getElementById('app')
+const element = renderApp()
 
-ReactDOMRender(
-  renderApp(),
-  document.getElementById('app'),
-)
+if (hasUniversalStates()) {
+  hydrateRoot(container, element)
+} else {
+  createRoot(container).render(element)
+}
