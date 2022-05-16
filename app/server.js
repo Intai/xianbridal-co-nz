@@ -53,8 +53,8 @@ const renderApp = (req, res) => {
     sheetApp.seal()
 
     body += tail
-    res.set('Content-Length', body.length)
-    res.write(body)
+    res.set('Content-Length', Buffer.byteLength(body, 'utf8'))
+    res.end(body)
   })
 }
 
