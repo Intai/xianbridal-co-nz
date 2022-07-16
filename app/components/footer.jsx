@@ -51,7 +51,7 @@ const Footer = () => (
       <Title>{'Opening Hours'}</Title>
       <Line>{'Mon Closed'}</Line>
       <Line>
-        {'Tue-Sat 10:30am - 3pm'}
+        {'Tue-Sat 10:30am - 4pm'}
       </Line>
       <Line>{'Sunday & Public Holidays Closed'}</Line>
       <Line>
