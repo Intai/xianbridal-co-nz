@@ -1189,8 +1189,8 @@ export default [{
   id: 'XIAN04',
   category: 'gowns',
   description: '',
-  overlay: '$490',
-  price: 490,
+  overlay: '$680',
+  price: 680,
   value: 1490,
   images: {
     0: [[200,300],[500,750]],
