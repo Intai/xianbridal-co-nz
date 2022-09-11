@@ -2972,8 +2972,8 @@ export default [{
   id: 'G328',
   category: 'sales',
   description: 'Size 8,16,18,22,24 Ivory, Size 10,14,20 White',
-  overlay: '$380',
-  price: 380,
+  overlay: '$580',
+  price: 580,
   value: 780,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
