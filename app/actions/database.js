@@ -553,7 +553,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 1390,
+  price: 1490,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
@@ -566,7 +566,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 1490,
+  price: 1690,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
@@ -619,7 +619,7 @@ export default [{
   category: 'gowns',
   description: 'Available in champaign and ivory',
   overlay: '',
-  price: 1490,
+  price: 1690,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
@@ -684,7 +684,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 1390,
+  price: 1490,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
@@ -736,7 +736,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 1490,
+  price: 1690,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
@@ -747,9 +747,9 @@ export default [{
 },{
   id: 'L1395',
   category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 1290,
+  description: 'Out of stock',
+  overlay: 'Sold',
+  price: 0,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
@@ -877,9 +877,9 @@ export default [{
 },{
   id: 'L0935',
   category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 1590,
+  description: 'Out of stock',
+  overlay: 'Sold',
+  price: 0,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
@@ -1285,8 +1285,8 @@ export default [{
 },{
   id: '8004',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 0,
   value: 0,
   images: {
@@ -1367,7 +1367,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 1290,
+  price: 1390,
   value: 0,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
@@ -1561,7 +1561,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 1590,
+  price: 1690,
   value: 0,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
@@ -1786,8 +1786,8 @@ export default [{
 },{
   id: 'L0364',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 0,
   value: 0,
   images: {
