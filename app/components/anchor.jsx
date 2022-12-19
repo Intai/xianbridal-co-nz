@@ -61,6 +61,7 @@ const Image = styled.div`
 const Text = styled.span`
   vertical-align: top;
   line-height: 64px;
+  text-decoration: underline;
 
   @media (max-width: ${businessCardFullWidth}),
     (max-height: ${businessCardFullHeight}) {

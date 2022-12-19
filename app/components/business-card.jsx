@@ -138,6 +138,10 @@ const AddressHeading = styled.h2`
   text-decoration: underline;
 `
 
+const ContactAnchor = styled(Anchor)`
+  text-decoration: none;
+`
+
 const BackAnchor = styled(Anchor)`
   float: left;
 `
@@ -195,7 +199,7 @@ const renderLocationData = () => (
 
 const renderEmail = ({ isCompact }) => (
   <ContactItem>
-    <Anchor
+    <ContactAnchor
       href="mailto:info@xianbridal.co.nz?subject=&body="
       icon="mail"
       maxWidth={253}
@@ -207,7 +211,7 @@ const renderEmail = ({ isCompact }) => (
 
 const renderPhone = ({ isCompact }) => (
   <ContactItem>
-    <Anchor
+    <ContactAnchor
       href="tel:098271286"
       icon="phone"
       itemProp="telephone"
@@ -221,7 +225,7 @@ const renderPhone = ({ isCompact }) => (
 
 const renderMobile = ({ isCompact }) => (
   <ContactItem>
-    <Anchor
+    <ContactAnchor
       href="tel:0211409204"
       icon="mobile"
       itemProp="telephone"
@@ -266,9 +270,8 @@ const renderAddress = ({ isCompact }) => (
         {'Open 10:30am to 4pm on Tue to Sat'}
       </div>
       <div>
-        {'Book an appointment for consultation'}
-        {/* 'Open in Covid 19 Level 3 Step 2, appointment only' */}
-        {/* 'Closed from 12th to 15th of Apr' */}
+        {/* 'Book an appointment for consultation' */}
+        {'Closed from 20th Dec to 27th of Jan'}
       </div>
     </Address>
   )
