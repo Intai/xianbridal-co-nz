@@ -270,8 +270,8 @@ const renderAddress = ({ isCompact }) => (
         {'Open 10:30am to 4pm on Tue to Sat'}
       </div>
       <div>
-        {/* 'Book an appointment for consultation' */}
-        {'Closed from 17th to 27th of Apr'}
+        {'Book an appointment for consultation'}
+        {/* 'Closed from 17th to 27th of Apr' */}
       </div>
     </Address>
   )

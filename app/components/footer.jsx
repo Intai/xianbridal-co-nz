@@ -55,8 +55,8 @@ const Footer = () => (
       </Line>
       <Line>{'Sunday & Public Holidays Closed'}</Line>
       <Line>
-        {/* 'Book an appointment for consultation' */}
-        {'Closed from 17th to 27th of Apr'}
+        {'Book an appointment for consultation'}
+        {/* 'Closed from 17th to 27th of Apr' */}
       </Line>
     </Section>
     <Section>

@@ -1,4 +1,4 @@
-import { identity, memoizeWith, once, reduce } from 'ramda'
+import { identity, memoizeWith, once, reduce, map } from 'ramda'
 import md5 from 'blueimp-md5'
 
 const PREFIX = 'XIAN'
@@ -42,6 +42,8 @@ export const encodeSku = memoizeWith(identity, (name) => (
 export const decodeSku = (code) => (
   code && code.slice(3)
 )
+
+export const encodeSkus = map(encodeSku)
 
 export default {
   canUseDOM,
