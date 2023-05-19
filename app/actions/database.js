@@ -384,9 +384,9 @@ export default [{
   id: 'L2710',
   category: 'sales',
   description: 'Ivory Size 10, 16',
-  overlay: '$1290',
-  price: 1290,
-  value: 1790,
+  overlay: '$1490',
+  price: 1490,
+  value: 1890,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2665]],
     1: [[200,267],[500,667],[1000,1333],[2000,2665]],
