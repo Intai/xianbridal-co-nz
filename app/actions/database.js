@@ -2834,10 +2834,10 @@ export default [{
 },{
   id: '2315',
   category: 'sales',
-  description: '',
-  overlay: '$360',
-  price: 360,
-  value: 690,
+  description: 'Size 8-16 White and Ivory',
+  overlay: '',
+  price: 0,
+  value: 0,
   images: {
     0: [[200,333],[500,833]],
     1: [[200,300],[500,750]],
