@@ -707,7 +707,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 1290,
+  price: 1390,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
@@ -1430,7 +1430,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 990,
+  price: 1290,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333]],
