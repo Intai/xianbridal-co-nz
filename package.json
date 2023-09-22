@@ -58,8 +58,5 @@
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-dev-server": "^4.9.0",
     "webpack-stream": "^7.0.0"
-  },
-  "overrides": {
-    "glob-parent": "^6.0.2"
   }
 }
