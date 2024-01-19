@@ -2080,9 +2080,9 @@ export default [{
 },{
   id: 'M371T',
   category: 'sales',
-  description: 'Size 10 and 16 Ivory',
-  overlay: '$480',
-  price: 480,
+  description: 'Size 10 and 18 Ivory',
+  overlay: '$780',
+  price: 780,
   value: 990,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
@@ -2194,8 +2194,8 @@ export default [{
   id: 'A568',
   category: 'sales',
   description: 'Size 10, 16, 20 Ivory, Size 12 White',
-  overlay: '$380',
-  price: 380,
+  overlay: '$460',
+  price: 460,
   value: 780,
   images: {
     0: [[200,300],[500,750]],
@@ -2312,8 +2312,8 @@ export default [{
   id: '908T',
   category: 'sales',
   description: 'Size 6, 8, 12 and 22 White, Size 6 Ivory',
-  overlay: '$360',
-  price: 360,
+  overlay: '$460',
+  price: 460,
   value: 880,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
