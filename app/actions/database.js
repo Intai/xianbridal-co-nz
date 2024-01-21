@@ -2564,9 +2564,9 @@ export default [{
   id: '3722',
   category: 'sales',
   description: 'Size 8 and 24 White',
-  overlay: '$480',
-  price: 480,
-  value: 880,
+  overlay: '$680',
+  price: 680,
+  value: 990,
   images: {
     0: [[200,300],[500,750]],
     1: [[200,300],[500,750]],
@@ -2599,8 +2599,8 @@ export default [{
   id: '3709',
   category: 'sales',
   description: 'Size 10-20 White and Ivory',
-  overlay: '$480',
-  price: 480,
+  overlay: '$680',
+  price: 680,
   value: 980,
   images: {
     0: [[200,300],[500,750]],
@@ -3139,9 +3139,9 @@ export default [{
 },{
   id: 'XB050',
   category: 'sales',
-  description: 'Size 16 Ivory',
-  overlay: '$290',
-  price: 290,
+  description: 'Size 18 Ivory',
+  overlay: '$680',
+  price: 680,
   value: 1290,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
