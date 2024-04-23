@@ -1520,8 +1520,8 @@ export default [{
 },{
   id: 'L0040',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 0,
   value: 0,
   images: {
