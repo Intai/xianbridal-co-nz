@@ -122,7 +122,7 @@ const renderImage = ({ product, importance }, refImage) => {
   return (
     <ImageRatio>
       <Image
-        alt={`Wedding Dress Item#${id}`}
+        alt={`Wedding Dress #${encodeSku(product.id)}`}
         data-id={id}
         importance={importance}
         onError={handleError}
