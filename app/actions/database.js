@@ -2857,9 +2857,9 @@ export default [{
   id: 'GS394',
   category: 'sales',
   description: '',
-  overlay: '$680',
-  price: 680,
-  value: 1280,
+  overlay: '$880',
+  price: 880,
+  value: 1480,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
     1: [[200,300],[500,750],[1000,1500],[2000,3000]],
