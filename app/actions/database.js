@@ -1443,10 +1443,10 @@ export default [{
 },{
   id: 'GS393',
   category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 0,
-  value: 0,
+  description: 'Size 10 and 18',
+  overlay: '$880',
+  price: 880,
+  value: 1480,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
     1: [[200,300],[500,750],[1000,1500],[2000,3000]],
@@ -2323,9 +2323,9 @@ export default [{
 },{
   id: 'GS166',
   category: 'sales',
-  description: 'Size 10 Ivory',
-  overlay: '$780',
-  price: 780,
+  description: 'Size 12 Ivory',
+  overlay: '$880',
+  price: 880,
   value: 1480,
   images: {
     0: [[200,300],[500,750]],
@@ -2821,9 +2821,9 @@ export default [{
 },{
   id: '12',
   category: 'sales',
-  description: 'Size 8 to 14',
-  overlay: '$780',
-  price: 780,
+  description: 'Size 8, 10, 14 and 18',
+  overlay: '$980',
+  price: 980,
   value: 1380,
   images: {
     0: [[200,300],[500,750]],
