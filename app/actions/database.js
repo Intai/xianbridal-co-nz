@@ -2926,8 +2926,8 @@ export default [{
 },{
   id: 'W625T',
   category: 'sales',
-  description: 'Size 10-22',
-  overlay: '$580',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 580,
   value: 1480,
   images: {
@@ -3066,9 +3066,9 @@ export default [{
 },{
   id: 'W683T',
   category: 'sales',
-  description: 'Size 18 White and Ivory',
-  overlay: '$790',
-  price: 790,
+  description: 'Size 16 White and Ivory',
+  overlay: '$880',
+  price: 880,
   value: 1690,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
