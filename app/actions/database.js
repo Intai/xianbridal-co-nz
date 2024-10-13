@@ -195,10 +195,10 @@ export default [{
 },{
   id: 'L1866',
   category: 'sales',
-  description: 'Ivory Size 12',
-  overlay: '$790',
-  price: 790,
-  value: 1190,
+  description: 'Out of stock',
+  overlay: 'Sold',
+  price: 0,
+  value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2665]],
     1: [[200,267],[500,667],[1000,1333],[2000,2665]],
@@ -602,9 +602,9 @@ export default [{
 },{
   id: 'L2030',
   category: 'gowns',
-  description: 'Ivory Size 12',
-  overlay: '',
-  price: 1490,
+  description: 'Out of stock',
+  overlay: 'Sold',
+  price: 0,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
@@ -681,9 +681,9 @@ export default [{
 },{
   id: 'L1104',
   category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 1590,
+  description: 'Out of stock',
+  overlay: 'Sold',
+  price: 0,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
@@ -759,9 +759,9 @@ export default [{
 },{
   id: 'L1155',
   category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 1690,
+  description: 'Out of stock',
+  overlay: 'Sold',
+  price: 0,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
@@ -798,7 +798,7 @@ export default [{
 },{
   id: 'L1492',
   category: 'gowns',
-  description: '',
+  description: 'Size 12 Ivory',
   overlay: '',
   price: 1490,
   value: 0,
@@ -1311,9 +1311,9 @@ export default [{
 },{
   id: 'XIAN04',
   category: 'gowns',
-  description: '',
-  overlay: '$890',
-  price: 890,
+  description: 'Size 20 White',
+  overlay: '$1290',
+  price: 1290,
   value: 1490,
   images: {
     0: [[200,300],[500,750]],
@@ -1444,8 +1444,8 @@ export default [{
   id: 'GS393',
   category: 'gowns',
   description: 'Size 10 and 18',
-  overlay: '$880',
-  price: 880,
+  overlay: '$1290',
+  price: 1290,
   value: 1480,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
@@ -2961,9 +2961,9 @@ export default [{
 },{
   id: 'D001',
   category: 'sales',
-  description: 'Size 8-20 White Ivory',
-  overlay: '$190',
-  price: 190,
+  description: 'Size 8 and 20 White Ivory',
+  overlay: '$360',
+  price: 360,
   value: 490,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
