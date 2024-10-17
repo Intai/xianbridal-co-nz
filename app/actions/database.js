@@ -550,8 +550,8 @@ export default [{
 },{
   id: 'XF5874',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 0,
   value: 0,
   images: {
@@ -1917,8 +1917,8 @@ export default [{
   name: 'XIAN01',
   category: 'sales',
   description: 'Size 6-12',
-  overlay: '$420',
-  price: 420,
+  overlay: '$480',
+  price: 480,
   value: 960,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2665]],
@@ -2232,8 +2232,8 @@ export default [{
   id: 'XIAN01',
   category: 'sales',
   description: 'Size 8 to 12',
-  overlay: '$360',
-  price: 360,
+  overlay: '$480',
+  price: 480,
   value: 960,
   images: {
     0: [[200,300],[500,750]],
@@ -2961,7 +2961,7 @@ export default [{
 },{
   id: 'D001',
   category: 'sales',
-  description: 'Size 8 and 20 White Ivory',
+  description: 'Size 14 and 20 White Ivory',
   overlay: '$360',
   price: 360,
   value: 490,
