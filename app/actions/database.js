@@ -1021,8 +1021,8 @@ export default [{
   id: 'X037T',
   category: 'gowns',
   description: '',
-  overlay: '$480',
-  price: 480,
+  overlay: '$680',
+  price: 680,
   value: 1280,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
@@ -2697,8 +2697,8 @@ export default [{
   id: '2331T',
   category: 'sales',
   description: 'Size 6-16',
-  overlay: '$500',
-  price: 500,
+  overlay: '$800',
+  price: 800,
   value: 1280,
   images: {
     0: [[200,300],[500,750]],
