@@ -219,10 +219,10 @@ export default [{
 },{
   id: 'L2002',
   category: 'gowns',
-  description: 'Ivory Size 16',
-  overlay: '',
-  price: 1690,
-  value: 2000,
+  description: 'Out of stock',
+  overlay: 'Sold',
+  price: 0,
+  value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2665]],
     1: [[200,267],[500,667],[1000,1333],[2000,2665]],
@@ -383,9 +383,9 @@ export default [{
 },{
   id: 'L2959',
   category: 'gowns',
-  description: 'Ivory Size 16',
-  overlay: '',
-  price: 1490,
+  description: 'Out of stock',
+  overlay: 'Sold',
+  price: 0,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2665]],
@@ -490,9 +490,9 @@ export default [{
 },{
   id: 'L3862',
   category: 'gowns',
-  description: 'Ivory + Nude Size 16',
-  overlay: '',
-  price: 1660,
+  description: 'Out of stock',
+  overlay: 'Sold',
+  price: 0,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2665]],
@@ -1391,9 +1391,9 @@ export default [{
 },{
   id: 'ZSS001X',
   category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 1390,
+  description: 'Out of stock',
+  overlay: 'Sold',
+  price: 0,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333]],
@@ -1785,7 +1785,7 @@ export default [{
 },{
   id: 'AK003',
   category: 'gowns',
-  description: '',
+  description: 'Ivory Size 14',
   overlay: '',
   price: 0,
   value: 0,
@@ -2747,10 +2747,10 @@ export default [{
 },{
   id: 'X029T',
   category: 'sales',
-  description: 'Available in White and Ivory',
-  overlay: '$890',
-  price: 890,
-  value: 1290,
+  description: 'Out of stock',
+  overlay: 'Sold',
+  price: 0,
+  value: 0,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
     1: [[200,300],[500,750],[1000,1500],[2000,3000]],
