@@ -2041,10 +2041,10 @@ export default [{
 },{
   id: '1001T',
   category: 'sales',
-  description: 'Size 8 to 16',
-  overlay: '$1290',
-  price: 1290,
-  value: 2000,
+  description: 'Out of stock',
+  overlay: 'Sold',
+  price: 0,
+  value: 0,
   images: {
     0: [[200,300],[500,750]],
     1: [[200,250],[500,625]],
