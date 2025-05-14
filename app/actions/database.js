@@ -657,7 +657,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 1390,
+  price: 0,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
@@ -669,8 +669,8 @@ export default [{
   id: 'L1150',
   category: 'sales',
   description: 'Ivory Size 12',
-  overlay: '$1290',
-  price: 1290,
+  overlay: '$1690',
+  price: 1690,
   value: 1890,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
@@ -1021,8 +1021,8 @@ export default [{
   id: 'X037T',
   category: 'gowns',
   description: '',
-  overlay: '$680',
-  price: 680,
+  overlay: '$780',
+  price: 780,
   value: 1280,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
@@ -2193,10 +2193,10 @@ export default [{
 },{
   id: 'A568',
   category: 'sales',
-  description: 'Size 10, 16, 20 Ivory, Size 12 White',
-  overlay: '$460',
-  price: 460,
-  value: 780,
+  description: 'Size 16, 20 Ivory, Size 12 White',
+  overlay: '$680',
+  price: 680,
+  value: 880,
   images: {
     0: [[200,300],[500,750]],
     1: [[200,300],[500,750]],
@@ -2586,10 +2586,10 @@ export default [{
 },{
   id: 'X026T',
   category: 'sales',
-  description: 'Size 12 and 14 White',
-  overlay: '$590',
-  price: 590,
-  value: 1390,
+  description: 'Out of stock',
+  overlay: 'Sold',
+  price: 0,
+  value: 0,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
     1: [[200,300],[500,750],[1000,1500],[2000,3000]],
@@ -2622,10 +2622,10 @@ export default [{
 },{
   id: '3704',
   category: 'sales',
-  description: 'Size 14 White',
-  overlay: '$680',
-  price: 680,
-  value: 1380,
+  description: 'Out of stock',
+  overlay: 'Sold',
+  price: 0,
+  value: 0,
   images: {
     0: [[200,300],[500,750]],
     1: [[200,300],[500,750]],
