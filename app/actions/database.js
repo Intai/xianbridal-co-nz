@@ -3256,8 +3256,8 @@ export default [{
   id: 'B62',
   category: 'sales',
   description: 'Size 10 to 16',
-  overlay: '$390',
-  price: 390,
+  overlay: '$490',
+  price: 490,
   value: 680,
   images: {
     0: [[200,300],[500,750],[1000,1500]],
