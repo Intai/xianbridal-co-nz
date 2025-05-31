@@ -233,7 +233,7 @@ export default [{
   category: 'gowns',
   description: 'Ivory Size 12',
   overlay: '',
-  price: 1690,
+  price: 1890,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2665]],
@@ -2514,8 +2514,8 @@ export default [{
   id: '3763',
   category: 'sales',
   description: 'Size 6-12',
-  overlay: '$680',
-  price: 680,
+  overlay: '$880',
+  price: 880,
   value: 1680,
   images: {
     0: [[200,300],[500,750]],
