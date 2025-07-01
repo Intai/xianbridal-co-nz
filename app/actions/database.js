@@ -2476,8 +2476,8 @@ export default [{
   id: 'D003',
   category: 'sales',
   description: 'Size 6-18',
-  overlay: '$480',
-  price: 480,
+  overlay: '$680',
+  price: 680,
   value: 780,
   images: {
     0: [[200,300],[500,750]],
