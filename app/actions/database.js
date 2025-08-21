@@ -2364,9 +2364,9 @@ export default [{
 },{
   id: 'GS029',
   category: 'sales',
-  description: 'Size 12 White, Size 8 Ivory',
-  overlay: '$680',
-  price: 680,
+  description: 'Size 12 White',
+  overlay: '$1390',
+  price: 1390,
   value: 1590,
   images: {
     0: [[200,300],[500,750]],
@@ -2785,9 +2785,9 @@ export default [{
 },{
   id: '899',
   category: 'sales',
-  description: 'Size 8-20 White, Size 8-14 Ivory',
-  overlay: '$280',
-  price: 280,
+  description: 'Size 8-20 White, Size 8-18 Ivory',
+  overlay: '$380',
+  price: 380,
   value: 680,
   images: {
     0: [[200,300],[500,750]],
