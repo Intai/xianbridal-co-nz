@@ -2415,8 +2415,8 @@ export default [{
   id: '3363',
   category: 'sales',
   description: 'Size 6-12 White and Ivory',
-  overlay: '$780',
-  price: 780,
+  overlay: '$890',
+  price: 890,
   value: 1380,
   images: {
     0: [[200,300],[500,750]],
