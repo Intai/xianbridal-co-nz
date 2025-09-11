@@ -13,7 +13,7 @@ export default [{
 },{
   id: 'DNY017',
   category: 'gowns',
-  description: 'Ivory Size 10, 18 and 22',
+  description: 'Ivory Size 18 and 22',
   overlay: '',
   price: 0,
   value: 0,
@@ -2092,10 +2092,10 @@ export default [{
 },{
   id: '3805',
   category: 'sales',
-  description: 'Size 14 White',
-  overlay: '$680',
-  price: 680,
-  value: 990,
+  description: 'Size 18 White',
+  overlay: '$890',
+  price: 890,
+  value: 1390,
   images: {
     0: [[200,300],[500,750]],
     1: [[200,300],[500,750]],
@@ -2258,9 +2258,9 @@ export default [{
 },{
   id: 'SD006',
   category: 'sales',
-  description: 'Size 12 White',
-  overlay: '$1690',
-  price: 1690,
+  description: 'Size 16 White',
+  overlay: '$1890',
+  price: 1890,
   value: 2500,
   images: {
     0: [[200,300],[500,750]],
