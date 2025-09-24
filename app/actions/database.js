@@ -25,8 +25,8 @@ export default [{
 },{
   id: 'DNY001',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 0,
   value: 0,
   images: {
@@ -136,8 +136,8 @@ export default [{
 },{
   id: 'AG349T',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 0,
   value: 0,
   images: {
@@ -255,8 +255,8 @@ export default [{
 },{
   id: 'L2005',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 0,
   value: 0,
   images: {
@@ -337,8 +337,8 @@ export default [{
 },{
   id: 'L2448',
   category: 'gowns',
-  description: 'Ivory Size 24',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 1890,
   value: 0,
   images: {
@@ -407,8 +407,8 @@ export default [{
 },{
   id: 'L3061',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 0,
   value: 0,
   images: {
@@ -466,8 +466,8 @@ export default [{
 },{
   id: 'L3471',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 0,
   value: 0,
   images: {
@@ -785,8 +785,8 @@ export default [{
 },{
   id: 'L1107',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 1690,
   value: 0,
   images: {
@@ -876,8 +876,8 @@ export default [{
 },{
   id: 'L1102',
   category: 'gowns',
-  description: 'Ivory Size 22',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 2490,
   value: 0,
   images: {
@@ -1176,8 +1176,8 @@ export default [{
 },{
   id: 'L0229',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 0,
   value: 0,
   images: {
@@ -1546,8 +1546,8 @@ export default [{
 },{
   id: 'L1039',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 1290,
   value: 0,
   images: {
@@ -1597,8 +1597,8 @@ export default [{
 },{
   id: 'L0051',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 0,
   value: 0,
   images: {
@@ -1621,8 +1621,8 @@ export default [{
 },{
   id: 'L1023',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 1490,
   value: 0,
   images: {
@@ -1687,8 +1687,8 @@ export default [{
 },{
   id: 'JD038',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 2280,
   value: 0,
   images: {
@@ -1811,8 +1811,8 @@ export default [{
 },{
   id: 'L0449',
   category: 'gowns',
-  description: '',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 1390,
   value: 0,
   images: {
