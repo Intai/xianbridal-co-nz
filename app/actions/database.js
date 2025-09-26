@@ -2351,9 +2351,9 @@ export default [{
 },{
   id: 'GS044A',
   category: 'sales',
-  description: 'Size 8 White',
-  overlay: '$1490',
-  price: 1490,
+  description: 'Size 12 White',
+  overlay: '$1690',
+  price: 1690,
   value: 2200,
   images: {
     0: [[200,300],[500,750]],
@@ -2378,8 +2378,8 @@ export default [{
   id: 'GS002',
   category: 'sales',
   description: 'Size 6-16 White and Ivory',
-  overlay: '$880',
-  price: 880,
+  overlay: '$980',
+  price: 980,
   value: 1600,
   images: {
     0: [[200,300],[500,750]],
@@ -2438,9 +2438,9 @@ export default [{
 },{
   id: 'A71067',
   category: 'sales',
-  description: 'Size 8 White',
-  overlay: '$1490',
-  price: 1490,
+  description: 'Size 12 White',
+  overlay: '$1690',
+  price: 1690,
   value: 2600,
   images: {
     0: [[200,300],[500,750]],
