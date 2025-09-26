@@ -2157,8 +2157,8 @@ export default [{
   id: '8087',
   category: 'sales',
   description: '',
-  overlay: '$580',
-  price: 580,
+  overlay: '$680',
+  price: 680,
   value: 880,
   images: {
     0: [[200,300],[500,750]],
