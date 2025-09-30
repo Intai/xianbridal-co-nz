@@ -3356,8 +3356,8 @@ export default [{
   id: 'X808',
   category: 'sales',
   description: 'Size 4-14 Ivory',
-  overlay: '$680',
-  price: 680,
+  overlay: '$780',
+  price: 780,
   value: 880,
   images: {
     0: [[200,300],[500,750],[1000,1500]],
@@ -3378,9 +3378,9 @@ export default [{
   id: 'A216',
   category: 'sales',
   description: 'Size 10,14',
-  overlay: '$500',
-  price: 500,
-  value: 680,
+  overlay: '$680',
+  price: 680,
+  value: 0,
   images: {
     0: [[200,300],[500,750],[1000,1500]],
     1: [[200,300],[500,750],[1000,1500]],
