@@ -890,8 +890,8 @@ export default [{
   id: 'SL393',
   category: 'gowns',
   description: '',
-  overlay: '',
-  price: 0,
+  overlay: '$1890',
+  price: 1890,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
