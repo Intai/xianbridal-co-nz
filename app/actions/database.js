@@ -839,7 +839,7 @@ export default [{
   category: 'gowns',
   description: 'Ivory Size 26',
   overlay: '',
-  price: 1490,
+  price: 1690,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
@@ -1088,7 +1088,7 @@ export default [{
   category: 'gowns',
   description: 'Ivory Size 28',
   overlay: '',
-  price: 1590,
+  price: 1690,
   value: 0,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
@@ -1312,8 +1312,8 @@ export default [{
   id: 'XIAN04',
   category: 'gowns',
   description: 'Size 20 White',
-  overlay: '$1290',
-  price: 1290,
+  overlay: '$1490',
+  price: 1490,
   value: 1490,
   images: {
     0: [[200,300],[500,750]],
@@ -2915,8 +2915,8 @@ export default [{
 },{
   id: 'C61',
   category: 'sales',
-  description: 'Size 8 Ivory, Size 10 White',
-  overlay: '$380',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 380,
   value: 880,
   images: {
@@ -3116,8 +3116,8 @@ export default [{
   id: 'D111',
   category: 'sales',
   description: 'Size 6 Ivory',
-  overlay: '$190',
-  price: 190,
+  overlay: '$260',
+  price: 260,
   value: 1180,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
@@ -3197,9 +3197,9 @@ export default [{
 },{
   id: 'F036',
   category: 'sales',
-  description: 'Size 10, 12 White',
-  overlay: '$260',
-  price: 260,
+  description: 'Size 10 White',
+  overlay: '$460',
+  price: 460,
   value: 880,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
@@ -3267,8 +3267,8 @@ export default [{
   id: 'B38',
   category: 'sales',
   description: 'Size 12 White',
-  overlay: '$290',
-  price: 290,
+  overlay: '$360',
+  price: 360,
   value: 680,
   images: {
     0: [[200,300],[500,750],[1000,1500]],
@@ -3309,9 +3309,9 @@ export default [{
 },{
   id: '2112',
   category: 'sales',
-  description: 'Size 8 to 12',
-  overlay: '$290',
-  price: 290,
+  description: 'Size 8, 16',
+  overlay: '$380',
+  price: 380,
   value: 680,
   images: {
     0: [[200,300],[500,750],[1000,1500]],
