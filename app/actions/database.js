@@ -3103,8 +3103,8 @@ export default [{
   id: 'SL076',
   category: 'sales',
   description: 'Size 10 Ivory',
-  overlay: '$680',
-  price: 680,
+  overlay: '$1290',
+  price: 1290,
   value: 1690,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
@@ -3233,9 +3233,9 @@ export default [{
   id: 'VA030',
   category: 'sales',
   description: 'Ivory size 10',
-  overlay: '$390',
-  price: 390,
-  value: 780,
+  overlay: '$590',
+  price: 590,
+  value: 880,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
     1: [[200,300],[500,750],[1000,1500],[2000,3000]],
