@@ -1021,8 +1021,8 @@ export default [{
   id: 'X037T',
   category: 'gowns',
   description: '',
-  overlay: '$780',
-  price: 780,
+  overlay: '$1190',
+  price: 1190,
   value: 1280,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
@@ -1140,8 +1140,8 @@ export default [{
   category: 'gowns',
   description: 'Ivory Size 18',
   overlay: '',
-  price: 990,
-  value: 1690,
+  price: 1690,
+  value: 0,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
     1: [[200,300],[500,750],[1000,1500],[2000,3000]],
