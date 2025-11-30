@@ -1,4 +1,5 @@
 ---
+argument-hint: [...products?]
 description: Update database for new product images.
 ---
 
