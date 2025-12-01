@@ -15,6 +15,10 @@ import { getImageUrl } from '../utils/common-util'
 
 const imageWithCategory = ({ hasCategory }) => hasCategory && `
   filter: opacity(25%);
+
+  @media (max-width: 480px) {
+    filter: blur(2px) opacity(25%);
+  }
 `
 
 const imageSelected = ({ isSelected }) => `
@@ -22,8 +26,6 @@ const imageSelected = ({ isSelected }) => `
 `
 
 const Image = styled.img`
-  ${imageWithCategory}
-  ${imageSelected}
   transition: filter 500ms linear, opacity 500ms linear;
   object-fit: cover;
   object-position: center;
@@ -37,6 +39,8 @@ const Image = styled.img`
   @media (max-width: 480px) {
     filter: blur(2px);
   }
+  ${imageWithCategory}
+  ${imageSelected}
 `
 
 const getSrcSet = (filename) => {
