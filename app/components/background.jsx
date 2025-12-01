@@ -13,13 +13,18 @@ import {
 import BackgroundStore from '../stores/background-store'
 import { getImageUrl } from '../utils/common-util'
 
+const imageWithCategory = ({ hasCategory }) => hasCategory && `
+  filter: opacity(25%);
+`
+
 const imageSelected = ({ isSelected }) => `
   opacity: ${isSelected ? 1 : 0};
 `
 
 const Image = styled.img`
+  ${imageWithCategory}
   ${imageSelected}
-  transition: opacity 500ms linear;
+  transition: filter 500ms linear, opacity 500ms linear;
   object-fit: cover;
   object-position: center;
   position: fixed;
@@ -47,10 +52,11 @@ const srcSizes = '\
 (max-width: 480px) 480px, \
 1920px'
 
-const renderBackground = (selected) => (
+const renderBackground = (category, selected) => (
   <>
     <Image
       alt="Gowns background"
+      hasCategory={!!category}
       isSelected={!selected || selected === 'gowns'}
       src={getImageUrl('/background/gowns2-1920.webp')}
       srcSet={getSrcSet('gowns2')}
@@ -58,6 +64,7 @@ const renderBackground = (selected) => (
     />
     <Image
       alt="Sales background"
+      hasCategory={!!category}
       isSelected={selected === 'sales'}
       src={getImageUrl('/background/gowns1-1920.webp')}
       srcSet={getSrcSet('gowns1')}
@@ -65,6 +72,7 @@ const renderBackground = (selected) => (
     />
     <Image
       alt="Accessories background"
+      hasCategory={!!category}
       isSelected={selected === 'accessories'}
       src={getImageUrl('/background/accessories-1920.webp')}
       srcSet={getSrcSet('accessories')}
@@ -72,6 +80,7 @@ const renderBackground = (selected) => (
     />
     <Image
       alt="Search background"
+      hasCategory={!!category}
       isSelected={selected === 'search'}
       src={getImageUrl('/background/search-1920.webp')}
       srcSet={getSrcSet('search')}
@@ -114,7 +123,7 @@ const Background = (props) => {
     }
   }, [category, selected])
 
-  return renderBackground(current)
+  return renderBackground(category, current)
 }
 
 const useBduxForRoutes = createUseBdux({
