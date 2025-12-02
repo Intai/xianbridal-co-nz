@@ -343,8 +343,8 @@ export default [{
   id: '2108',
   category: 'sales',
   description: 'Size 6-16 White and Ivory',
-  overlay: '$390',
-  price: 390,
+  overlay: '$480',
+  price: 480,
   value: 680,
   images: {
     0: [[200,350],[500,875],[768,1344]],
@@ -930,10 +930,10 @@ export default [{
 },{
   id: '902T',
   category: 'sales',
-  description: '',
-  overlay: '',
-  price: 0,
-  value: 0,
+  description: 'Size 8-18',
+  overlay: '$680',
+  price: 680,
+  value: 980,
   images: {
     0: [[200,350],[500,875],[768,1344]],
     1: [[200,350],[500,875],[768,1344]],
@@ -941,10 +941,10 @@ export default [{
 },{
   id: 'D002',
   category: 'sales',
-  description: '',
-  overlay: '',
-  price: 0,
-  value: 0,
+  description: 'Size 8-14',
+  overlay: '$480',
+  price: 480,
+  value: 680,
   images: {
     0: [[200,350],[500,875],[768,1344]],
   },
@@ -973,10 +973,10 @@ export default [{
 },{
   id: 'X808S',
   category: 'sales',
-  description: '',
-  overlay: '',
-  price: 0,
-  value: 0,
+  description: 'Size 10-14',
+  overlay: '$680',
+  price: 680,
+  value: 880,
   images: {
     0: [[200,350],[500,875],[768,1344]],
   },
@@ -997,8 +997,8 @@ export default [{
   id: 'A278A',
   category: 'sales',
   description: 'Size 6-24',
-  overlay: '',
-  price: 0,
+  overlay: '$745',
+  price: 745,
   value: 0,
   images: {
     0: [[200,275],[500,686],[864,1184]],
@@ -1008,8 +1008,8 @@ export default [{
   id: 'D599AB',
   category: 'sales',
   description: 'Size 6-16',
-  overlay: '',
-  price: 0,
+  overlay: '$745',
+  price: 745,
   value: 0,
   images: {
     0: [[200,275],[500,686],[864,1184]],
@@ -1429,8 +1429,8 @@ export default [{
   id: '3890',
   category: 'sales',
   description: '',
-  overlay: '$990',
-  price: 990,
+  overlay: '$780',
+  price: 780,
   value: 1280,
   images: {
     0: [[200,350],[500,875],[768,1344]],
@@ -1520,8 +1520,8 @@ export default [{
   id: '2331T',
   category: 'sales',
   description: 'Size 6-16',
-  overlay: '$800',
-  price: 800,
+  overlay: '$880',
+  price: 880,
   value: 1280,
   images: {
     0: [[200,350],[500,875],[768,1344]],
@@ -1686,10 +1686,10 @@ export default [{
 },{
   id: 'D001',
   category: 'sales',
-  description: 'Size 14 and 20 White Ivory',
-  overlay: '$360',
-  price: 360,
-  value: 490,
+  description: 'Size 14 and 20 White',
+  overlay: '$480',
+  price: 480,
+  value: 680,
   images: {
     0: [[200,300],[500,750],[1000,1500],[2000,3000]],
     1: [[200,300],[500,750],[1000,1500],[2000,3000]],
@@ -1845,8 +1845,8 @@ export default [{
   id: '2121',
   category: 'sales',
   description: 'Size 6-14 White, Size 8-16 Ivory',
-  overlay: '',
-  price: 0,
+  overlay: '$680',
+  price: 680,
   value: 0,
   images: {
     0: [[200,300],[500,750],[832,1248]],
@@ -1869,9 +1869,9 @@ export default [{
 },{
   id: 'A278',
   category: 'sales',
-  description: 'Size 6-20',
-  overlay: '',
-  price: 0,
+  description: 'Size 6-24',
+  overlay: '$680',
+  price: 680,
   value: 0,
   images: {
     0: [[200,300],[500,750],[832,1248]],
