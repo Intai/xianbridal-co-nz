@@ -1533,9 +1533,9 @@ export default [{
 },{
   id: '2331',
   category: 'sales',
-  description: 'Size 8-20',
-  overlay: '$480',
-  price: 480,
+  description: 'Size 8-16',
+  overlay: '$680',
+  price: 680,
   value: 780,
   images: {
     0: [[200,350],[500,875],[768,1344]],
