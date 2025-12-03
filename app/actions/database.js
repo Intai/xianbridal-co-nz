@@ -1020,8 +1020,8 @@ export default [{
   id: 'M372TA',
   category: 'sales',
   description: 'White Size 8',
-  overlay: '$520',
-  price: 520,
+  overlay: '$745',
+  price: 745,
   value: 880,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2665]],
@@ -1547,8 +1547,8 @@ export default [{
   id: 'M372T',
   category: 'sales',
   description: 'Size 8 White',
-  overlay: '$460',
-  price: 460,
+  overlay: '$680',
+  price: 680,
   value: 1180,
   images: {
     0: [[200,350],[500,875],[768,1344]],
