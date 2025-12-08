@@ -26,7 +26,7 @@ export default [{
 },{
   id: 'DNZ007',
   category: 'gowns',
-  description: '',
+  description: 'Size 22 Ivory',
   overlay: '',
   price: 0,
   value: 0,
@@ -39,7 +39,7 @@ export default [{
 },{
   id: 'DNZ012',
   category: 'gowns',
-  description: '',
+  description: 'Size 18, 24 Ivory',
   overlay: '',
   price: 0,
   value: 0,
@@ -103,7 +103,7 @@ export default [{
 },{
   id: 'L1094V',
   category: 'gowns',
-  description: 'Ivory Size 12, 16 and 20',
+  description: 'Ivory Size 12, 16',
   overlay: '',
   price: 1890,
   value: 0,
@@ -115,7 +115,7 @@ export default [{
 },{
   id: 'L1226',
   category: 'gowns',
-  description: 'Ivory Size 16 and 28',
+  description: 'Ivory Size 16',
   overlay: '',
   price: 1890,
   value: 0,
@@ -447,7 +447,7 @@ export default [{
 },{
   id: 'VA530',
   category: 'gowns',
-  description: '',
+  description: 'Size 12 Ivory',
   overlay: '',
   price: 0,
   value: 0,
@@ -499,7 +499,7 @@ export default [{
 },{
   id: 'L1150',
   category: 'gowns',
-  description: '',
+  description: 'Size 12 Ivory',
   overlay: '',
   price: 0,
   value: 0,
@@ -541,7 +541,7 @@ export default [{
 },{
   id: 'L1340',
   category: 'gowns',
-  description: '',
+  description: 'Size 10 Ivory',
   overlay: '',
   price: 1390,
   value: 0,
@@ -582,7 +582,7 @@ export default [{
 },{
   id: 'L1083',
   category: 'gowns',
-  description: '',
+  description: 'Size 14, 22',
   overlay: '',
   price: 1890,
   value: 0,
@@ -609,7 +609,7 @@ export default [{
 },{
   id: 'V0058',
   category: 'gowns',
-  description: '',
+  description: 'Size 10 Ivory',
   overlay: '',
   price: 1690,
   value: 0,
@@ -624,7 +624,7 @@ export default [{
 },{
   id: 'L0148',
   category: 'gowns',
-  description: '',
+  description: 'Size 12 White',
   overlay: '',
   price: 0,
   value: 0,
@@ -723,7 +723,7 @@ export default [{
 },{
   id: 'A9932',
   category: 'gowns',
-  description: '',
+  description: 'Size 12 Ivory',
   overlay: '',
   price: 0,
   value: 0,
@@ -736,7 +736,7 @@ export default [{
 },{
   id: 'SD004',
   category: 'gowns',
-  description: '',
+  description: 'Size 8-16',
   overlay: '',
   price: 0,
   value: 0,
@@ -811,7 +811,7 @@ export default [{
 },{
   id: 'XF639',
   category: 'gowns',
-  description: '',
+  description: 'Size 20 Ivory',
   overlay: '',
   price: 0,
   value: 0,
@@ -825,7 +825,7 @@ export default [{
 },{
   id: 'L0079',
   category: 'gowns',
-  description: '',
+  description: 'Size 10 Ivory',
   overlay: '',
   price: 1090,
   value: 0,
@@ -838,7 +838,7 @@ export default [{
 },{
   id: 'MM008X',
   category: 'gowns',
-  description: '',
+  description: 'Size 22 Ivory',
   overlay: '',
   price: 0,
   value: 0,
@@ -852,9 +852,9 @@ export default [{
 },{
   id: 'SY147-19X',
   category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 0,
+  description: 'Size 12 Ivory',
+  overlay: '$1590',
+  price: 1590,
   value: 0,
   images: {
     0: [[200,275],[500,686],[864,1184]],
@@ -891,10 +891,10 @@ export default [{
 },{
   id: 'XF5873',
   category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 0,
-  value: 0,
+  description: 'Size 14 Ivory, Size 18 Champagne',
+  overlay: '$1860',
+  price: 1860,
+  value: 2380,
   images: {
     0: [[200,275],[500,686],[864,1184]],
     1: [[200,267],[500,667],[1000,1333]],
@@ -905,7 +905,7 @@ export default [{
 },{
   id: 'L1021',
   category: 'gowns',
-  description: '',
+  description: 'Size 20 Ivory',
   overlay: '',
   price: 0,
   value: 0,
@@ -920,9 +920,9 @@ export default [{
 },{
   id: '807T',
   category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 0,
+  description: 'Size 6-18',
+  overlay: '$880',
+  price: 880,
   value: 0,
   images: {
     0: [[200,350],[500,875],[768,1344]],
@@ -951,10 +951,10 @@ export default [{
 },{
   id: 'GS199',
   category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 0,
-  value: 0,
+  description: 'Size 6-12, 18',
+  overlay: '$1290',
+  price: 1290,
+  value: 1690,
   images: {
     0: [[200,350],[500,875],[768,1344]],
     1: [[200,350],[500,875],[768,1344]],
@@ -962,10 +962,10 @@ export default [{
 },{
   id: 'K15039-1Z',
   category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 0,
-  value: 0,
+  description: 'Size 10 Ivory',
+  overlay: '$1490',
+  price: 1490,
+  value: 1890,
   images: {
     0: [[200,350],[500,875],[768,1344]],
     1: [[200,350],[500,875],[768,1344]],
@@ -1119,7 +1119,7 @@ export default [{
 },{
   id: '898',
   category: 'sales',
-  description: '',
+  description: 'Size 8-18',
   overlay: '$380',
   price: 380,
   value: 680,
@@ -1192,7 +1192,7 @@ export default [{
 },{
   id: 'A8',
   category: 'sales',
-  description: 'Size 8-20',
+  description: 'Size 8-14',
   overlay: '$680',
   price: 680,
   value: 880,
@@ -1507,7 +1507,7 @@ export default [{
 },{
   id: 'F012',
   category: 'sales',
-  description: 'White and Ivory size 6 to 18',
+  description: 'White and Ivory Size 6 to 14',
   overlay: '$480',
   price: 480,
   value: 680,
@@ -1623,7 +1623,7 @@ export default [{
 },{
   id: 'T035',
   category: 'sales',
-  description: 'Size 8, 24 Ivory, Size 8 White',
+  description: 'Size 8, 20 Ivory, Size 8 White',
   overlay: '$360',
   price: 360,
   value: 780,
@@ -1933,7 +1933,7 @@ export default [{
 },{
   id: 'L1323',
   category: 'gowns',
-  description: '',
+  description: 'Size 8, 10 Ivory',
   overlay: '',
   price: 1390,
   value: 0,
@@ -1958,20 +1958,6 @@ export default [{
     3: [[200,267],[500,667],[1000,1333]],
   },
 },{
-  id: 'XF639c',
-  name: 'XF639',
-  category: 'gowns',
-  description: '',
-  overlay: '',
-  price: 0,
-  value: 0,
-  images: {
-    0: [[200,267],[500,667],[1000,1333]],
-    1: [[200,267],[500,667],[1000,1333]],
-    2: [[200,267],[500,667],[1000,1333]],
-    3: [[200,300],[500,750],[1000,1500],[2000,3000]],
-  },
-},{
   id: 'F303',
   category: 'gowns',
   description: '',
@@ -1987,7 +1973,7 @@ export default [{
 },{
   id: 'SL393',
   category: 'gowns',
-  description: '',
+  description: 'Size 14 Lace-up back',
   overlay: '$1890',
   price: 1890,
   value: 0,
