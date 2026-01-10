@@ -1635,8 +1635,8 @@ export default [{
   id: 'T035',
   category: 'sales',
   description: 'Size 8, 20 Ivory, Size 8 White',
-  overlay: '$390',
-  price: 390,
+  overlay: '$490',
+  price: 490,
   value: 780,
   images: {
     0: [[200,300],[500,750],[832,1248]],
