@@ -175,7 +175,7 @@ export default [{
   category: 'gowns',
   description: 'Ivory Size 18',
   overlay: '',
-  price: 2290,
+  price: 2690,
   value: 0,
   images: {
     0: [[200,274],[500,685],[864,1184]],
