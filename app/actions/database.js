@@ -1957,8 +1957,8 @@ export default [{
   category: 'gowns',
   description: 'Size 6 Champaign',
   overlay: '',
-  price: 0,
-  value: 2890,
+  price: 2890,
+  value: 0,
   images: {
     0: [[200,350],[500,875],[768,1344]],
     1: [[200,350],[500,875],[768,1344]],
@@ -1980,8 +1980,8 @@ export default [{
   category: 'gowns',
   description: 'Size 6-18',
   overlay: '',
-  price: 0,
-  value: 680,
+  price: 680,
+  value: 0,
   images: {
     0: [[200,350],[500,875],[768,1344]],
     1: [[200,350],[500,875],[768,1344]],
