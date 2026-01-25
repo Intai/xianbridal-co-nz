@@ -13,7 +13,7 @@ export default [{
   id: '181912640',
   category: 'gowns',
   description: 'Size 6 Ivory',
-  overlay: '',
+  overlay: ' ',
   price: 890,
   value: 1180,
   images: {
@@ -50,7 +50,7 @@ export default [{
   id: 'W689T',
   category: 'gowns',
   description: 'Size 12 White',
-  overlay: '$1290',
+  overlay: ' ',
   price: 1290,
   value: 1490,
   images: {
@@ -90,7 +90,7 @@ export default [{
   id: 'T1092',
   category: 'gowns',
   description: 'Size 8-10 Ivory',
-  overlay: '',
+  overlay: ' ',
   price: 2690,
   value: 2890,
   images: {
@@ -103,7 +103,7 @@ export default [{
   id: 'T1093',
   category: 'gowns',
   description: 'Size 8-10 Ivory',
-  overlay: '',
+  overlay: ' ',
   price: 2690,
   value: 2890,
   images: {
