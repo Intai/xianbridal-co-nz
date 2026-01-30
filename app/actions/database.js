@@ -913,7 +913,7 @@ export default [{
   category: 'gowns',
   description: '',
   overlay: '',
-  price: 1290,
+  price: 1390,
   value: 0,
   images: {
     0: [[200,300],[500,750],[832,1248]],
