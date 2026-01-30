@@ -1496,7 +1496,7 @@ export default [{
 },{
   id: 'F011',
   category: 'sales',
-  description: 'Size 4, 12 and 18',
+  description: 'Size 4, 12 and 16',
   overlay: '$680',
   price: 680,
   value: 780,
@@ -1944,8 +1944,8 @@ export default [{
   id: 'N10',
   category: 'sales',
   description: 'Size 8 to 12',
-  overlay: '$680',
-  price: 680,
+  overlay: '$790',
+  price: 790,
   value: 880,
   images: {
     0: [[200,300],[500,750],[832,1248]],
