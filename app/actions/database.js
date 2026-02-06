@@ -1783,8 +1783,8 @@ export default [{
   id: 'F008',
   category: 'sales',
   description: 'White and ivory size 8 to 26',
-  overlay: '$680',
-  price: 680,
+  overlay: '$780',
+  price: 780,
   value: 880,
   images: {
     0: [[200,300],[500,750],[832,1248]],
