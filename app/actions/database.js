@@ -1308,8 +1308,8 @@ export default [{
   id: '8019T',
   category: 'sales',
   description: 'Size 8-20',
-  overlay: '$580',
-  price: 580,
+  overlay: '$680',
+  price: 680,
   value: 880,
   images: {
     0: [[200,300],[500,750],[832,1248]],
@@ -1410,8 +1410,8 @@ export default [{
   id: '908T',
   category: 'sales',
   description: 'Size 6, 8, 12 and 22 White, Size 6 Ivory',
-  overlay: '$580',
-  price: 580,
+  overlay: '$680',
+  price: 680,
   value: 880,
   images: {
     0: [[200,350],[500,875],[768,1344]],
@@ -1642,8 +1642,8 @@ export default [{
   id: 'F012',
   category: 'sales',
   description: 'White and Ivory Size 6 to 14',
-  overlay: '$480',
-  price: 480,
+  overlay: '$580',
+  price: 580,
   value: 680,
   images: {
     0: [[200,350],[500,875],[768,1344]],
