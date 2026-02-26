@@ -757,7 +757,7 @@ export default [{
   category: 'gowns',
   description: 'Ivory Size 20',
   overlay: '',
-  price: 1490,
+  price: 1690,
   value: 0,
   images: {
     0: [[200,275],[500,686],[864,1184]],
@@ -1337,8 +1337,8 @@ export default [{
   id: 'A568',
   category: 'sales',
   description: 'Size 16, 20 Ivory, Size 12 White',
-  overlay: '$680',
-  price: 680,
+  overlay: '$780',
+  price: 780,
   value: 880,
   images: {
     0: [[200,350],[500,875],[768,1344]],
