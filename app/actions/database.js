@@ -2081,7 +2081,7 @@ export default [{
   category: 'gowns',
   description: 'Size 8, 10 Ivory',
   overlay: '',
-  price: 1390,
+  price: 1590,
   value: 0,
   images: {
     0: [[200,267],[500,667],[1000,1333],[2000,2667]],
