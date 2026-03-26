@@ -1862,7 +1862,7 @@ export default [{
   id: '812',
   category: 'sales',
   description: 'Size 6-18',
-  overlay: '$480',
+  overlay: '$580',
   price: 580,
   value: 880,
   images: {
@@ -2661,7 +2661,7 @@ export default [{
   id: 'B74',
   category: 'sales',
   description: 'Pink size 10-16, Light blue size 16-18, Red size 8,14',
-  overlay: '$120',
+  overlay: '$160',
   price: 160,
   value: 360,
   images: {
