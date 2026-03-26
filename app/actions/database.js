@@ -2504,7 +2504,7 @@ export default [{
 },{
   id: '899B',
   category: 'sales',
-  description: 'Available in Pink and Black. Size 8 - 20',
+  description: 'Available in pink size 8 - 14 and black size 10, 14',
   overlay: '$88',
   price: 88,
   value: 360,
@@ -2515,7 +2515,7 @@ export default [{
 },{
   id: '897B',
   category: 'sales',
-  description: 'Burgandy sold. Available in pink and light blue',
+  description: 'Burgandy sold. Available in pink size 8 to 14 and light blue size 18 to 21',
   overlay: '$130',
   price: 130,
   value: 380,
@@ -2526,7 +2526,7 @@ export default [{
 },{
   id: '805',
   category: 'sales',
-  description: 'Available in blue and black size 8 to 14',
+  description: 'Available in blue size 18 and black size 8 to 12, 18',
   overlay: '$180',
   price: 180,
   value: 385,
@@ -2585,7 +2585,7 @@ export default [{
 },{
   id: '801',
   category: 'sales',
-  description: 'Shawl $20',
+  description: 'Shawl $20. Available in burgundy size 14, 20, 21 and pink size 10 - 16, 24',
   overlay: '$60',
   price: 60,
   value: 260,
