@@ -65,8 +65,8 @@ export default [{
 },{
   id: 'AX899',
   category: 'gowns',
-  description: 'Ivory 12-14',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 1490,
   value: 0,
   images: {
@@ -205,8 +205,8 @@ export default [{
 },{
   id: '181912640',
   category: 'gowns',
-  description: 'Size 6 Ivory',
-  overlay: ' ',
+  description: 'Size 8 Ivory',
+  overlay: '',
   price: 890,
   value: 1180,
   images: {
@@ -2497,8 +2497,8 @@ export default [{
 },{
   id: 'A9931',
   category: 'sales',
-  description: 'White size 10',
-  overlay: '$360',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 360,
   value: 890,
   images: {
@@ -2599,8 +2599,8 @@ export default [{
 },{
   id: 'X019',
   category: 'sales',
-  description: 'Size 10, 14, 16 Ivory',
-  overlay: '$580',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 580,
   value: 980,
   images: {
@@ -2670,7 +2670,7 @@ export default [{
 },{
   id: 'B74',
   category: 'sales',
-  description: 'Pink size 10-16, Light blue size 16-18, Red size 8,14',
+  description: 'Pink size 10-16, Light blue size 16-18, Red size 8,14, Green size 6',
   overlay: '$160',
   price: 160,
   value: 360,
@@ -2754,7 +2754,7 @@ export default [{
 },{
   id: 'F6680',
   category: 'sales',
-  description: 'Size 6,10',
+  description: 'Green Size 6',
   overlay: '$120',
   price: 120,
   value: 360,
