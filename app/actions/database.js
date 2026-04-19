@@ -1,7 +1,7 @@
 export default [{
   id: 'AXC780',
   category: 'gowns',
-  description: 'Ivory size 14-16',
+  description: 'Ivory size 12-14',
   overlay: '',
   price: 1890,
   value: 0,
@@ -192,7 +192,7 @@ export default [{
 },{
   id: 'AX008',
   category: 'gowns',
-  description: 'Ivory size 16',
+  description: 'Ivory size 14',
   overlay: '',
   price: 1690,
   value: 0,
@@ -397,7 +397,7 @@ export default [{
   category: 'gowns',
   description: 'Ivory Size 16',
   overlay: '',
-  price: 1890,
+  price: 1990,
   value: 0,
   images: {
     0: [[200,275],[500,686],[864,1184]],
@@ -1356,8 +1356,8 @@ export default [{
 },{
   id: 'M356T',
   category: 'sales',
-  description: 'White size 16',
-  overlay: '$1180',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 1180,
   value: 1280,
   images: {
@@ -1369,7 +1369,7 @@ export default [{
 },{
   id: '897',
   category: 'sales',
-  description: 'Available in white and ivory size 8 to 18',
+  description: 'Available in white size 8 to 18',
   overlay: '$380',
   price: 380,
   value: 680,
@@ -1394,7 +1394,7 @@ export default [{
 },{
   id: 'M371T',
   category: 'sales',
-  description: 'Size 10 and 18 Ivory',
+  description: 'Size 10 Ivory',
   overlay: '$780',
   price: 780,
   value: 990,
@@ -1609,10 +1609,10 @@ export default [{
 },{
   id: 'GS002',
   category: 'sales',
-  description: 'Size 6-16 White and Ivory',
-  overlay: '$1390',
-  price: 1390,
-  value: 1600,
+  description: 'Size 6-14 White and Ivory',
+  overlay: '$1490',
+  price: 1490,
+  value: 1990,
   images: {
     0: [[200,300],[500,750],[832,1248]],
     1: [[200,300],[500,750]],
@@ -1910,7 +1910,7 @@ export default [{
 },{
   id: 'F008',
   category: 'sales',
-  description: 'White and ivory size 8 to 26',
+  description: 'White and ivory size 8 to 20, 26',
   overlay: '$780',
   price: 780,
   value: 880,
@@ -2144,9 +2144,9 @@ export default [{
 },{
   id: 'B66',
   category: 'sales',
-  description: 'Size 6-16',
-  overlay: '$480',
-  price: 480,
+  description: 'Size 6-18',
+  overlay: '$680',
+  price: 680,
   value: 780,
   images: {
     0: [[200,300],[500,750],[832,1248]],
@@ -2157,10 +2157,10 @@ export default [{
 },{
   id: 'X808',
   category: 'sales',
-  description: 'Size 4-14 Ivory',
-  overlay: '$780',
-  price: 780,
-  value: 880,
+  description: 'Size 4-18 Ivory',
+  overlay: '$990',
+  price: 990,
+  value: 1290,
   images: {
     0: [[200,300],[500,750],[832,1248]],
     1: [[200,300],[500,750],[1000,1500]],
@@ -2468,10 +2468,10 @@ export default [{
 },{
   id: 'A396',
   category: 'sales',
-  description: 'Size 8 White',
-  overlay: '$990',
-  price: 990,
-  value: 1390,
+  description: 'Size 6 to 10 White, Lace-up back with tram',
+  overlay: '$1290',
+  price: 1290,
+  value: 1690,
   images: {
     0: [[200,300],[500,750]],
     1: [[200,300],[500,750]],
