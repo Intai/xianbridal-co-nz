@@ -959,7 +959,7 @@ export default [{
 },{
   id: 'X037T',
   category: 'gowns',
-  description: 'Size 8, 12, 20',
+  description: 'Size 8, 12',
   overlay: '',
   price: 1290,
   value: 0,
@@ -1140,8 +1140,8 @@ export default [{
 },{
   id: 'VA222',
   category: 'gowns',
-  description: 'Ivory Size 24',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 1390,
   value: 0,
   images: {
@@ -1214,8 +1214,8 @@ export default [{
   id: 'GS199',
   category: 'gowns',
   description: 'Size 6-12, 18',
-  overlay: '$1290',
-  price: 1290,
+  overlay: '$1490',
+  price: 1490,
   value: 1690,
   images: {
     0: [[200,350],[500,875],[768,1344]],
@@ -1291,7 +1291,7 @@ export default [{
 },{
   id: '304TA',
   category: 'sales',
-  description: 'Size 14-20',
+  description: 'Size 14 Ivory, 20 White',
   overlay: '$880',
   price: 880,
   value: 1600,
@@ -1408,8 +1408,8 @@ export default [{
 },{
   id: '3805',
   category: 'sales',
-  description: 'Size 18 White Lace-up back',
-  overlay: '$1280',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 1280,
   value: 1390,
   images: {
@@ -1610,7 +1610,7 @@ export default [{
 },{
   id: 'GS002',
   category: 'sales',
-  description: 'Size 6-14 White and Ivory',
+  description: 'Size 14 White, 10, 18 Ivory Lace-up back',
   overlay: '$1490',
   price: 1490,
   value: 1990,
@@ -1822,7 +1822,7 @@ export default [{
 },{
   id: '304T',
   category: 'sales',
-  description: 'Size 18 and 20 White, Size 14 Ivory',
+  description: 'Size 20 White, Size 14 Ivory',
   overlay: '$880',
   price: 880,
   value: 1600,
@@ -2184,7 +2184,7 @@ export default [{
 },{
   id: 'U083',
   category: 'gowns',
-  description: 'Size 14,30 White, Size 16 Ivory',
+  description: 'Size 30 White, Size 16 Ivory',
   overlay: '',
   price: 1590,
   value: 0,
@@ -2277,9 +2277,9 @@ export default [{
 },{
   id: 'B40',
   category: 'sales',
-  description: 'Size 8 to 16',
-  overlay: '$390',
-  price: 390,
+  description: 'Size 8 to 10',
+  overlay: '$490',
+  price: 490,
   value: 680,
   images: {
     0: [[200,350],[500,875],[768,1344]],
@@ -2634,7 +2634,7 @@ export default [{
 },{
   id: 'W682T',
   category: 'sales',
-  description: 'Size 12 Ivory, Size 16 White',
+  description: 'Size 12 Ivory',
   overlay: '$690',
   price: 690,
   value: 1490,
