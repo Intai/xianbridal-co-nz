@@ -1,8 +1,8 @@
 export default [{
   id: 'AXC780',
   category: 'gowns',
-  description: 'Ivory size 12-14',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 1890,
   value: 0,
   images: {
@@ -2277,9 +2277,9 @@ export default [{
 },{
   id: 'B40',
   category: 'sales',
-  description: 'Size 8 to 10',
-  overlay: '$490',
-  price: 490,
+  description: 'Size 8',
+  overlay: '$590',
+  price: 590,
   value: 680,
   images: {
     0: [[200,350],[500,875],[768,1344]],
@@ -2670,7 +2670,7 @@ export default [{
 },{
   id: 'B74',
   category: 'sales',
-  description: 'Pink size 10-16, Light blue size 16-18, Red size 8,14, Green size 6',
+  description: 'Pink size 10-16, Light blue size 16-18, Red size 14, Green size 6',
   overlay: '$160',
   price: 160,
   value: 360,
@@ -2697,9 +2697,9 @@ export default [{
 },{
   id: '897B',
   category: 'sales',
-  description: 'Burgandy sold. Available in pink size 8 to 14 and light blue size 18 to 21',
-  overlay: '$130',
-  price: 130,
+  description: 'Burgandy sold. Available in pink size 8 to 14 and light blue size 18 to 20',
+  overlay: '$180',
+  price: 180,
   value: 380,
   images: {
     0: [[200,300],[500,750],[832,1248]],
@@ -2737,9 +2737,9 @@ export default [{
 },{
   id: '802',
   category: 'sales',
-  description: 'Burgundy size 8, Royal blue size 8-14,20, Black size 8, Purple size 8, Pink size 8, Navy blue size 10',
-  overlay: '$180',
-  price: 180,
+  description: 'Burgundy size 14, Royal blue size 8,12,18, Black size 8, Purple size 8, Pink size 8, Navy blue size 14',
+  overlay: '$280',
+  price: 280,
   value: 395,
   images: {
     0: [[200,300],[500,750],[832,1248]],
@@ -2826,8 +2826,8 @@ export default [{
 },{
   id: 'F012E',
   category: 'sales',
-  description: 'Blue size 14',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 180,
   value: 445,
   images: {
