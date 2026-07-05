@@ -1,4 +1,4 @@
-FROM public.ecr.aws/bitnami/node:14
+FROM public.ecr.aws/docker/library/node:14
 
 ARG TIMESTAMP
 ENV IMAGES_CDN_DOMAIN=https://images.xianbridal.co.nz
