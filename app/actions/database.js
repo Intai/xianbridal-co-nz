@@ -1268,14 +1268,13 @@ export default [{
 },{
   id: '897',
   category: 'sales',
-  description: 'Available in white size 8 to 18',
-  overlay: '$380',
-  price: 380,
+  description: 'Available in white size 8 to 22',
+  overlay: '$580',
+  price: 580,
   value: 680,
   images: {
-    0: [[200,300],[500,750],[832,1248]],
-    1: [[200,300],[500,750]],
-    2: [[200,300],[500,750]],
+    0: [[200,300],[500,749],[843,1264]],
+    1: [[200,300],[500,749],[843,1264]],
   },
 },{
   id: '898',
