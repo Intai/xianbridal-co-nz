@@ -8,7 +8,7 @@
     <%_ products.forEach(function(product) { _%>
     <item>
       <g:id><%= getSku(product) %></g:id>
-      <g:store_code><%= STORE_CODE %></g:store_code>
+      <g:store_code><%= storeCode %></g:store_code>
       <g:availability><%= isSold(product) ? 'out_of_stock' : 'in_stock' %></g:availability>
     </item>
     <%_ }) _%>

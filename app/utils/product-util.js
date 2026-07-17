@@ -1,12 +1,12 @@
 import { keys } from 'ramda'
-import { getImageUrl, getOrigin, encodeSku } from './common-util'
+import { getEnv, getImageUrl, getOrigin, encodeSku } from './common-util'
 
 export const BRAND = 'Xian Bridal'
 
 // must match the shop code on the business profile exactly,
 // which is case sensitive. local listings silently drop
 // products whose store code doesn't match a verified store.
-export const STORE_CODE = process.env.STORE_CODE || 'newlynn'
+export const getStoreCode = () => getEnv().STORE_CODE || 'newlynn'
 
 // google product taxonomy ids.
 const CATEGORY_ID_ACCESSORIES = 5443

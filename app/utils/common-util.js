@@ -14,7 +14,7 @@ export const canUseDOM = once(() => !!(
     && window.document.createElement
 ))
 
-const getEnv = () => (
+export const getEnv = () => (
   canUseDOM()
     ? window.env
     : process.env

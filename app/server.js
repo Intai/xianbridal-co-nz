@@ -10,8 +10,8 @@ import database from './actions/database'
 import { getOrigin, encodeSku } from './utils/common-util'
 import {
   BRAND,
-  STORE_CODE,
   getSku,
+  getStoreCode,
   getFeedTitle,
   getDescription,
   getProductUrl,
@@ -120,11 +120,11 @@ const productFeed = (req, res) => {
 const localInventoryFeed = (req, res) => {
   res.set('Content-Type', 'application/xml')
   res.render(path.join(__dirname, '/local-inventory-feed'), {
-    STORE_CODE,
     getSku,
     isSold,
     origin: getOrigin(),
     products: database.filter(isFeedEligible),
+    storeCode: getStoreCode(),
   })
 }
 
