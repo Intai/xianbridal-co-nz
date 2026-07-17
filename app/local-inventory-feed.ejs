@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>Xian Bridal local inventory</title>
+    <link><%= origin %></link>
+    <description>In-store availability of wedding gowns at Xian Bridal, New Lynn, Auckland</description>
+    <%_ products.forEach(function(product) { _%>
+    <item>
+      <g:id><%= getSku(product) %></g:id>
+      <g:store_code><%= STORE_CODE %></g:store_code>
+      <g:availability><%= isSold(product) ? 'out_of_stock' : 'in_stock' %></g:availability>
+    </item>
+    <%_ }) _%>
+  </channel>
+</rss>

@@ -10,6 +10,7 @@ import database from './actions/database'
 import { getOrigin, encodeSku } from './utils/common-util'
 import {
   BRAND,
+  STORE_CODE,
   getSku,
   getFeedTitle,
   getDescription,
@@ -114,6 +115,19 @@ const productFeed = (req, res) => {
   })
 }
 
+// supplements the product feed with in-store availability,
+// joined on id. every id must also be in the product feed.
+const localInventoryFeed = (req, res) => {
+  res.set('Content-Type', 'application/xml')
+  res.render(path.join(__dirname, '/local-inventory-feed'), {
+    STORE_CODE,
+    getSku,
+    isSold,
+    origin: getOrigin(),
+    products: database.filter(isFeedEligible),
+  })
+}
+
 app.set('etag', 'weak')
 app.set('view engine', 'ejs')
 app.use(/^\/static[^/]*/, express.static('dist', { maxAge: 15552000000 }))
@@ -121,6 +135,7 @@ app.use('/favicon.ico', express.static('dist/favicon'))
 app.get('/service-worker', serviceWorker)
 app.get('/sitemap.xml', sitemap)
 app.get('/product-feed.xml', productFeed)
+app.get('/local-inventory-feed.xml', localInventoryFeed)
 app.get('*', renderApp)
 
 app.listen(port)
