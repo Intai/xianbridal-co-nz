@@ -15,6 +15,7 @@ import { backgroundGrey, textOffWhite } from './color'
 import { fontSerif, fontSans, fontShadow } from './typography'
 import CatalogueStore from '../stores/catalogue-store'
 import { canUseDOM, getImageUrl, encodeSku } from '../utils/common-util'
+import { getName, getImage, getMaxWidth } from '../utils/product-util'
 import {
   getTouchDistance,
   getTouchCentre,
@@ -134,10 +135,6 @@ const Details = styled.div`
   left: 25px;
 `
 
-const DetailsData = styled.span`
-  display: none;
-`
-
 const Sku = styled.div`
   ${fontSans}
   ${fontShadow}
@@ -170,32 +167,10 @@ const Description = styled.div`
 
 const getWidths = pluck(0)
 
-const getMaxWidth = resolutions => {
-  const resolution = resolutions[resolutions.length - 1]
-  return resolution[0]
-}
-
 const getAspectRatio = resolutions => {
   const resolution = resolutions[0]
   return resolution[0] / resolution[1]
 }
-
-const getName = (product, variation) => {
-  const suffix = variation ? `-${variation}` : ''
-  return product.category === 'accessories'
-    ? `Bridal Accessory #${encodeSku(product.id)}${suffix}`
-    : `Wedding Dress #${encodeSku(product.id)}${suffix}`
-}
-
-const getCategory = (product) => (
-  product.category === 'accessories'
-    ? 'Apparel & Accessories > Clothing Accessories > Bridal Accessories'
-    : 'Apparel & Accessories > Clothing > Wedding & Bridal Party Dresses > Wedding Dresses'
-)
-
-const getImage = (product, variation = '', width = 500) => getImageUrl(
-  `/product/${product.id}${variation && `-${variation}`}-${width}.webp`,
-)
 
 const getSrcSet = (productId, variation = '', widths = '') => {
   const filename = `${productId}${variation && `-${variation}`}`
@@ -316,7 +291,6 @@ const renderImages = (
         data-widths={getWidths(product.images[0])}
         importance="high"
         initialScale={initialScale}
-        itemProp="image"
         onClick={updateScale}
         onError={handleImageError}
         onTouchMove={updateScale}
@@ -348,15 +322,8 @@ const renderImages = (
 
 const renderOffer = (product) => (
   !!product.price && (
-    <Offer
-      itemProp="offerDetails"
-      itemScope
-      itemType="http://schema.org/Offer"
-    >
-      <Price
-        content={product.price}
-        itemProp="price"
-      >
+    <Offer>
+      <Price>
         {`$${product.price}`}
       </Price>
       {!!product.value && (
@@ -364,10 +331,6 @@ const renderOffer = (product) => (
           {`$${product.value}`}
         </Value>
       )}
-      <DetailsData
-        content="NZD"
-        itemProp="priceCurrency"
-      />
     </Offer>
   )
 )
@@ -404,21 +367,13 @@ const ProductDetails = ({
         updateTouchStart,
       )}
       <Details>
-        <Sku itemProp="identifier">
+        <Sku>
           {sku}
         </Sku>
         {renderOffer(product)}
-        <Description itemProp="description">
+        <Description>
           {product.description}
         </Description>
-        <DetailsData
-          content={getName(product)}
-          itemProp="name"
-        />
-        <DetailsData
-          content={getCategory(product)}
-          itemProp="category"
-        />
       </Details>
       <Anchors>
         <Anchor
@@ -457,10 +412,7 @@ export const ProductDetailsForSeo = (props) => {
         zIndex: 1,
       }}
     >
-      <ContainerForSeo
-        itemScope
-        itemType="http://data-vocabulary.org/Product"
-      >
+      <ContainerForSeo>
         <ThemeProvider theme={theme}>
           <ProductDetails
             product={product}
@@ -473,11 +425,7 @@ export const ProductDetailsForSeo = (props) => {
 }
 
 const ProductDetailsWithPortal = (props) => (
-  <ProductRootPortal
-    id={`root-portal-${props.product.id}`}
-    itemScope
-    itemType="http://data-vocabulary.org/Product"
-  >
+  <ProductRootPortal id={`root-portal-${props.product.id}`}>
     <ProductDetails {...props} />
   </ProductRootPortal>
 )

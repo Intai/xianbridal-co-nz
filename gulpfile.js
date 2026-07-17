@@ -45,7 +45,7 @@ function buildServer() {
 }
 
 function copyViews() {
-  return gulp.src('app/sitemap.ejs')
+  return gulp.src(['app/sitemap.ejs', 'app/product-feed.ejs'])
     .pipe(gulp.dest('dist'))
 }
 

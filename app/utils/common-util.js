@@ -20,6 +20,12 @@ const getEnv = () => (
     : process.env
 ) || {}
 
+export const getOrigin = () => (
+  canUseDOM()
+    ? window.location.origin
+    : (process.env.SITE_ORIGIN || 'https://xianbridal.co.nz')
+)
+
 export const getImageUrl = (pathname) => {
   const env = getEnv()
   const cdn = env.IMAGES_CDN_DOMAIN

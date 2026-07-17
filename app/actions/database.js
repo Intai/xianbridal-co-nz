@@ -661,18 +661,6 @@ export default [{
   id: 'VA530',
   category: 'gowns',
   description: 'Size 12 Ivory',
-  overlay: '',
-  price: 0,
-  value: 0,
-  images: {
-    0: [[200,275],[500,686],[864,1184]],
-    1: [[200,267],[500,667],[1000,1334],[2000,2667]],
-    2: [[200,267],[500,667],[1000,1334],[2000,2667]],
-  },
-},{
-  id: 'VA530',
-  category: 'sales',
-  description: 'Ivory Size 12',
   overlay: '$780',
   price: 780,
   value: 1190,

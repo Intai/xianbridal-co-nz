@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>Xian Bridal</title>
+    <link><%= origin %></link>
+    <description>Wedding gowns and sample sales in Auckland, New Zealand</description>
+    <%_ products.forEach(function(product) { _%>
+    <item>
+      <g:id><%= getSku(product) %></g:id>
+      <g:title><%= getFeedTitle(product) %></g:title>
+      <g:description><%= getDescription(product) %></g:description>
+      <g:link><%= getProductUrl(product) %></g:link>
+      <g:image_link><%= getMainImageUrl(product) %></g:image_link>
+      <%_ getAdditionalImageUrls(product).forEach(function(url) { _%>
+      <g:additional_image_link><%= url %></g:additional_image_link>
+      <%_ }) _%>
+      <g:availability><%= isSold(product) ? 'out_of_stock' : 'in_stock' %></g:availability>
+      <g:price><%= getFeedPrice(product) %> NZD</g:price>
+      <%_ if (isOnSale(product)) { _%>
+      <g:sale_price><%= product.price %> NZD</g:sale_price>
+      <%_ } _%>
+      <g:brand><%= BRAND %></g:brand>
+      <g:condition>new</g:condition>
+      <g:google_product_category><%= getCategoryId(product) %></g:google_product_category>
+      <g:mpn><%= getSku(product) %></g:mpn>
+      <g:gender>female</g:gender>
+      <g:age_group>adult</g:age_group>
+    </item>
+    <%_ }) _%>
+  </channel>
+</rss>

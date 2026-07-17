@@ -7,7 +7,21 @@ import HeadRoot from './roots/head-root'
 import AppRoot from './roots/app-root'
 import PortalRoot from './roots/portal-root'
 import database from './actions/database'
-import { encodeSku } from './utils/common-util'
+import { getOrigin, encodeSku } from './utils/common-util'
+import {
+  BRAND,
+  getSku,
+  getFeedTitle,
+  getDescription,
+  getProductUrl,
+  getMainImageUrl,
+  getAdditionalImageUrls,
+  getCategoryId,
+  getFeedPrice,
+  isFeedEligible,
+  isOnSale,
+  isSold,
+} from './utils/product-util'
 
 const app = express()
 const port = process.env.PORT || 8080
@@ -77,6 +91,26 @@ const sitemap = (req, res) => {
   res.render(path.join(__dirname, '/sitemap'), {
     database,
     encodeSku,
+    origin: getOrigin(),
+  })
+}
+
+const productFeed = (req, res) => {
+  res.set('Content-Type', 'application/xml')
+  res.render(path.join(__dirname, '/product-feed'), {
+    BRAND,
+    getAdditionalImageUrls,
+    getCategoryId,
+    getDescription,
+    getFeedPrice,
+    getFeedTitle,
+    getMainImageUrl,
+    getProductUrl,
+    getSku,
+    isOnSale,
+    isSold,
+    origin: getOrigin(),
+    products: database.filter(isFeedEligible),
   })
 }
 
@@ -86,6 +120,7 @@ app.use(/^\/static[^/]*/, express.static('dist', { maxAge: 15552000000 }))
 app.use('/favicon.ico', express.static('dist/favicon'))
 app.get('/service-worker', serviceWorker)
 app.get('/sitemap.xml', sitemap)
+app.get('/product-feed.xml', productFeed)
 app.get('*', renderApp)
 
 app.listen(port)
