@@ -821,7 +821,7 @@ export default [{
 },{
   id: 'AG145',
   category: 'gowns',
-  description: 'Ivory sizes 6, 10 and 16',
+  description: 'Ivory sizes 6 and 16',
   overlay: '',
   price: 1780,
   value: 0,
