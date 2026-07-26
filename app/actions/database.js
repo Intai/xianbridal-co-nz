@@ -41,7 +41,7 @@ export default [{
   category: 'gowns',
   description: 'Ivory Size 22',
   overlay: '',
-  price: 1690,
+  price: 1890,
   value: 0,
   images: {
     0: [[200,275],[500,686],[864,1184]],
@@ -64,8 +64,8 @@ export default [{
 },{
   id: 'L3092',
   category: 'gowns',
-  description: 'Size 18',
-  overlay: '',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 1890,
   value: 0,
   images: {
@@ -91,7 +91,7 @@ export default [{
   category: 'gowns',
   description: 'Ivory Size 10, 20 and 22',
   overlay: '',
-  price: 1690,
+  price: 1890,
   value: 0,
   images: {
     0: [[200,275],[500,686],[864,1184]],
@@ -241,7 +241,7 @@ export default [{
 },{
   id: 'DNY017',
   category: 'gowns',
-  description: 'Ivory Size 18 and 22',
+  description: 'Ivory Size 18',
   overlay: '',
   price: 0,
   value: 0,
@@ -344,7 +344,7 @@ export default [{
   category: 'gowns',
   description: 'Ivory Size 14',
   overlay: '',
-  price: 1790,
+  price: 1890,
   value: 0,
   images: {
     0: [[200,275],[500,686],[864,1184]],
@@ -505,7 +505,7 @@ export default [{
   category: 'gowns',
   description: 'Ivory Size 14',
   overlay: '',
-  price: 1690,
+  price: 1890,
   value: 0,
   images: {
     0: [[200,275],[500,686],[864,1184]],
@@ -581,8 +581,8 @@ export default [{
   id: 'F009',
   category: 'sales',
   description: 'Size 8-20 Ivory White',
-  overlay: '$480',
-  price: 480,
+  overlay: '$580',
+  price: 580,
   value: 680,
   images: {
     0: [[200,350],[500,875],[768,1344]],
@@ -716,7 +716,7 @@ export default [{
   category: 'gowns',
   description: 'Ivory Size 6, 10 and 16',
   overlay: '',
-  price: 1680,
+  price: 1780,
   value: 0,
   images: {
     0: [[200,275],[500,686],[864,1184]],
@@ -761,7 +761,7 @@ export default [{
   category: 'gowns',
   description: 'Size 10 Ivory',
   overlay: '',
-  price: 1390,
+  price: 1490,
   value: 0,
   images: {
     0: [[200,275],[500,686],[864,1184]],
@@ -775,7 +775,7 @@ export default [{
   category: 'gowns',
   description: 'Ivory Size 20',
   overlay: '',
-  price: 1690,
+  price: 1890,
   value: 0,
   images: {
     0: [[200,275],[500,686],[864,1184]],
@@ -803,7 +803,7 @@ export default [{
   category: 'gowns',
   description: 'Ivory Size 26',
   overlay: '',
-  price: 1790,
+  price: 1890,
   value: 0,
   images: {
     0: [[200,275],[500,686],[864,1184]],
@@ -1256,7 +1256,7 @@ export default [{
 },{
   id: '897',
   category: 'sales',
-  description: 'Available in white size 8 to 22',
+  description: 'Available in white size 8 to 18',
   overlay: '$580',
   price: 580,
   value: 680,
@@ -1268,8 +1268,8 @@ export default [{
   id: '898',
   category: 'sales',
   description: 'Size 8-18',
-  overlay: '$380',
-  price: 380,
+  overlay: '$480',
+  price: 480,
   value: 680,
   images: {
     0: [[200,350],[500,875],[768,1344]],
@@ -1655,7 +1655,7 @@ export default [{
 },{
   id: 'F012',
   category: 'sales',
-  description: 'White and Ivory Size 6 to 14',
+  description: 'White and Ivory Size 8 to 14',
   overlay: '$580',
   price: 580,
   value: 680,
@@ -2572,8 +2572,8 @@ export default [{
 },{
   id: 'X017',
   category: 'sales',
-  description: 'Size 12, 16 Ivory',
-  overlay: '$680',
+  description: 'Out of stock',
+  overlay: 'Sold',
   price: 680,
   value: 1480,
   images: {
@@ -2646,8 +2646,8 @@ export default [{
   id: '2112',
   category: 'sales',
   description: 'Size 8, 16',
-  overlay: '$380',
-  price: 380,
+  overlay: '$580',
+  price: 580,
   value: 680,
   images: {
     0: [[200,300],[500,750],[832,1248]],
@@ -2684,7 +2684,7 @@ export default [{
 },{
   id: '897B',
   category: 'sales',
-  description: 'Burgandy sold. Available in pink size 8 to 14 and light blue size 18 to 20',
+  description: 'Burgandy sold. Available in pink size 8 to 14 and light blue size 18',
   overlay: '$180',
   price: 180,
   value: 380,
@@ -2698,8 +2698,8 @@ export default [{
   id: '805',
   category: 'sales',
   description: 'Available in blue size 18 and black size 8 to 12',
-  overlay: '$180',
-  price: 180,
+  overlay: '$260',
+  price: 260,
   value: 385,
   images: {
     0: [[200,300],[500,750],[832,1248]],
