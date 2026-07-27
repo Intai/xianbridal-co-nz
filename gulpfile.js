@@ -1,6 +1,6 @@
 var path = require('path'),
   gulp = require('gulp'),
-  del = require('del'),
+  fs = require('fs'),
   log = require('fancy-log'),
   PluginError = require('plugin-error'),
   spawn = require('child_process').spawn,
@@ -9,7 +9,7 @@ var path = require('path'),
   WebpackDevServer = require('webpack-dev-server')
 
 function clean() {
-  return del('dist')
+  return fs.promises.rm('dist', { recursive: true, force: true })
 }
 
 function devServer() {

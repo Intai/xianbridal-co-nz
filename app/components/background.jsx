@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useParams } from 'react-router'
 import { useBdux, createUseBdux } from 'bdux/hook'
@@ -111,23 +111,18 @@ const Background = (props) => {
   const { background } = state
   const { category } = useParams()
   const selected = background && background.selected
-  const [current, setCurrent] = useState(selected || category)
-  const refInterval = useRef()
+  const isCycling = !selected && !category
+  const [cycled, setCycled] = useState('gowns')
 
   useEffect(() => {
-    clearInterval(refInterval.current)
-    if (selected) {
-      setCurrent(selected)
-    } else if (!category) {
-      refInterval.current = setInterval(() => {
-        setCurrent(selectNext)
-      }, 5000)
-    } else {
-      setCurrent(category)
+    if (!isCycling) {
+      return
     }
-  }, [category, selected])
+    const interval = setInterval(() => setCycled(selectNext), 5000)
+    return () => clearInterval(interval)
+  }, [isCycling])
 
-  return renderBackground(category, current)
+  return renderBackground(category, selected || category || cycled)
 }
 
 const useBduxForRoutes = createUseBdux({

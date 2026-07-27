@@ -187,11 +187,11 @@ const renderLocationData = () => (
     >
       <span
         content="-36.908748"
-        property="latitude"
+        itemProp="latitude"
       />
       <span
         content="174.680093"
-        property="longitude"
+        itemProp="longitude"
       />
     </div>
   </ContactData>

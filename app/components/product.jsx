@@ -156,7 +156,6 @@ const Product = (props) => {
   const { product, query } = props
   const refImage = useRef(null)
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const { current: image } = refImage
     if (image) {
