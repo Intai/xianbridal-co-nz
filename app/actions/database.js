@@ -981,7 +981,7 @@ export default [{
   category: 'gowns',
   description: 'Ivory size 14',
   overlay: '',
-  price: 1490,
+  price: 1690,
   value: 0,
   images: {
     0: [[200,300],[500,750],[832,1248]],
@@ -1654,9 +1654,9 @@ export default [{
 },{
   id: 'GS002',
   category: 'sales',
-  description: 'White size 14, Ivory sizes 10 and 18, lace-up back',
-  overlay: '$1490',
-  price: 1490,
+  description: 'White size 14, Ivory sizes 10, lace-up back',
+  overlay: '$1690',
+  price: 1690,
   value: 1990,
   images: {
     0: [[200,300],[500,750],[832,1248]],
@@ -2866,7 +2866,7 @@ export default [{
 },{
   id: '897B',
   category: 'sales',
-  description: 'Pink sizes 8 to 14, Light blue size 18, burgundy sold',
+  description: 'Pink sizes 8 and 14, Light blue size 18, burgundy sold',
   overlay: '$180',
   price: 180,
   value: 380,
@@ -2935,7 +2935,7 @@ export default [{
 },{
   id: '801',
   category: 'sales',
-  description: 'Burgundy sizes 14, 20 and 21, Pink sizes 10 to 16 and 24',
+  description: 'Burgundy sizes 20 and 22, Pink sizes 10 to 14 and 22',
   overlay: '$60',
   price: 60,
   value: 260,
